@@ -266,11 +266,11 @@
       </div>
       <form onsubmit="return false">
         <div class="f-row">
-          <div class="f-g"><label data-i18n="form_name">Nome</label><input type="text" data-i18n-ph="form_name_ph" placeholder="Il tuo nome"/></div>
-          <div class="f-g"><label>Email</label><input type="email" placeholder="email@esempio.com"/></div>
+          <div class="f-g"><label data-i18n="form_name">Nome</label><input id="formName" type="text" data-i18n-ph="form_name_ph" placeholder="Il tuo nome"/></div>
+          <div class="f-g"><label>Email</label><input id="formEmail" type="email" placeholder="email@esempio.com"/></div>
         </div>
-        <div class="f-g"><label data-i18n="form_msg">Messaggio</label><textarea data-i18n-ph="form_msg_ph" placeholder="Come possiamo aiutarti?"></textarea></div>
-        <button class="btn-send" data-i18n="form_send">Invia</button>
+        <div class="f-g"><label data-i18n="form_msg">Messaggio</label><textarea id="formMsg" data-i18n-ph="form_msg_ph" placeholder="Come possiamo aiutarti?"></textarea></div>
+        <button class="btn-send" onclick="sendMail()" data-i18n="form_send">Invia</button>
       </form>
     </div>
   </div>
@@ -413,6 +413,18 @@ var i18n = {
     footer_copy:'Train Simulator Classic es una marca de Dovetail Games'
   }
 };
+
+// ── SEND MAIL ─────────────────────────────────────────────
+function sendMail() {
+  var name = document.getElementById('formName').value.trim();
+  var email = document.getElementById('formEmail').value.trim();
+  var msg = document.getElementById('formMsg').value.trim();
+  if (!name || !msg) { alert('Compila almeno nome e messaggio.'); return; }
+  var subject = encodeURIComponent('Contatto SilverHive da ' + name);
+  var body = encodeURIComponent('Nome: ' + name + '\nEmail: ' + email + '\n\nMessaggio:\n' + msg);
+  var dest = 'silverhiveofficial' + '@' + 'gmail.com';
+  window.location.href = 'mailto:' + dest + '?subject=' + subject + '&body=' + body;
+}
 
 // ── APPLY LANGUAGE ────────────────────────────────────────
 function applyLang(lang) {
