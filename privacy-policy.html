@@ -35,6 +35,14 @@
     footer span{color:var(--gold);}
     @media(max-width:768px){.page{padding:90px 20px 60px;}nav{padding:0 16px;}}
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-R5QZFVC8CC");
+  </script>
 </head>
 <body>
 <nav>
@@ -59,7 +67,7 @@
   <h1 data-i18n="title">Privacy Policy</h1>
   <p class="updated" data-i18n="updated">Ultimo aggiornamento: aprile 2025</p>
 
-  <div class="highlight"><p data-i18n="intro_box">Il titolare del trattamento dei dati personali è <strong>SilverHive</strong>, gestito da persona fisica, raggiungibile all'indirizzo: <strong>info@silverhive.it</strong></p></div>
+  <div class="highlight"><p data-i18n="intro_box">Il titolare del trattamento dei dati personali è <strong>SilverHive</strong>, gestito da persona fisica, raggiungibile all'indirizzo: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70191e161f3003191c061502181906155e1904">[email&#160;protected]</a></strong></p></div>
 
   <h2 data-i18n="s1_title">1. Introduzione</h2>
   <p data-i18n="s1_text">La presente Privacy Policy descrive come SilverHive raccoglie, utilizza e protegge i dati personali degli utenti che visitano il sito <strong>www.silverhive.it</strong>, in conformità al Regolamento UE 2016/679 (GDPR) e al D.Lgs. 196/2003.</p>
@@ -105,12 +113,12 @@
     <li>Portabilità dei dati</li>
     <li>Reclamo all'Autorità Garante (www.garanteprivacy.it)</li>
   </ul>
-  <p data-i18n="s7_contact">Per esercitare i propri diritti: <a href="mailto:info@silverhive.it">info@silverhive.it</a></p>
+  <p data-i18n="s7_contact">Per esercitare i propri diritti: <a href="/cdn-cgi/l/email-protection#86efe8e0e9c6f5efeaf0e3f4eeeff0e3a8eff2"><span class="__cf_email__" data-cfemail="442d2a222b04372d283221362c2d32216a2d30">[email&#160;protected]</span></a></p>
 </div>
 
 <footer>© 2025 <span>SilverHive</span> · <span data-i18n="footer">Tutti i diritti riservati</span></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var t = {
   it: {
     back:'← Home', label:'Legale', title:'Privacy Policy', updated:'Ultimo aggiornamento: aprile 2025',
@@ -208,16 +216,4 @@ function applyLang(lang) {
   var d = t[lang]; if (!d) return;
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var k = el.getAttribute('data-i18n');
-    if (d[k] !== undefined) el.innerHTML = d[k];
-  });
-  document.documentElement.lang = lang;
-  localStorage.setItem('sh_lang', lang);
-}
-
-var sel = document.getElementById('langSelect');
-var saved = localStorage.getItem('sh_lang') || 'it';
-sel.value = saved; applyLang(saved);
-sel.addEventListener('change', function() { applyLang(this.value); });
-</script>
-</body>
-</html>
+    if (d[k] 
