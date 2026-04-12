@@ -14,8 +14,11 @@
     nav{position:fixed;top:0;inset-inline:0;z-index:99;background:rgba(13,13,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:72px;}
     .nav-brand{display:flex;align-items:center;gap:10px;}
     .nav-brand img{height:52px;width:auto;}
+    .nav-right{display:flex;align-items:center;gap:14px;}
     .back-btn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border:1px solid var(--border);padding:8px 18px;border-radius:3px;transition:color .2s,border-color .2s;}
     .back-btn:hover{color:var(--sky);border-color:var(--sky);}
+    .lang-select{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--sky);border:1px solid var(--border);border-radius:3px;padding:8px 12px;cursor:pointer;outline:none;}
+    .lang-select option{background:#16161a;color:var(--white);}
     .page{max-width:820px;margin:0 auto;padding:110px 32px 80px;}
     .page-label{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;}
     h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:3rem;text-transform:uppercase;margin-bottom:8px;}
@@ -37,77 +40,82 @@
     <img src="logo.png" alt="SilverHive"/>
     <img src="scritta.png" alt="SilverHive"/>
   </a>
-  <a href="index.html" class="back-btn">← Home</a>
+  <div class="nav-right">
+    <select class="lang-select" id="langSelect">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+    </select>
+    <a href="index.html" class="back-btn" data-i18n="back">← Home</a>
+  </div>
 </nav>
 
 <div class="page">
-  <div class="page-label">Legale</div>
-  <h1>Termini e Condizioni</h1>
-  <p class="updated">Ultimo aggiornamento: aprile 2025</p>
+  <div class="page-label" data-i18n="label">Legale</div>
+  <h1 data-i18n="title">Termini e Condizioni</h1>
+  <p class="updated" data-i18n="updated">Ultimo aggiornamento: aprile 2025</p>
+  <div class="highlight"><p data-i18n="intro_box">Leggere attentamente prima di effettuare qualsiasi acquisto su <strong>www.silverhive.it</strong>. L'acquisto implica l'accettazione integrale dei presenti termini.</p></div>
 
-  <div class="highlight">
-    <p>Leggere attentamente i presenti Termini e Condizioni prima di effettuare qualsiasi acquisto su <strong>www.silverhive.it</strong>. L'acquisto implica l'accettazione integrale dei presenti termini.</p>
-  </div>
+  <h2 data-i18n="s1_title">1. Titolare</h2>
+  <p data-i18n="s1_text">Il sito è gestito da <strong>SilverHive</strong>, persona fisica, contattabile a: <a href="mailto:info@silverhive.it">info@silverhive.it</a></p>
 
-  <h2>1. Titolare</h2>
-  <p>Il sito www.silverhive.it è gestito da <strong>SilverHive</strong>, persona fisica, contattabile all'indirizzo email <a href="mailto:info@silverhive.it">info@silverhive.it</a>.</p>
+  <h2 data-i18n="s2_title">2. Oggetto</h2>
+  <p data-i18n="s2_text">SilverHive sviluppa e distribuisce contenuti digitali per <strong>Train Simulator Classic</strong> (marchio Dovetail Games Ltd). SilverHive non è affiliata né approvata da Dovetail Games Ltd.</p>
 
-  <h2>2. Oggetto</h2>
-  <p>SilverHive sviluppa e distribuisce contenuti digitali per il videogioco <strong>Train Simulator Classic</strong> (marchio registrato di Dovetail Games Ltd), tra cui locomotive, script Lua e materiale didattico. SilverHive non è affiliata, sponsorizzata o approvata da Dovetail Games Ltd.</p>
-
-  <h2>3. Prodotti digitali</h2>
-  <p>Tutti i prodotti venduti su www.silverhive.it sono <strong>contenuti digitali</strong> distribuiti in formato file scaricabile. Una volta completato il download, il prodotto non può essere restituito.</p>
-  <p>Ogni prodotto è corredato da:</p>
-  <ul>
-    <li>Descrizione dettagliata delle funzionalità</li>
-    <li>Requisiti minimi di sistema</li>
-    <li>Guida all'installazione</li>
-  </ul>
-
-  <h2>4. Licenza d'uso</h2>
-  <p>L'acquisto di un prodotto SilverHive concede all'acquirente una <strong>licenza personale, non esclusiva e non trasferibile</strong> per l'uso del contenuto digitale a scopo personale e non commerciale.</p>
-  <p>È espressamente vietato:</p>
-  <ul>
-    <li>Rivendere, cedere o distribuire i prodotti acquistati</li>
-    <li>Modificare, decompilare o eseguire il reverse engineering degli script</li>
-    <li>Utilizzare i prodotti per scopi commerciali senza autorizzazione scritta</li>
+  <h2 data-i18n="s3_title">3. Licenza d'uso</h2>
+  <p data-i18n="s3_text">L'acquisto concede una licenza personale, non esclusiva e non trasferibile per uso personale e non commerciale. È vietato:</p>
+  <ul data-i18n="s3_list">
+    <li>Rivendere o distribuire i prodotti acquistati</li>
+    <li>Modificare o decompilare gli script</li>
+    <li>Utilizzare per scopi commerciali senza autorizzazione</li>
     <li>Condividere i file di download con terzi</li>
   </ul>
 
-  <h2>5. Prezzi e pagamenti</h2>
-  <p>I prezzi sono indicati in Euro e sono comprensivi di IVA ove applicabile. I pagamenti sono gestiti da <strong>LemonSqueezy</strong>, processore di pagamento certificato. SilverHive non raccoglie né conserva dati di pagamento.</p>
+  <h2 data-i18n="s4_title">4. Pagamenti</h2>
+  <p data-i18n="s4_text">I pagamenti sono gestiti da <strong>LemonSqueezy</strong>. I prezzi sono in Euro IVA inclusa ove applicabile. SilverHive non raccoglie né conserva dati di pagamento.</p>
 
-  <h2>6. Diritto di recesso e rimborsi</h2>
-  <p>Ai sensi dell'art. 59, comma 1, lett. o) del D.Lgs. 206/2005 (Codice del Consumo), <strong>il diritto di recesso è escluso</strong> per i contenuti digitali forniti su supporto non materiale (download), quando il consumatore ha prestato consenso esplicito all'inizio della fornitura e ha riconosciuto la conseguente perdita del diritto di recesso.</p>
-  <p>Tale consenso viene richiesto e registrato al momento dell'acquisto tramite la piattaforma LemonSqueezy.</p>
-  <p>SilverHive si riserva di valutare richieste di rimborso eccezionali in caso di:</p>
-  <ul>
-    <li>Prodotto non funzionante e impossibilità di fornire una correzione</li>
-    <li>Acquisto duplicato accidentale</li>
-  </ul>
-  <p>Le richieste vanno inviate a <a href="mailto:info@silverhive.it">info@silverhive.it</a> entro 7 giorni dall'acquisto.</p>
+  <h2 data-i18n="s5_title">5. Rimborsi</h2>
+  <p data-i18n="s5_text">Ai sensi dell'art. 59 D.Lgs. 206/2005, il diritto di recesso è escluso per i contenuti digitali scaricabili previa accettazione esplicita al momento dell'acquisto. SilverHive valuta richieste eccezionali di rimborso in caso di prodotto non funzionante o acquisto duplicato, entro 7 giorni all'indirizzo <a href="mailto:info@silverhive.it">info@silverhive.it</a>.</p>
 
-  <h2>7. Aggiornamenti</h2>
-  <p>SilverHive si impegna a fornire aggiornamenti gratuiti per i prodotti acquistati, salvo che l'aggiornamento venga rilasciato come espansione aggiuntiva (addon o DLC) a pagamento, nel qual caso sarà chiaramente indicato prima del rilascio.</p>
+  <h2 data-i18n="s6_title">6. Aggiornamenti</h2>
+  <p data-i18n="s6_text">Gli aggiornamenti sono gratuiti, salvo quelli rilasciati come espansioni aggiuntive (addon/DLC) a pagamento, chiaramente indicati prima del rilascio.</p>
 
-  <h2>8. Compatibilità</h2>
-  <p>I prodotti SilverHive sono sviluppati per Train Simulator Classic. SilverHive non garantisce la compatibilità con versioni future del gioco o con contenuti di terze parti. I requisiti minimi sono indicati nella scheda di ogni prodotto.</p>
+  <h2 data-i18n="s7_title">7. Proprietà intellettuale</h2>
+  <p data-i18n="s7_text">Tutti i contenuti del sito (codice, immagini, modelli 3D, script) sono di proprietà esclusiva di SilverHive e protetti dalle leggi sul diritto d'autore.</p>
 
-  <h2>9. Limitazione di responsabilità</h2>
-  <p>SilverHive non è responsabile per danni diretti o indiretti derivanti dall'uso o dall'impossibilità di usare i prodotti, inclusi ma non limitati a perdita di dati, interruzione del gioco o incompatibilità con altri addon.</p>
+  <h2 data-i18n="s8_title">8. Limitazione di responsabilità</h2>
+  <p data-i18n="s8_text">SilverHive non è responsabile per danni derivanti dall'uso dei prodotti, inclusi incompatibilità con addon di terze parti o versioni future del gioco.</p>
 
-  <h2>10. Proprietà intellettuale</h2>
-  <p>Tutti i contenuti presenti su www.silverhive.it (codice, immagini, testi, modelli 3D, script) sono di proprietà esclusiva di SilverHive e protetti dalle leggi sul diritto d'autore. È vietata qualsiasi riproduzione o distribuzione non autorizzata.</p>
-
-  <h2>11. Legge applicabile e foro competente</h2>
-  <p>I presenti Termini e Condizioni sono regolati dalla legge italiana. Per qualsiasi controversia è competente il Tribunale del luogo di residenza del titolare di SilverHive, salvo diversa disposizione di legge a tutela del consumatore.</p>
-
-  <h2>12. Modifiche ai Termini</h2>
-  <p>SilverHive si riserva il diritto di modificare i presenti Termini e Condizioni in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina. L'uso continuato del sito dopo la pubblicazione delle modifiche implica l'accettazione dei nuovi termini.</p>
-
-  <p>Per qualsiasi domanda: <a href="mailto:info@silverhive.it">info@silverhive.it</a></p>
+  <h2 data-i18n="s9_title">9. Legge applicabile</h2>
+  <p data-i18n="s9_text">I presenti Termini sono regolati dalla legge italiana. Per qualsiasi controversia è competente il Tribunale del luogo di residenza del titolare, salvo disposizioni di legge a tutela del consumatore.</p>
 </div>
 
-<footer>© 2025 <span>SilverHive</span> · Tutti i diritti riservati</footer>
+<footer>© 2025 <span>SilverHive</span> · <span data-i18n="footer">Tutti i diritti riservati</span></footer>
+
+<script>
+var t = {
+  it:{ back:'← Home', label:'Legale', title:'Termini e Condizioni', updated:'Ultimo aggiornamento: aprile 2025', intro_box:'Leggere attentamente prima di effettuare qualsiasi acquisto su <strong>www.silverhive.it</strong>. L\'acquisto implica l\'accettazione integrale dei presenti termini.', s1_title:'1. Titolare', s1_text:'Il sito è gestito da <strong>SilverHive</strong>, persona fisica, contattabile a: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', s2_title:'2. Oggetto', s2_text:'SilverHive sviluppa e distribuisce contenuti digitali per <strong>Train Simulator Classic</strong> (marchio Dovetail Games Ltd). SilverHive non è affiliata né approvata da Dovetail Games Ltd.', s3_title:'3. Licenza d\'uso', s3_text:'L\'acquisto concede una licenza personale, non esclusiva e non trasferibile per uso personale e non commerciale. È vietato:', s3_list:'<li>Rivendere o distribuire i prodotti</li><li>Modificare o decompilare gli script</li><li>Uso commerciale senza autorizzazione</li><li>Condividere i file con terzi</li>', s4_title:'4. Pagamenti', s4_text:'I pagamenti sono gestiti da <strong>LemonSqueezy</strong>. Prezzi in Euro IVA inclusa. SilverHive non conserva dati di pagamento.', s5_title:'5. Rimborsi', s5_text:'Ai sensi dell\'art. 59 D.Lgs. 206/2005, il diritto di recesso è escluso per contenuti digitali scaricabili previa accettazione esplicita. Richieste eccezionali entro 7 giorni a <a href="mailto:info@silverhive.it">info@silverhive.it</a>.', s6_title:'6. Aggiornamenti', s6_text:'Gli aggiornamenti sono gratuiti, salvo espansioni aggiuntive (addon/DLC) a pagamento, chiaramente indicate prima del rilascio.', s7_title:'7. Proprietà intellettuale', s7_text:'Tutti i contenuti (codice, immagini, modelli 3D, script) sono di proprietà esclusiva di SilverHive.', s8_title:'8. Limitazione di responsabilità', s8_text:'SilverHive non è responsabile per danni derivanti dall\'uso dei prodotti, incluse incompatibilità con addon terzi o versioni future del gioco.', s9_title:'9. Legge applicabile', s9_text:'I presenti Termini sono regolati dalla legge italiana. Per controversie è competente il Tribunale del luogo di residenza del titolare.', footer:'Tutti i diritti riservati' },
+  en:{ back:'← Home', label:'Legal', title:'Terms and Conditions', updated:'Last updated: April 2025', intro_box:'Please read carefully before making any purchase on <strong>www.silverhive.it</strong>. Purchasing implies full acceptance of these terms.', s1_title:'1. Owner', s1_text:'The site is managed by <strong>SilverHive</strong>, an individual, contactable at: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', s2_title:'2. Subject', s2_text:'SilverHive develops and distributes digital content for <strong>Train Simulator Classic</strong> (Dovetail Games Ltd trademark). SilverHive is not affiliated with or endorsed by Dovetail Games Ltd.', s3_title:'3. Licence', s3_text:'Purchase grants a personal, non-exclusive, non-transferable licence for personal and non-commercial use. It is prohibited to:', s3_list:'<li>Resell or distribute purchased products</li><li>Modify or decompile scripts</li><li>Commercial use without authorisation</li><li>Share download files with third parties</li>', s4_title:'4. Payments', s4_text:'Payments are managed by <strong>LemonSqueezy</strong>. Prices in Euros including VAT where applicable. SilverHive does not store payment data.', s5_title:'5. Refunds', s5_text:'Under art. 59 of the Italian Consumer Code, the right of withdrawal is excluded for downloadable digital content upon explicit consent at purchase. Exceptional requests within 7 days to <a href="mailto:info@silverhive.it">info@silverhive.it</a>.', s6_title:'6. Updates', s6_text:'Updates are free, except those released as additional paid expansions (addons/DLC), clearly stated before release.', s7_title:'7. Intellectual property', s7_text:'All site content (code, images, 3D models, scripts) is the exclusive property of SilverHive.', s8_title:'8. Limitation of liability', s8_text:'SilverHive is not responsible for damages arising from product use, including incompatibilities with third-party addons or future game versions.', s9_title:'9. Applicable law', s9_text:'These Terms are governed by Italian law. Disputes fall under the jurisdiction of the court of the owner\'s place of residence.', footer:'All rights reserved' },
+  de:{ back:'← Startseite', label:'Rechtliches', title:'Allgemeine Geschäftsbedingungen', updated:'Letzte Aktualisierung: April 2025', intro_box:'Bitte vor einem Kauf auf <strong>www.silverhive.it</strong> sorgfältig lesen. Der Kauf impliziert die vollständige Annahme dieser Bedingungen.', s1_title:'1. Betreiber', s1_text:'Die Website wird von <strong>SilverHive</strong>, einer Privatperson, betrieben. Kontakt: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', s2_title:'2. Gegenstand', s2_text:'SilverHive entwickelt digitale Inhalte für <strong>Train Simulator Classic</strong> (Marke von Dovetail Games Ltd). SilverHive ist nicht mit Dovetail Games Ltd verbunden.', s3_title:'3. Lizenz', s3_text:'Der Kauf gewährt eine persönliche, nicht exklusive, nicht übertragbare Lizenz für den privaten, nicht kommerziellen Gebrauch. Verboten ist:', s3_list:'<li>Weiterverkauf oder Verteilung der Produkte</li><li>Änderung oder Dekompilierung der Skripte</li><li>Kommerzielle Nutzung ohne Genehmigung</li><li>Weitergabe von Download-Dateien</li>', s4_title:'4. Zahlungen', s4_text:'Zahlungen werden von <strong>LemonSqueezy</strong> abgewickelt. Preise in Euro inkl. MwSt. SilverHive speichert keine Zahlungsdaten.', s5_title:'5. Rückerstattungen', s5_text:'Gemäß art. 59 des ital. Verbraucherschutzgesetzes ist das Widerrufsrecht für herunterladbare digitale Inhalte nach ausdrücklicher Zustimmung ausgeschlossen. Ausnahmen innerhalb von 7 Tagen an <a href="mailto:info@silverhive.it">info@silverhive.it</a>.', s6_title:'6. Updates', s6_text:'Updates sind kostenlos, außer bei kostenpflichtigen Erweiterungen (Addons/DLC), die vor der Veröffentlichung klar angekündigt werden.', s7_title:'7. Geistiges Eigentum', s7_text:'Alle Inhalte (Code, Bilder, 3D-Modelle, Skripte) sind ausschließliches Eigentum von SilverHive.', s8_title:'8. Haftungsbeschränkung', s8_text:'SilverHive haftet nicht für Schäden durch die Nutzung der Produkte, einschließlich Inkompatibilitäten mit Drittanbieter-Addons.', s9_title:'9. Anwendbares Recht', s9_text:'Diese AGB unterliegen italienischem Recht. Zuständig ist das Gericht am Wohnsitz des Betreibers.', footer:'Alle Rechte vorbehalten' },
+  fr:{ back:'← Accueil', label:'Mentions légales', title:'Conditions générales', updated:'Dernière mise à jour: avril 2025', intro_box:'Veuillez lire attentivement avant tout achat sur <strong>www.silverhive.it</strong>. L\'achat implique l\'acceptation intégrale de ces conditions.', s1_title:'1. Propriétaire', s1_text:'Le site est géré par <strong>SilverHive</strong>, personne physique, joignable à: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', s2_title:'2. Objet', s2_text:'SilverHive développe des contenus numériques pour <strong>Train Simulator Classic</strong> (marque Dovetail Games Ltd). SilverHive n\'est pas affilié à Dovetail Games Ltd.', s3_title:'3. Licence', s3_text:'L\'achat accorde une licence personnelle, non exclusive et non transférable pour un usage personnel et non commercial. Il est interdit de:', s3_list:'<li>Revendre ou distribuer les produits</li><li>Modifier ou décompiler les scripts</li><li>Usage commercial sans autorisation</li><li>Partager les fichiers de téléchargement</li>', s4_title:'4. Paiements', s4_text:'Les paiements sont gérés par <strong>LemonSqueezy</strong>. Prix en euros TTC. SilverHive ne stocke pas les données de paiement.', s5_title:'5. Remboursements', s5_text:'Conformément à l\'art. 59 du Code de la consommation italien, le droit de rétractation est exclu pour les contenus numériques téléchargeables après consentement explicite. Demandes exceptionnelles sous 7 jours à <a href="mailto:info@silverhive.it">info@silverhive.it</a>.', s6_title:'6. Mises à jour', s6_text:'Les mises à jour sont gratuites, sauf extensions payantes (addons/DLC) clairement indiquées avant publication.', s7_title:'7. Propriété intellectuelle', s7_text:'Tous les contenus (code, images, modèles 3D, scripts) sont la propriété exclusive de SilverHive.', s8_title:'8. Limitation de responsabilité', s8_text:'SilverHive n\'est pas responsable des dommages résultant de l\'utilisation des produits, y compris les incompatibilités avec des addons tiers.', s9_title:'9. Droit applicable', s9_text:'Ces CGV sont régies par le droit italien. Les litiges relèvent du tribunal du domicile du propriétaire.', footer:'Tous droits réservés' },
+  es:{ back:'← Inicio', label:'Legal', title:'Términos y Condiciones', updated:'Última actualización: abril 2025', intro_box:'Lea atentamente antes de realizar cualquier compra en <strong>www.silverhive.it</strong>. La compra implica la aceptación íntegra de estos términos.', s1_title:'1. Titular', s1_text:'El sitio está gestionado por <strong>SilverHive</strong>, persona física, contactable en: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', s2_title:'2. Objeto', s2_text:'SilverHive desarrolla contenidos digitales para <strong>Train Simulator Classic</strong> (marca de Dovetail Games Ltd). SilverHive no está afiliado a Dovetail Games Ltd.', s3_title:'3. Licencia', s3_text:'La compra otorga una licencia personal, no exclusiva e intransferible para uso personal y no comercial. Está prohibido:', s3_list:'<li>Revender o distribuir los productos</li><li>Modificar o descompilar los scripts</li><li>Uso comercial sin autorización</li><li>Compartir archivos de descarga con terceros</li>', s4_title:'4. Pagos', s4_text:'Los pagos son gestionados por <strong>LemonSqueezy</strong>. Precios en euros con IVA incluido. SilverHive no almacena datos de pago.', s5_title:'5. Reembolsos', s5_text:'Según el art. 59 del Código de Consumo italiano, el derecho de desistimiento queda excluido para contenidos digitales descargables tras consentimiento explícito. Solicitudes excepcionales en 7 días a <a href="mailto:info@silverhive.it">info@silverhive.it</a>.', s6_title:'6. Actualizaciones', s6_text:'Las actualizaciones son gratuitas, salvo expansiones adicionales de pago (addons/DLC), claramente indicadas antes del lanzamiento.', s7_title:'7. Propiedad intelectual', s7_text:'Todos los contenidos (código, imágenes, modelos 3D, scripts) son propiedad exclusiva de SilverHive.', s8_title:'8. Limitación de responsabilidad', s8_text:'SilverHive no es responsable de los daños derivados del uso de los productos, incluidas incompatibilidades con addons de terceros.', s9_title:'9. Ley aplicable', s9_text:'Estos Términos se rigen por la ley italiana. Las disputas corresponden al tribunal del domicilio del titular.', footer:'Todos los derechos reservados' }
+};
+
+function applyLang(lang) {
+  var d = t[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('sh_lang', lang);
+}
+var sel = document.getElementById('langSelect');
+var saved = localStorage.getItem('sh_lang') || 'it';
+sel.value = saved; applyLang(saved);
+sel.addEventListener('change', function() { applyLang(this.value); });
+</script>
 </body>
 </html>

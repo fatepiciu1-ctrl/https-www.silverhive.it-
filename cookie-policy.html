@@ -14,8 +14,11 @@
     nav{position:fixed;top:0;inset-inline:0;z-index:99;background:rgba(13,13,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:72px;}
     .nav-brand{display:flex;align-items:center;gap:10px;}
     .nav-brand img{height:52px;width:auto;}
+    .nav-right{display:flex;align-items:center;gap:14px;}
     .back-btn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border:1px solid var(--border);padding:8px 18px;border-radius:3px;transition:color .2s,border-color .2s;}
     .back-btn:hover{color:var(--sky);border-color:var(--sky);}
+    .lang-select{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--sky);border:1px solid var(--border);border-radius:3px;padding:8px 12px;cursor:pointer;outline:none;}
+    .lang-select option{background:#16161a;color:var(--white);}
     .page{max-width:820px;margin:0 auto;padding:110px 32px 80px;}
     .page-label{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;}
     h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:3rem;text-transform:uppercase;margin-bottom:8px;}
@@ -27,11 +30,9 @@
     table{width:100%;border-collapse:collapse;margin:20px 0;}
     th{background:var(--card);color:var(--sky);font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;text-align:left;border:1px solid var(--border);}
     td{color:var(--silver);padding:12px 16px;border:1px solid var(--border);font-size:.95rem;}
-    .highlight{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:20px 24px;margin:20px 0;}
-    .highlight p{margin:0;}
     footer{border-top:1px solid var(--border);padding:28px 32px;text-align:center;font-size:.82rem;color:var(--silver);max-width:820px;margin:0 auto;}
     footer span{color:var(--gold);}
-    @media(max-width:768px){.page{padding:90px 20px 60px;}nav{padding:0 16px;}table{font-size:.85rem;}}
+    @media(max-width:768px){.page{padding:90px 20px 60px;}nav{padding:0 16px;}table{font-size:.82rem;}}
   </style>
 </head>
 <body>
@@ -40,62 +41,76 @@
     <img src="logo.png" alt="SilverHive"/>
     <img src="scritta.png" alt="SilverHive"/>
   </a>
-  <a href="index.html" class="back-btn">← Home</a>
+  <div class="nav-right">
+    <select class="lang-select" id="langSelect">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+    </select>
+    <a href="index.html" class="back-btn" data-i18n="back">← Home</a>
+  </div>
 </nav>
 
 <div class="page">
-  <div class="page-label">Legale</div>
-  <h1>Cookie Policy</h1>
-  <p class="updated">Ultimo aggiornamento: aprile 2025</p>
+  <div class="page-label" data-i18n="label">Legale</div>
+  <h1 data-i18n="title">Cookie Policy</h1>
+  <p class="updated" data-i18n="updated">Ultimo aggiornamento: aprile 2025</p>
 
-  <h2>1. Cosa sono i cookie</h2>
-  <p>I cookie sono piccoli file di testo che i siti web salvano sul dispositivo dell'utente durante la navigazione. Vengono utilizzati per far funzionare il sito, migliorare l'esperienza utente e raccogliere informazioni statistiche.</p>
+  <h2 data-i18n="s1_title">1. Cosa sono i cookie</h2>
+  <p data-i18n="s1_text">I cookie sono piccoli file di testo salvati sul dispositivo dell'utente durante la navigazione, utilizzati per far funzionare il sito e raccogliere informazioni statistiche.</p>
 
-  <h2>2. Tipologie di cookie utilizzati</h2>
+  <h2 data-i18n="s2_title">2. Cookie tecnici (necessari)</h2>
+  <p data-i18n="s2_text">Essenziali per il funzionamento del sito. Non richiedono consenso.</p>
+  <table><tr><th data-i18n="th_cookie">Cookie</th><th data-i18n="th_purpose">Scopo</th><th data-i18n="th_duration">Durata</th></tr>
+  <tr><td>sh_lang</td><td data-i18n="td1_purpose">Salva la lingua selezionata</td><td data-i18n="td1_duration">Persistente (localStorage)</td></tr></table>
 
-  <h2 style="font-size:1.2rem; margin-top:20px;">Cookie tecnici (necessari)</h2>
-  <p>Essenziali per il funzionamento del sito. Non richiedono consenso.</p>
+  <h2 data-i18n="s3_title">3. Cookie analitici (Google Analytics)</h2>
+  <p data-i18n="s3_text">Analizzano il traffico in forma anonima. Richiedono consenso.</p>
   <table>
-    <tr><th>Cookie</th><th>Scopo</th><th>Durata</th></tr>
-    <tr><td>sh_lang</td><td>Salva la lingua selezionata dall'utente</td><td>Persistente (localStorage)</td></tr>
+    <tr><th data-i18n="th_cookie">Cookie</th><th data-i18n="th_purpose">Scopo</th><th data-i18n="th_duration">Durata</th></tr>
+    <tr><td>_ga</td><td data-i18n="td_ga">Distingue gli utenti unici</td><td>2 anni</td></tr>
+    <tr><td>_ga_*</td><td data-i18n="td_ga2">Mantiene lo stato sessione</td><td>2 anni</td></tr>
+    <tr><td>_gid</td><td data-i18n="td_gid">Distingue utenti nelle 24h</td><td>24h</td></tr>
   </table>
 
-  <h2 style="font-size:1.2rem; margin-top:20px;">Cookie analitici (Google Analytics)</h2>
-  <p>Utilizzati per analizzare il traffico del sito in forma anonima. Richiedono il consenso dell'utente.</p>
-  <table>
-    <tr><th>Cookie</th><th>Scopo</th><th>Durata</th></tr>
-    <tr><td>_ga</td><td>Distingue gli utenti unici</td><td>2 anni</td></tr>
-    <tr><td>_ga_*</td><td>Mantiene lo stato della sessione</td><td>2 anni</td></tr>
-    <tr><td>_gid</td><td>Distingue gli utenti nelle 24 ore</td><td>24 ore</td></tr>
-  </table>
+  <h2 data-i18n="s4_title">4. Gestione cookie</h2>
+  <p data-i18n="s4_text">L'utente può disabilitare i cookie analitici dalle impostazioni del browser o tramite: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a></p>
 
-  <h2>3. Cookie di terze parti</h2>
-  <p>Il sito utilizza servizi di terze parti che possono installare propri cookie:</p>
-  <ul>
-    <li><strong>Google Analytics</strong> — analisi del traffico. <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy Google</a></li>
-    <li><strong>Formspree</strong> — gestione form di contatto. <a href="https://formspree.io/legal/privacy-policy" target="_blank">Privacy Policy Formspree</a></li>
-    <li><strong>LemonSqueezy</strong> — pagamenti. <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Privacy Policy LemonSqueezy</a></li>
+  <h2 data-i18n="s5_title">5. Servizi terzi</h2>
+  <ul data-i18n="s5_list">
+    <li><strong>Google Analytics</strong> — <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li>
+    <li><strong>Formspree</strong> — <a href="https://formspree.io/legal/privacy-policy" target="_blank">Privacy Policy</a></li>
+    <li><strong>LemonSqueezy</strong> — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Privacy Policy</a></li>
   </ul>
-
-  <h2>4. Come gestire i cookie</h2>
-  <p>L'utente può gestire o disabilitare i cookie tramite le impostazioni del proprio browser:</p>
-  <ul>
-    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
-    <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox" target="_blank">Mozilla Firefox</a></li>
-    <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
-    <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Microsoft Edge</a></li>
-  </ul>
-  <p>La disabilitazione dei cookie analitici non pregiudica il funzionamento del sito.</p>
-
-  <h2>5. Opt-out Google Analytics</h2>
-  <p>Per disabilitare il tracciamento di Google Analytics puoi installare il componente aggiuntivo: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a></p>
-
-  <h2>6. Modifiche alla Cookie Policy</h2>
-  <p>SilverHive si riserva il diritto di modificare la presente Cookie Policy. Le modifiche saranno pubblicate su questa pagina.</p>
-
-  <p>Per informazioni: <a href="mailto:info@silverhive.it">info@silverhive.it</a></p>
+  <p data-i18n="s5_contact">Per informazioni: <a href="mailto:info@silverhive.it">info@silverhive.it</a></p>
 </div>
 
-<footer>© 2025 <span>SilverHive</span> · Tutti i diritti riservati</footer>
+<footer>© 2025 <span>SilverHive</span> · <span data-i18n="footer">Tutti i diritti riservati</span></footer>
+
+<script>
+var t = {
+  it:{ back:'← Home', label:'Legale', title:'Cookie Policy', updated:'Ultimo aggiornamento: aprile 2025', s1_title:'1. Cosa sono i cookie', s1_text:"I cookie sono piccoli file di testo salvati sul dispositivo dell'utente durante la navigazione.", s2_title:'2. Cookie tecnici (necessari)', s2_text:'Essenziali per il funzionamento del sito. Non richiedono consenso.', th_cookie:'Cookie', th_purpose:'Scopo', th_duration:'Durata', td1_purpose:'Salva la lingua selezionata', td1_duration:'Persistente (localStorage)', s3_title:'3. Cookie analitici (Google Analytics)', s3_text:'Analizzano il traffico in forma anonima. Richiedono consenso.', td_ga:'Distingue gli utenti unici', td_ga2:'Mantiene lo stato sessione', td_gid:'Distingue utenti nelle 24h', s4_title:'4. Gestione cookie', s4_text:'Puoi disabilitare i cookie analitici dalle impostazioni del browser o tramite: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a>', s5_title:'5. Servizi terzi', s5_list:'<li><strong>Google Analytics</strong> — <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li><li><strong>Formspree</strong> — <a href="https://formspree.io/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li><strong>LemonSqueezy</strong> — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Privacy Policy</a></li>', s5_contact:'Per informazioni: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', footer:'Tutti i diritti riservati' },
+  en:{ back:'← Home', label:'Legal', title:'Cookie Policy', updated:'Last updated: April 2025', s1_title:'1. What are cookies', s1_text:'Cookies are small text files saved on the user\'s device during browsing, used to operate the site and collect statistical information.', s2_title:'2. Technical cookies (necessary)', s2_text:'Essential for the site to function. No consent required.', th_cookie:'Cookie', th_purpose:'Purpose', th_duration:'Duration', td1_purpose:'Saves selected language', td1_duration:'Persistent (localStorage)', s3_title:'3. Analytical cookies (Google Analytics)', s3_text:'Analyse traffic anonymously. Consent required.', td_ga:'Distinguishes unique users', td_ga2:'Maintains session state', td_gid:'Distinguishes users within 24h', s4_title:'4. Cookie management', s4_text:'You can disable analytical cookies from your browser settings or via: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a>', s5_title:'5. Third-party services', s5_list:'<li><strong>Google Analytics</strong> — <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li><li><strong>Formspree</strong> — <a href="https://formspree.io/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li><strong>LemonSqueezy</strong> — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Privacy Policy</a></li>', s5_contact:'For information: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', footer:'All rights reserved' },
+  de:{ back:'← Startseite', label:'Rechtliches', title:'Cookie-Richtlinie', updated:'Letzte Aktualisierung: April 2025', s1_title:'1. Was sind Cookies', s1_text:'Cookies sind kleine Textdateien, die beim Surfen auf dem Gerät des Nutzers gespeichert werden.', s2_title:'2. Technische Cookies (notwendig)', s2_text:'Für den Betrieb der Website erforderlich. Keine Einwilligung nötig.', th_cookie:'Cookie', th_purpose:'Zweck', th_duration:'Dauer', td1_purpose:'Speichert die gewählte Sprache', td1_duration:'Dauerhaft (localStorage)', s3_title:'3. Analyse-Cookies (Google Analytics)', s3_text:'Analysieren den Datenverkehr anonym. Einwilligung erforderlich.', td_ga:'Unterscheidet eindeutige Nutzer', td_ga2:'Hält den Sitzungsstatus', td_gid:'Unterscheidet Nutzer innerhalb 24h', s4_title:'4. Cookie-Verwaltung', s4_text:'Sie können Analyse-Cookies in Ihren Browsereinstellungen deaktivieren oder über: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a>', s5_title:'5. Drittanbieter-Dienste', s5_list:'<li><strong>Google Analytics</strong> — <a href="https://policies.google.com/privacy" target="_blank">Datenschutzerklärung</a></li><li><strong>Formspree</strong> — <a href="https://formspree.io/legal/privacy-policy" target="_blank">Datenschutzerklärung</a></li><li><strong>LemonSqueezy</strong> — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Datenschutzerklärung</a></li>', s5_contact:'Für Informationen: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', footer:'Alle Rechte vorbehalten' },
+  fr:{ back:'← Accueil', label:'Mentions légales', title:'Politique de cookies', updated:'Dernière mise à jour: avril 2025', s1_title:'1. Que sont les cookies', s1_text:'Les cookies sont de petits fichiers texte sauvegardés sur l\'appareil de l\'utilisateur pendant la navigation.', s2_title:'2. Cookies techniques (nécessaires)', s2_text:'Essentiels au fonctionnement du site. Aucun consentement requis.', th_cookie:'Cookie', th_purpose:'Objectif', th_duration:'Durée', td1_purpose:'Enregistre la langue sélectionnée', td1_duration:'Persistant (localStorage)', s3_title:'3. Cookies analytiques (Google Analytics)', s3_text:'Analysent le trafic de manière anonyme. Consentement requis.', td_ga:'Distingue les utilisateurs uniques', td_ga2:'Maintient l\'état de session', td_gid:'Distingue les utilisateurs sous 24h', s4_title:'4. Gestion des cookies', s4_text:'Vous pouvez désactiver les cookies analytiques dans les paramètres de votre navigateur ou via: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a>', s5_title:'5. Services tiers', s5_list:'<li><strong>Google Analytics</strong> — <a href="https://policies.google.com/privacy" target="_blank">Politique de confidentialité</a></li><li><strong>Formspree</strong> — <a href="https://formspree.io/legal/privacy-policy" target="_blank">Politique de confidentialité</a></li><li><strong>LemonSqueezy</strong> — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Politique de confidentialité</a></li>', s5_contact:'Pour informations: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', footer:'Tous droits réservés' },
+  es:{ back:'← Inicio', label:'Legal', title:'Política de cookies', updated:'Última actualización: abril 2025', s1_title:'1. ¿Qué son las cookies?', s1_text:'Las cookies son pequeños archivos de texto guardados en el dispositivo del usuario durante la navegación.', s2_title:'2. Cookies técnicas (necesarias)', s2_text:'Esenciales para el funcionamiento del sitio. No requieren consentimiento.', th_cookie:'Cookie', th_purpose:'Propósito', th_duration:'Duración', td1_purpose:'Guarda el idioma seleccionado', td1_duration:'Persistente (localStorage)', s3_title:'3. Cookies analíticas (Google Analytics)', s3_text:'Analizan el tráfico de forma anónima. Requieren consentimiento.', td_ga:'Distingue usuarios únicos', td_ga2:'Mantiene el estado de sesión', td_gid:'Distingue usuarios en 24h', s4_title:'4. Gestión de cookies', s4_text:'Puede desactivar las cookies analíticas desde la configuración de su navegador o mediante: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out</a>', s5_title:'5. Servicios de terceros', s5_list:'<li><strong>Google Analytics</strong> — <a href="https://policies.google.com/privacy" target="_blank">Política de privacidad</a></li><li><strong>Formspree</strong> — <a href="https://formspree.io/legal/privacy-policy" target="_blank">Política de privacidad</a></li><li><strong>LemonSqueezy</strong> — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Política de privacidad</a></li>', s5_contact:'Para información: <a href="mailto:info@silverhive.it">info@silverhive.it</a>', footer:'Todos los derechos reservados' }
+};
+
+function applyLang(lang) {
+  var d = t[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('sh_lang', lang);
+}
+var sel = document.getElementById('langSelect');
+var saved = localStorage.getItem('sh_lang') || 'it';
+sel.value = saved; applyLang(saved);
+sel.addEventListener('change', function() { applyLang(this.value); });
+</script>
 </body>
 </html>
