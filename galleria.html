@@ -9,86 +9,46 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --bg:#0d0d0f; --card:#16161a; --blue:#1E3A8A;
-      --sky:#38BDF8; --gold:#D4AF37; --silver:#9ca3af;
-      --white:#f1f5f9; --border:rgba(56,189,248,.15);
-    }
+    :root{--bg:#0d0d0f;--card:#16161a;--blue:#1E3A8A;--sky:#38BDF8;--gold:#D4AF37;--silver:#9ca3af;--white:#f1f5f9;--border:rgba(56,189,248,.15);}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+    body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;font-size:18px;overflow-x:hidden;}
     a{text-decoration:none;color:inherit;}
-    nav{
-      position:fixed;top:0;inset-inline:0;z-index:99;
-      background:rgba(13,13,15,.92);backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--border);
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 28px;height:62px;
-    }
+    nav{position:fixed;top:0;inset-inline:0;z-index:99;background:rgba(13,13,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:72px;}
     .nav-brand{display:flex;align-items:center;gap:10px;}
     .nav-brand img.nav-logo{height:56px;width:auto;}
     .nav-brand img.nav-scritta{height:56px;width:auto;}
-    .nav-links{display:flex;gap:32px;font-size:.9rem;color:var(--silver);}
+    .nav-links{display:flex;gap:28px;font-size:1.2rem;color:var(--silver);}
     .nav-links a:hover{color:var(--sky);}
-    .nav-cta{
-      font-family:'Barlow Condensed',sans-serif;font-weight:700;
-      font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;
-      background:var(--gold);color:#000;padding:8px 20px;border-radius:3px;transition:background .2s;
-    }
+    .nav-right{display:flex;align-items:center;gap:14px;}
+    .nav-cta{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 24px;border-radius:3px;transition:background .2s;}
     .nav-cta:hover{background:var(--sky);}
-    .page-header{
-      padding:120px 32px 60px;max-width:1100px;margin:0 auto;
-      border-bottom:1px solid var(--border);
-    }
-    .page-label{
-      font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:700;
-      letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;
-    }
-    h1{
-      font-family:'Barlow Condensed',sans-serif;font-weight:800;
-      font-size:clamp(2.5rem,5vw,4rem);text-transform:uppercase;
-      letter-spacing:.04em;margin-bottom:14px;
-    }
+    .lang-select{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--sky);border:1px solid var(--border);border-radius:3px;padding:8px 12px;cursor:pointer;outline:none;}
+    .lang-select option{background:#16161a;color:var(--white);}
+    .social-links{display:flex;align-items:center;gap:10px;}
+    .social-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);transition:all .2s;}
+    .social-btn svg{width:22px;height:22px;fill:currentColor;}
+    .social-btn.yt{color:#FF0000;border-color:rgba(255,0,0,.3);}
+    .social-btn.yt:hover{background:rgba(255,0,0,.15);border-color:#FF0000;}
+    .social-btn.fb{color:#1877F2;border-color:rgba(24,119,242,.3);}
+    .social-btn.fb:hover{background:rgba(24,119,242,.15);border-color:#1877F2;}
+    .page-header{padding:120px 32px 60px;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--border);}
+    .page-label{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+    h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.5rem,5vw,4rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;}
     .page-sub{color:var(--silver);font-weight:300;font-size:1.1rem;max-width:520px;}
-    .page-content{
-      max-width:1100px;margin:0 auto;padding:80px 32px;
-      min-height:40vh;
-      display:flex;align-items:center;justify-content:center;
-    }
-    .coming-soon{
-      text-align:center;
-      border:1px solid var(--border);border-radius:8px;
-      padding:80px 60px;background:var(--card);max-width:500px;width:100%;
-    }
+    .page-content{max-width:1100px;margin:0 auto;padding:80px 32px;min-height:40vh;display:flex;align-items:center;justify-content:center;}
+    .coming-soon{text-align:center;border:1px solid var(--border);border-radius:8px;padding:80px 60px;background:var(--card);max-width:500px;width:100%;}
     .coming-soon__icon{font-size:3.5rem;margin-bottom:20px;}
-    .coming-soon__title{
-      font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;
-      text-transform:uppercase;color:var(--sky);margin-bottom:10px;
-    }
-    .coming-soon__text{color:var(--silver);font-size:1.05rem;line-height:1.7;}
-    .btn-back{
-      display:inline-flex;align-items:center;gap:8px;
-      font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;
-      letter-spacing:.1em;text-transform:uppercase;
-      color:var(--sky);border:1px solid var(--border);
-      padding:10px 22px;border-radius:3px;margin-top:28px;
-      transition:background .2s,color .2s;
-    }
+    .coming-soon__title{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+    .coming-soon__text{color:var(--silver);font-size:1rem;line-height:1.7;}
+    .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);border:1px solid var(--border);padding:10px 22px;border-radius:3px;margin-top:28px;transition:background .2s,color .2s;}
     .btn-back:hover{background:var(--sky);color:#000;}
-    footer{
-      border-top:1px solid var(--border);padding:30px 32px;
-      display:flex;justify-content:space-between;align-items:center;
-      flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;
-    }
+    footer{border-top:1px solid var(--border);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
     .f-brand{display:flex;align-items:center;gap:10px;}
-    .f-brand img{height:26px;width:auto;}
-    .f-copy{font-size:.82rem;color:var(--silver);}
+    .f-brand img{height:32px;width:auto;}
+    .f-copy{font-size:.85rem;color:var(--silver);}
     .f-copy span{color:var(--gold);}
-    @media(max-width:768px){
-      nav{padding:0 16px;}
-      .nav-links{display:none;}
-      .page-header,.page-content{padding-left:20px;padding-right:20px;}
-    }
+    @media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.page-header,.page-content{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;justify-content:center;text-align:center;}}
   </style>
 </head>
 <body>
@@ -98,26 +58,39 @@
     <img src="scritta.png" alt="SilverHive" class="nav-scritta"/>
   </a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="index.html#catalogo" data-i18n="nav_cat">Catalogo</a>
     <a href="index.html#faq">FAQ</a>
-    <a href="index.html#contatti">Contatti</a>
+    <a href="index.html#contatti" data-i18n="nav_contact">Contatti</a>
   </div>
-  <a href="shop.html" class="nav-cta">Acquista</a>
+  <div class="nav-right">
+    <div class="social-links">
+      <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="social-btn yt"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="social-btn fb"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+    </div>
+    <select class="lang-select" id="langSelect">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+    </select>
+    <a href="shop.html" class="nav-cta" data-i18n="nav_buy">Acquista</a>
+  </div>
 </nav>
 
 <div class="page-header">
-  <div class="page-label">Screenshot & Render</div>
-  <h1>Galleria</h1>
-  <p class="page-sub">Immagini e render delle locomotive FS sviluppate da SilverHive.</p>
+  <div class="page-label" data-i18n="label">Screenshot & Render</div>
+  <h1 data-i18n="title">Galleria</h1>
+  <p class="page-sub" data-i18n="sub">Immagini e render delle locomotive FS sviluppate da SilverHive.</p>
 </div>
 
 <div class="page-content">
   <div class="coming-soon">
     <div class="coming-soon__icon">🖼️</div>
-    <div class="coming-soon__title">Contenuti in arrivo</div>
-    <p class="coming-soon__text">Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.</p>
-    <a href="index.html" class="btn-back">← Torna alla home</a>
+    <div class="coming-soon__title" data-i18n="soon_title">Contenuti in arrivo</div>
+    <p class="coming-soon__text" data-i18n="soon_text">Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.</p>
+    <a href="index.html" class="btn-back" data-i18n="back">← Home</a>
   </div>
 </div>
 
@@ -126,7 +99,30 @@
     <img src="logo.png" alt="SilverHive"/>
     <img src="scritta.png" alt="SilverHive"/>
   </div>
-  <div class="f-copy">© 2025 <span>SilverHive</span> · Train Simulator Classic è un marchio Dovetail Games</div>
+  <div class="f-copy">© 2025 <span>SilverHive</span> · <span data-i18n="footer">Train Simulator Classic è un marchio Dovetail Games</span></div>
 </footer>
+
+<script>
+var t = {
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render delle locomotive FS sviluppate da SilverHive.', soon_title:'Contenuti in arrivo', soon_text:'Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.', back:'← Home', footer:'Train Simulator Classic è un marchio Dovetail Games' },
+  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'Screenshots & Renders', title:'Gallery', sub:'Images and renders of FS locomotives developed by SilverHive.', soon_title:'Coming soon', soon_text:'This section is being prepared. Come back soon to discover new SilverHive content.', back:'← Home', footer:'Train Simulator Classic is a trademark of Dovetail Games' },
+  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Screenshots & Renders', title:'Galerie', sub:'Bilder und Renders der von SilverHive entwickelten FS-Lokomotiven.', soon_title:'Demnächst verfügbar', soon_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.', back:'← Startseite', footer:'Train Simulator Classic ist eine Marke von Dovetail Games' },
+  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Screenshots & Rendus', title:'Galerie', sub:'Images et rendus des locomotives FS développées par SilverHive.', soon_title:'Bientôt disponible', soon_text:'Cette section est en préparation. Revenez bientôt.', back:'← Accueil', footer:'Train Simulator Classic est une marque de Dovetail Games' },
+  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'Capturas & Renders', title:'Galería', sub:'Imágenes y renders de las locomotoras FS desarrolladas por SilverHive.', soon_title:'Próximamente', soon_text:'Esta sección está en preparación. Vuelve pronto.', back:'← Inicio', footer:'Train Simulator Classic es una marca de Dovetail Games' }
+};
+function applyLang(lang) {
+  var d = t[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('sh_lang', lang);
+}
+var sel = document.getElementById('langSelect');
+var saved = localStorage.getItem('sh_lang') || 'it';
+sel.value = saved; applyLang(saved);
+sel.addEventListener('change', function() { applyLang(this.value); });
+</script>
 </body>
 </html>
