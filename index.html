@@ -312,13 +312,13 @@
           <div><div class="c-lbl" style="color:#1877F2;">Facebook</div><div class="c-val">SilverHive Official</div></div>
         </a>
       </div>
-      <form onsubmit="return false">
+      <form action="https://formspree.io/f/mrerzydj" method="POST">
         <div class="f-row">
-          <div class="f-g"><label data-i18n="form_name">Nome</label><input id="formName" type="text" data-i18n-ph="form_name_ph" placeholder="Il tuo nome"/></div>
-          <div class="f-g"><label>Email</label><input id="formEmail" type="email" placeholder="email@esempio.com"/></div>
+          <div class="f-g"><label data-i18n="form_name">Nome</label><input type="text" name="nome" data-i18n-ph="form_name_ph" placeholder="Il tuo nome" required/></div>
+          <div class="f-g"><label>Email</label><input type="email" name="email" placeholder="email@esempio.com" required/></div>
         </div>
-        <div class="f-g"><label data-i18n="form_msg">Messaggio</label><textarea id="formMsg" data-i18n-ph="form_msg_ph" placeholder="Come possiamo aiutarti?"></textarea></div>
-        <button class="btn-send" onclick="sendMail()" data-i18n="form_send">Invia</button>
+        <div class="f-g"><label data-i18n="form_msg">Messaggio</label><textarea name="messaggio" data-i18n-ph="form_msg_ph" placeholder="Come possiamo aiutarti?" required></textarea></div>
+        <button class="btn-send" type="submit" data-i18n="form_send">Invia</button>
       </form>
     </div>
   </div>
