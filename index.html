@@ -397,10 +397,6 @@
         <div class="faq-a">Ogni prodotto include una guida di installazione dettagliata. In generale è sufficiente estrarre il file scaricato nella cartella Assets di Train Simulator Classic. Per dubbi consulta la sezione Risorse o contattaci direttamente.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">I prodotti gratuiti richiedono la registrazione? <span>+</span></div>
-        <div class="faq-a">Sì. Per accedere ai contenuti gratuiti è necessario creare un account SilverHive. Questo ci permette di monitorare i download, fornire assistenza e inviare aggiornamenti automatici.</div>
-      </div>
-      <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Posso usare i prodotti SilverHive in streaming o video pubblici? <span>+</span></div>
         <div class="faq-a">Sì, puoi usare i nostri prodotti in video su YouTube, Twitch o altri canali. Ti chiediamo solo di citare SilverHive come sviluppatore nella descrizione o nei crediti del video.</div>
       </div>
@@ -454,10 +450,10 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleFaq(el) {
-    const item = el.parentElement;
-    const open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!open) item.classList.add('open');
+    var item = el.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
   }
 
   const obs = new IntersectionObserver(entries => {
