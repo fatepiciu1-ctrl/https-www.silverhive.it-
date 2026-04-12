@@ -128,12 +128,29 @@
     .social-links{display:flex;align-items:center;gap:14px;}
     .social-btn{
       display:flex;align-items:center;justify-content:center;
-      width:38px;height:38px;border-radius:50%;
+      width:44px;height:44px;border-radius:50%;
       border:1px solid var(--border);background:var(--card);
       color:var(--silver);transition:all .2s;
     }
-    .social-btn:hover{border-color:var(--sky);color:var(--sky);background:rgba(56,189,248,.08);}
-    .social-btn svg{width:18px;height:18px;fill:currentColor;}
+    .social-btn svg{width:22px;height:22px;fill:currentColor;}
+    .social-btn.yt{ color:#FF0000;border-color:rgba(255,0,0,.3); }
+    .social-btn.yt:hover{ background:rgba(255,0,0,.15);border-color:#FF0000; }
+    .social-btn.fb{ color:#1877F2;border-color:rgba(24,119,242,.3); }
+    .social-btn.fb:hover{ background:rgba(24,119,242,.15);border-color:#1877F2; }
+
+    /* CONTACT SOCIAL */
+    .c-social{display:flex;flex-direction:column;gap:12px;}
+    .c-social-btn{
+      display:flex;align-items:center;gap:14px;
+      padding:12px 18px;border-radius:6px;border:1px solid var(--border);
+      background:var(--card);font-size:1rem;font-weight:500;
+      transition:all .2s;color:var(--white);
+    }
+    .c-social-btn svg{width:22px;height:22px;fill:currentColor;flex-shrink:0;}
+    .c-social-btn.yt{color:#FF0000;border-color:rgba(255,0,0,.25);}
+    .c-social-btn.yt:hover{background:rgba(255,0,0,.1);border-color:#FF0000;}
+    .c-social-btn.fb{color:#1877F2;border-color:rgba(24,119,242,.25);}
+    .c-social-btn.fb:hover{background:rgba(24,119,242,.1);border-color:#1877F2;}
 
     /* FOOTER */
     footer{border-top:1px solid var(--border);padding:36px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
@@ -172,10 +189,10 @@
   </div>
   <div class="nav-right">
     <div class="social-links">
-      <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="social-btn" title="YouTube">
+      <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="social-btn yt" title="YouTube">
         <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
       </a>
-      <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="social-btn" title="Facebook">
+      <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="social-btn fb" title="Facebook">
         <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
       </a>
     </div>
@@ -282,6 +299,18 @@
           <div class="c-icon">🕐</div>
           <div><div class="c-lbl" data-i18n="contact_response_lbl">Risposta</div><div class="c-val" data-i18n="contact_response_val">Entro 24–48 ore</div></div>
         </div>
+        <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="c-row" style="text-decoration:none;">
+          <div class="c-icon" style="color:#FF0000;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+          </div>
+          <div><div class="c-lbl" style="color:#FF0000;">YouTube</div><div class="c-val">@SilverHive</div></div>
+        </a>
+        <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="c-row" style="text-decoration:none;">
+          <div class="c-icon" style="color:#1877F2;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </div>
+          <div><div class="c-lbl" style="color:#1877F2;">Facebook</div><div class="c-val">SilverHive Official</div></div>
+        </a>
       </div>
       <form onsubmit="return false">
         <div class="f-row">
@@ -301,10 +330,10 @@
     <img src="scritta.png" alt="SilverHive"/>
   </div>
   <div class="social-links">
-    <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="social-btn" title="YouTube">
+    <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="social-btn yt" title="YouTube">
       <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
     </a>
-    <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="social-btn" title="Facebook">
+    <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="social-btn fb" title="Facebook">
       <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
     </a>
   </div>
