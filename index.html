@@ -3,337 +3,183 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="SilverHive – Addon realistici per Train Simulator Classic. Locomotive FS italiane con SCMT."/>
+  <meta name="description" content="SilverHive – Addon realistici per Train Simulator Classic."/>
   <title>SilverHive | Train Simulator Classic</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg:     #0d0d0f;
-      --card:   #16161a;
-      --blue:   #1E3A8A;
-      --sky:    #38BDF8;
-      --gold:   #D4AF37;
-      --silver: #9ca3af;
-      --white:  #f1f5f9;
-      --border: rgba(56,189,248,.15);
+      --bg:#0d0d0f; --card:#16161a; --blue:#1E3A8A;
+      --sky:#38BDF8; --gold:#D4AF37; --silver:#9ca3af;
+      --white:#f1f5f9; --border:rgba(56,189,248,.15);
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
-    a { text-decoration: none; color: inherit; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
 
     /* NAV */
-    nav {
-      position: fixed; top: 0; inset-inline: 0; z-index: 99;
-      background: rgba(13,13,15,.92); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 28px; height: 72px;
+    nav{
+      position:fixed;top:0;inset-inline:0;z-index:99;
+      background:rgba(13,13,15,.92);backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 28px;height:72px;
     }
-    .nav-brand {
-      display: flex; align-items: center; gap: 10px;
+    .nav-brand{display:flex;align-items:center;gap:10px;}
+    .nav-brand img.nav-logo{height:56px;width:auto;}
+    .nav-brand img.nav-scritta{height:56px;width:auto;}
+    .nav-links{display:flex;gap:28px;font-size:.9rem;color:var(--silver);}
+    .nav-links a:hover{color:var(--sky);}
+    .nav-right{display:flex;align-items:center;gap:14px;}
+    .nav-cta{
+      font-family:'Barlow Condensed',sans-serif;font-weight:700;
+      font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;
+      background:var(--gold);color:#000;padding:8px 20px;border-radius:3px;
+      transition:background .2s;
     }
-    .nav-brand img.nav-logo { height: 56px; width: auto; }
-    .nav-brand img.nav-scritta { height: 56px; width: auto; filter: brightness(0) invert(1); }
+    .nav-cta:hover{background:var(--sky);}
 
-    .nav-links { display: flex; gap: 32px; font-size: .9rem; color: var(--silver); }
-    .nav-links a:hover { color: var(--sky); }
-    .nav-cta {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-      font-size: .95rem; letter-spacing: .1em; text-transform: uppercase;
-      background: var(--gold); color: #000; padding: 8px 20px; border-radius: 3px;
-      transition: background .2s;
+    /* LANG SELECTOR */
+    .lang-select{
+      font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;
+      background:transparent;color:var(--sky);
+      border:1px solid var(--border);border-radius:3px;
+      padding:6px 10px;cursor:pointer;outline:none;
+      transition:border-color .2s;
     }
-    .nav-cta:hover { background: var(--sky); }
+    .lang-select:hover{border-color:var(--sky);}
+    .lang-select option{background:#16161a;color:var(--white);}
 
     /* HERO */
-    .hero-bg {
-      position: fixed; inset: 0; z-index: -1;
-      background: url('hero.jpg') center center / cover no-repeat;
+    .hero-bg{position:fixed;inset:0;z-index:-1;background:url('hero.jpg') center/cover no-repeat;}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,13,15,.92) 55%,rgba(13,13,15,.4) 100%);}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:80px 32px 60px;max-width:1100px;margin:0 auto;}
+    .hero-content{max-width:680px;}
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:8px;
+      font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;
+      letter-spacing:.2em;text-transform:uppercase;color:var(--sky);
+      border:1px solid var(--border);padding:5px 14px;border-radius:2px;margin-bottom:24px;
     }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(13,13,15,.92) 55%, rgba(13,13,15,.4) 100%);
+    .hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--sky);animation:blink 1.8s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    h1{
+      font-family:'Barlow Condensed',sans-serif;font-weight:800;
+      font-size:clamp(2.8rem,7vw,5.2rem);line-height:1;
+      letter-spacing:.02em;text-transform:uppercase;margin-bottom:20px;
+      animation:up .6s ease both;
     }
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 80px 32px 60px; max-width: 1100px; margin: 0 auto;
+    h1 em{font-style:normal;color:var(--sky);}
+    @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    .hero-sub{font-size:1.1rem;color:var(--silver);font-weight:300;max-width:520px;margin-bottom:40px;line-height:1.7;animation:up .6s .12s ease both;}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:up .6s .22s ease both;}
+    .btn-gold{
+      font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;
+      letter-spacing:.12em;text-transform:uppercase;
+      background:var(--gold);color:#000;padding:13px 32px;border-radius:3px;
+      border:none;cursor:pointer;transition:background .2s,transform .15s;display:inline-block;
     }
-    .hero-content { max-width: 680px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; font-weight: 600;
-      letter-spacing: .2em; text-transform: uppercase; color: var(--sky);
-      border: 1px solid var(--border); padding: 5px 14px; border-radius: 2px; margin-bottom: 24px;
-    }
-    .hero-tag::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--sky); animation: blink 1.8s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
-
-    h1 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-      font-size: clamp(2.8rem, 7vw, 5.2rem); line-height: 1;
-      letter-spacing: .02em; text-transform: uppercase; margin-bottom: 20px;
-      animation: up .6s ease both;
-    }
-    h1 em { font-style: normal; color: var(--sky); }
-    @keyframes up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-
-    .hero-sub {
-      font-size: 1.1rem; color: var(--silver); font-weight: 300;
-      max-width: 520px; margin-bottom: 40px; line-height: 1.7;
-      animation: up .6s .12s ease both;
-    }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: up .6s .22s ease both; }
-
-    .btn-gold {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem;
-      letter-spacing: .12em; text-transform: uppercase;
-      background: var(--gold); color: #000; padding: 13px 32px; border-radius: 3px;
-      border: none; cursor: pointer; transition: background .2s, transform .15s; display: inline-block;
-    }
-    .btn-gold:hover { background: var(--sky); transform: translateY(-2px); }
+    .btn-gold:hover{background:var(--sky);transform:translateY(-2px);}
 
     /* SECTIONS */
-    .sec { padding: 90px 32px; max-width: 1100px; margin: 0 auto; }
-    .sec-label {
-      font-family: 'Barlow Condensed', sans-serif; font-size: .75rem; font-weight: 700;
-      letter-spacing: .22em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px;
-    }
-    h2 {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-      font-size: clamp(2rem,4vw,3rem); text-transform: uppercase;
-      letter-spacing: .04em; margin-bottom: 10px;
-    }
-    .sec-sub { color: var(--silver); font-weight: 300; max-width: 520px; margin-bottom: 48px; }
-    .divider { border: none; border-top: 1px solid var(--border); }
+    .sec{padding:90px 32px;max-width:1100px;margin:0 auto;}
+    .sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;}
+    h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
+    .sec-sub{color:var(--silver);font-weight:300;max-width:520px;margin-bottom:48px;}
+    .divider{border:none;border-top:1px solid var(--border);}
 
-    /* ── 4 SEZIONI HOME ── */
-    .sezioni-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .sez-card {
-      position: relative; border-radius: 8px; overflow: hidden;
-      aspect-ratio: 1/1; cursor: pointer;
-      border: 1px solid var(--border);
-      transition: transform .25s, border-color .25s;
-      display: block;
-    }
-    .sez-card:hover { transform: translateY(-5px); border-color: rgba(56,189,248,.5); }
-    .sez-card > img.sez-bg {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform .4s; display: block;
-    }
-    .sez-card:hover > img.sez-bg { transform: scale(1.05); }
-
-    .sez-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,13,15,.92) 0%, rgba(13,13,15,.15) 60%, transparent 100%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 28px 24px;
-    }
-    .sez-label {
-      font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 700;
-      letter-spacing: .2em; text-transform: uppercase; color: var(--sky); margin-bottom: 6px;
-    }
-    .sez-title {
-      font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: .04em; color: var(--white);
-    }
-    .sez-arrow {
-      position: absolute; top: 18px; right: 18px;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(56,189,248,.12); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; transition: background .2s, color .2s;
-    }
-    .sez-card:hover .sez-arrow { background: var(--sky); color: #000; }
-
-    /* Risorse — sfondo texture esagono */
-    .sez-card--risorse { background: var(--card); }
-    .sez-card--risorse img.sez-bg { object-position: center top; }
-
-    /* ── CATALOG SECTION ── */
-    #catalogo { background: #111114; }
-    .cat-intro {
-      font-size: 1rem; color: var(--silver); max-width: 600px; margin-bottom: 52px; line-height: 1.7;
-    }
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 20px;
-    }
-    .cat-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 6px;
-      overflow: hidden; transition: border-color .22s, transform .22s;
-    }
-    .cat-card:hover { border-color: rgba(56,189,248,.45); transform: translateY(-4px); }
-    .cat-card__img {
-      width: 100%; height: 160px; object-fit: cover;
-      display: block;
-    }
-    .cat-card__img--placeholder {
-      height: 160px; background: linear-gradient(135deg,#0a1a4a,#0d0d0f);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cat-card__img--placeholder svg { width:50px; height:50px; color:rgba(56,189,248,.35); }
-    .cat-card__body { padding: 22px 24px 26px; }
-    .cat-card__tag {
-      font-family:'Barlow Condensed',sans-serif; font-size:.72rem; font-weight:700;
-      letter-spacing:.15em; text-transform:uppercase; color:var(--sky); margin-bottom:10px;
-    }
-    .cat-card__name {
-      font-family:'Barlow Condensed',sans-serif; font-size:1.3rem; font-weight:800;
-      color:var(--white); margin-bottom:8px;
-    }
-    .cat-card__desc { font-size:.88rem; color:var(--silver); line-height:1.65; margin-bottom:22px; }
-    .cat-card__btn {
-      font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.9rem;
-      letter-spacing:.1em; text-transform:uppercase;
-      background:var(--gold); color:#000; padding:10px 22px; border-radius:3px;
-      border:none; cursor:pointer; transition:background .18s; display:inline-block;
-    }
-    .cat-card__btn:hover { background:var(--sky); }
-
-    /* DEMO */
-    #demo { background: var(--bg); }
-    .demo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-    .demo-limits { display:flex; flex-direction:column; gap:10px; margin:24px 0 32px; }
-    .lim { display:flex; align-items:center; gap:10px; font-size:.9rem; color:var(--silver); }
-    .lim::before { content:'›'; color:var(--gold); font-size:1.2rem; }
-    .demo-box {
-      background: var(--card); border:1px solid var(--border); border-radius:8px;
-      padding:44px 36px; text-align:center;
-    }
-    .demo-icon { font-size:3.5rem; margin-bottom:18px; }
-    .demo-box h3 { font-family:'Barlow Condensed',sans-serif; font-size:1.5rem; font-weight:800; margin-bottom:10px; }
-    .demo-box p { font-size:.9rem; color:var(--silver); margin-bottom:28px; line-height:1.6; }
+    /* CAT4 GRID */
+    .cat-intro{font-size:1rem;color:var(--silver);max-width:600px;margin-bottom:52px;line-height:1.7;}
+    .cat4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px;}
+    .cat4-card{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:border-color .22s,transform .22s;background:var(--card);}
+    .cat4-card:hover{border-color:rgba(56,189,248,.5);transform:translateY(-4px);}
+    .cat4-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .35s;}
+    .cat4-card:hover img{transform:scale(1.04);}
+    .cat4-label{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sky);text-align:center;padding:14px 10px;background:var(--card);}
 
     /* FAQ */
-    #faq { background:#111114; }
-    .faq-list { display:flex; flex-direction:column; }
-    .faq-item { border-bottom:1px solid var(--border); }
-    .faq-q {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:22px 0; cursor:pointer;
-      font-family:'Barlow Condensed',sans-serif; font-size:1.25rem; font-weight:700; letter-spacing:.02em;
-    }
-    .faq-q span { color:var(--sky); font-size:1.6rem; transition:transform .2s; display:inline-block; }
-    .faq-a { font-size:1rem; color:var(--silver); line-height:1.75; padding-bottom:20px; display:none; }
-    .faq-item.open .faq-a { display:block; }
-    .faq-item.open .faq-q span { transform:rotate(45deg); }
+    .faq-list{display:flex;flex-direction:column;}
+    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;}
+    .faq-q span{color:var(--sky);font-size:1.6rem;transition:transform .2s;display:inline-block;flex-shrink:0;margin-left:16px;}
+    .faq-a{font-size:1rem;color:var(--silver);line-height:1.75;padding-bottom:20px;display:none;}
+    .faq-item.open .faq-a{display:block;}
+    .faq-item.open .faq-q span{transform:rotate(45deg);}
 
     /* CONTACT */
-    .contact-inner { display:grid; grid-template-columns:1fr 1.5fr; gap:60px; align-items:start; }
-    .c-info { display:flex; flex-direction:column; gap:22px; }
-    .c-row { display:flex; align-items:flex-start; gap:14px; }
-    .c-icon {
-      width:40px; height:40px; border:1px solid var(--border); border-radius:4px;
-      background:var(--card); display:flex; align-items:center; justify-content:center;
-      font-size:1.1rem; flex-shrink:0;
-    }
-    .c-lbl { font-family:'Barlow Condensed',sans-serif; font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; color:var(--sky); margin-bottom:3px; }
-    .c-val { font-size:.95rem; }
-    form { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:36px 32px; }
-    .f-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .f-g { margin-bottom:18px; }
-    label { display:block; font-family:'Barlow Condensed',sans-serif; font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; color:var(--sky); margin-bottom:6px; }
-    input, textarea {
-      width:100%; background:var(--bg); border:1px solid var(--border); border-radius:3px;
-      color:var(--white); font-family:'Barlow',sans-serif; font-size:.9rem;
-      padding:11px 14px; outline:none; transition:border-color .18s;
-    }
-    input:focus, textarea:focus { border-color:var(--sky); }
-    textarea { resize:vertical; min-height:110px; }
-    .btn-send {
-      width:100%; font-family:'Barlow Condensed',sans-serif; font-weight:700;
-      font-size:1rem; letter-spacing:.12em; text-transform:uppercase;
-      background:var(--gold); color:#000; padding:13px; border-radius:3px;
-      border:none; cursor:pointer; transition:background .18s;
-    }
-    .btn-send:hover { background:var(--sky); }
+    .contact-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start;}
+    .c-info{display:flex;flex-direction:column;gap:22px;}
+    .c-row{display:flex;align-items:flex-start;gap:14px;}
+    .c-icon{width:40px;height:40px;border:1px solid var(--border);border-radius:4px;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .c-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sky);margin-bottom:3px;}
+    .c-val{font-size:.95rem;}
+    form{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:36px 32px;}
+    .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .f-g{margin-bottom:18px;}
+    label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sky);margin-bottom:6px;}
+    input,textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:3px;color:var(--white);font-family:'Barlow',sans-serif;font-size:.9rem;padding:11px 14px;outline:none;transition:border-color .18s;}
+    input:focus,textarea:focus{border-color:var(--sky);}
+    textarea{resize:vertical;min-height:110px;}
+    .btn-send{width:100%;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#000;padding:13px;border-radius:3px;border:none;cursor:pointer;transition:background .18s;}
+    .btn-send:hover{background:var(--sky);}
 
     /* FOOTER */
-    footer {
-      border-top:1px solid var(--border); padding:36px 32px;
-      display:flex; justify-content:space-between; align-items:center;
-      flex-wrap:wrap; gap:12px; max-width:1100px; margin:0 auto;
-    }
-    .f-brand { display:flex; align-items:center; gap:10px; }
-    .f-brand img { height:28px; width:auto; }
-    .f-copy { font-size:.82rem; color:var(--silver); }
-    .f-copy span { color:var(--gold); }
+    footer{border-top:1px solid var(--border);padding:36px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
+    .f-brand{display:flex;align-items:center;gap:10px;}
+    .f-brand img{height:32px;width:auto;}
+    .f-copy{font-size:.82rem;color:var(--silver);}
+    .f-copy span{color:var(--gold);}
 
     /* RESPONSIVE */
     @media(max-width:768px){
-      nav { padding:0 16px; }
-      .nav-links { display:none; }
-      .hero, .sec { padding-left:20px; padding-right:20px; }
-      .sezioni-grid { grid-template-columns:1fr; }
-      .demo-inner, .contact-inner { grid-template-columns:1fr; gap:36px; }
-      .f-row { grid-template-columns:1fr; }
-      footer { padding:28px 20px; justify-content:center; text-align:center; }
+      nav{padding:0 16px;}
+      .nav-links{display:none;}
+      .hero,.sec{padding-left:20px;padding-right:20px;}
+      .cat4-grid{grid-template-columns:repeat(2,1fr);}
+      .contact-inner{grid-template-columns:1fr;gap:36px;}
+      .f-row{grid-template-columns:1fr;}
+      footer{padding:28px 20px;justify-content:center;text-align:center;}
     }
-    /* CAT 4 GRID */
-    .cat4-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .cat4-card {
-      display: block; border-radius: 6px; overflow: hidden;
-      border: 1px solid var(--border); cursor: pointer;
-      transition: border-color .22s, transform .22s;
-      background: var(--card);
-    }
-    .cat4-card:hover { border-color: rgba(56,189,248,.5); transform: translateY(-4px); }
-    .cat4-card img {
-      width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;
-      transition: transform .35s;
-    }
-    .cat4-card:hover img { transform: scale(1.04); }
-    .cat4-label {
-      font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .1em;
-      color: var(--sky); text-align: center;
-      padding: 14px 10px; background: var(--card);
-    }
-    @media(max-width:768px){ .cat4-grid { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:480px){ .cat4-grid { grid-template-columns: 1fr; } }
+    @media(max-width:480px){.cat4-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
 
 <div class="hero-bg"></div>
 
-<!-- NAV -->
 <nav>
   <a href="#home" class="nav-brand">
-    <img src="logo.png" alt="SilverHive logo" class="nav-logo"/>
+    <img src="logo.png" alt="SilverHive" class="nav-logo"/>
     <img src="scritta.png" alt="SilverHive" class="nav-scritta"/>
   </a>
   <div class="nav-links">
-    <a href="#sezioni">Home</a>
-    <a href="#catalogo">Shop</a>
+    <a href="#home" data-i18n="nav_home">Home</a>
+    <a href="#catalogo" data-i18n="nav_shop">Shop</a>
     <a href="#faq">FAQ</a>
-    <a href="#contatti">Contatti</a>
+    <a href="#contatti" data-i18n="nav_contact">Contatti</a>
   </div>
-  <a href="#catalogo" class="nav-cta">Acquista</a>
+  <div class="nav-right">
+    <select class="lang-select" id="langSelect">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+    </select>
+    <a href="shop.html" class="nav-cta" data-i18n="nav_buy">Acquista</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-tag">Train Simulator Classic · Addon italiani</div>
-    <h1>Guida come<br/><em>un macchinista</em><br/>vero.</h1>
-    <p class="hero-sub">Locomotive italiane con sistemi SCMT reali, suoni registrati e fisica reale.</p>
+    <div class="hero-tag" data-i18n="hero_tag">Train Simulator Classic · Addon italiani</div>
+    <h1 data-i18n="hero_title">Guida come<br/><em>un macchinista</em><br/>vero.</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Locomotive italiane con sistemi SCMT reali, suoni registrati e fisica reale.</p>
     <div class="hero-btns">
-      <a href="shop.html" class="btn-gold">Scopri i prodotti</a>
+      <a href="shop.html" class="btn-gold" data-i18n="hero_btn">Scopri i prodotti</a>
     </div>
   </div>
 </section>
@@ -343,62 +189,58 @@
 <!-- CATALOGO -->
 <div id="catalogo" style="background:#111114">
   <div class="sec">
-    <div class="sec-label">Shop</div>
-    <h2>Catalogo</h2>
-    <p class="cat-intro">Prodotti digitali per Train Simulator Classic. Registrati per accedere ai contenuti gratuiti e acquistare i prodotti premium.</p>
-
+    <div class="sec-label" data-i18n="cat_label">Shop</div>
+    <h2 data-i18n="cat_title">Catalogo</h2>
+    <p class="cat-intro" data-i18n="cat_intro">Prodotti digitali per Train Simulator Classic. Registrati per accedere ai contenuti gratuiti e acquistare i prodotti premium.</p>
     <div class="cat4-grid">
       <a href="shop.html" class="cat4-card">
         <img src="shop.jpg" alt="Shop"/>
-        <div class="cat4-label">Shop</div>
+        <div class="cat4-label" data-i18n="cat_shop">Shop</div>
       </a>
       <a href="progetti.html" class="cat4-card">
         <img src="progetti.jpg" alt="Progetti"/>
-        <div class="cat4-label">Progetti</div>
+        <div class="cat4-label" data-i18n="cat_projects">Progetti</div>
       </a>
       <a href="galleria.html" class="cat4-card">
         <img src="galleria.jpg" alt="Galleria"/>
-        <div class="cat4-label">Galleria</div>
+        <div class="cat4-label" data-i18n="cat_gallery">Galleria</div>
       </a>
       <a href="risorse.html" class="cat4-card">
         <img src="risorse.jpg" alt="Risorse"/>
-        <div class="cat4-label">Risorse</div>
+        <div class="cat4-label" data-i18n="cat_resources">Risorse</div>
       </a>
     </div>
-
   </div>
 </div>
 
 <hr class="divider"/>
 
-
-
 <!-- FAQ -->
 <div id="faq" style="background:#111114">
   <div class="sec">
     <div class="sec-label">FAQ</div>
-    <h2>Domande frequenti</h2>
-    <p class="sec-sub">Le risposte prima dell'acquisto.</p>
+    <h2 data-i18n="faq_title">Domande frequenti</h2>
+    <p class="sec-sub" data-i18n="faq_sub">Le risposte prima dell'acquisto.</p>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">Con quale versione di TSC sono compatibili i prodotti? <span>+</span></div>
-        <div class="faq-a">Tutti i prodotti SilverHive sono compatibili con tutte le versioni di Train Simulator Classic attualmente disponibili, a condizione che vengano rispettati i requisiti minimi specificati nella scheda di ogni singolo prodotto, sia esso gratuito o a pagamento.</div>
+        <div class="faq-q"><span data-i18n="faq1_q">Con quale versione di TSC sono compatibili i prodotti?</span><span>+</span></div>
+        <div class="faq-a" data-i18n="faq1_a">Tutti i prodotti SilverHive sono compatibili con tutte le versioni di Train Simulator Classic attualmente disponibili, a condizione che vengano rispettati i requisiti minimi specificati nella scheda di ogni singolo prodotto, sia esso gratuito o a pagamento.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Gli aggiornamenti sono gratuiti? <span>+</span></div>
-        <div class="faq-a">Sì, gli aggiornamenti sono gratuiti. Fanno eccezione i casi in cui un determinato aggiornamento venga rilasciato come espansione aggiuntiva (addon o DLC), nel qual caso verrà chiaramente indicato prima del rilascio.</div>
+        <div class="faq-q"><span data-i18n="faq2_q">Gli aggiornamenti sono gratuiti?</span><span>+</span></div>
+        <div class="faq-a" data-i18n="faq2_a">Sì, gli aggiornamenti sono gratuiti. Fanno eccezione i casi in cui un determinato aggiornamento venga rilasciato come espansione aggiuntiva (addon o DLC), nel qual caso verrà chiaramente indicato prima del rilascio.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">È possibile un rimborso? <span>+</span></div>
-        <div class="faq-a">I prodotti digitali non sono rimborsabili. Ai sensi dell'art. 59 del Codice del Consumo italiano, il diritto di recesso è escluso per i contenuti digitali forniti su supporto non materiale (download) quando il consumatore ha prestato consenso esplicito all'inizio della fornitura e ha riconosciuto la conseguente perdita del diritto di recesso. Tale consenso viene richiesto al momento dell'acquisto. Ti consigliamo di scaricare la versione demo gratuita quando disponibile e leggere le informazioni dettagliate prima di procedere all'acquisto.</div>
+        <div class="faq-q"><span data-i18n="faq3_q">È possibile un rimborso?</span><span>+</span></div>
+        <div class="faq-a" data-i18n="faq3_a">I prodotti digitali non sono rimborsabili. Ai sensi dell'art. 59 del Codice del Consumo italiano, il diritto di recesso è escluso per i contenuti digitali forniti su supporto non materiale (download) quando il consumatore ha prestato consenso esplicito all'inizio della fornitura e ha riconosciuto la conseguente perdita del diritto di recesso. Tale consenso viene richiesto al momento dell'acquisto. Ti consigliamo di scaricare la versione demo gratuita quando disponibile e leggere le informazioni dettagliate prima di procedere all'acquisto.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Come installo i prodotti? <span>+</span></div>
-        <div class="faq-a">Ogni prodotto include una guida di installazione dettagliata. In generale è sufficiente estrarre il file scaricato nella cartella Assets di Train Simulator Classic. Per dubbi consulta la sezione Risorse o contattaci direttamente.</div>
+        <div class="faq-q"><span data-i18n="faq4_q">Come installo i prodotti?</span><span>+</span></div>
+        <div class="faq-a" data-i18n="faq4_a">Ogni prodotto include una guida di installazione dettagliata. In generale è sufficiente estrarre il file scaricato nella cartella Assets di Train Simulator Classic. Per dubbi consulta la sezione Risorse o contattaci direttamente.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Posso usare i prodotti SilverHive in streaming o video pubblici? <span>+</span></div>
-        <div class="faq-a">Sì, puoi usare i nostri prodotti in video su YouTube, Twitch o altri canali. Ti chiediamo solo di citare SilverHive come sviluppatore nella descrizione o nei crediti del video.</div>
+        <div class="faq-q"><span data-i18n="faq5_q">Posso usare i prodotti SilverHive in streaming o video pubblici?</span><span>+</span></div>
+        <div class="faq-a" data-i18n="faq5_a">Sì, puoi usare i nostri prodotti in video su YouTube, Twitch o altri canali. Ti chiediamo solo di citare SilverHive come sviluppatore nella descrizione o nei crediti del video.</div>
       </div>
     </div>
   </div>
@@ -409,65 +251,214 @@
 <!-- CONTATTI -->
 <div id="contatti">
   <div class="sec">
-    <div class="sec-label">Contatti</div>
-    <h2>Scrivici</h2>
-    <p class="sec-sub">Supporto tecnico o domande sui prodotti.</p>
+    <div class="sec-label" data-i18n="contact_label">Contatti</div>
+    <h2 data-i18n="contact_title">Scrivici</h2>
+    <p class="sec-sub" data-i18n="contact_sub">Supporto tecnico o domande sui prodotti.</p>
     <div class="contact-inner">
       <div class="c-info">
         <div class="c-row">
           <div class="c-icon">✉️</div>
-          <div><div class="c-lbl">Email</div><div class="c-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d34333b321d2e34312b382f35342b38733429">[email&#160;protected]</a></div></div>
+          <div><div class="c-lbl">Email</div><div class="c-val">info&#64;silverhive&#46;it</div></div>
         </div>
         <div class="c-row">
           <div class="c-icon">🕐</div>
-          <div><div class="c-lbl">Risposta</div><div class="c-val">Entro 24–48 ore</div></div>
-        </div>
-        <div class="c-row">
-          <div class="c-icon">🌐</div>
-          <div><div class="c-lbl">Lingue</div><div class="c-val">Italiano · English</div></div>
+          <div><div class="c-lbl" data-i18n="contact_response_lbl">Risposta</div><div class="c-val" data-i18n="contact_response_val">Entro 24–48 ore</div></div>
         </div>
       </div>
       <form onsubmit="return false">
         <div class="f-row">
-          <div class="f-g"><label>Nome</label><input type="text" placeholder="Il tuo nome"/></div>
+          <div class="f-g"><label data-i18n="form_name">Nome</label><input type="text" data-i18n-ph="form_name_ph" placeholder="Il tuo nome"/></div>
           <div class="f-g"><label>Email</label><input type="email" placeholder="email@esempio.com"/></div>
         </div>
-        <div class="f-g"><label>Messaggio</label><textarea placeholder="Come possiamo aiutarti?"></textarea></div>
-        <button class="btn-send">Invia</button>
+        <div class="f-g"><label data-i18n="form_msg">Messaggio</label><textarea data-i18n-ph="form_msg_ph" placeholder="Come possiamo aiutarti?"></textarea></div>
+        <button class="btn-send" data-i18n="form_send">Invia</button>
       </form>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="f-brand">
     <img src="logo.png" alt="SilverHive"/>
     <img src="scritta.png" alt="SilverHive"/>
   </div>
-  <div class="f-copy">© 2025 <span>SilverHive</span> · Train Simulator Classic è un marchio Dovetail Games</div>
+  <div class="f-copy">© 2025 <span>SilverHive</span> · <span data-i18n="footer_copy">Train Simulator Classic è un marchio Dovetail Games</span></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      var item = this.parentElement;
-      var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
-    });
-  });
+<script>
+// ── TRANSLATIONS ──────────────────────────────────────────
+var i18n = {
+  it: {
+    nav_home:'Home', nav_shop:'Shop', nav_contact:'Contatti', nav_buy:'Acquista',
+    hero_tag:'Train Simulator Classic · Addon italiani',
+    hero_title:'Guida come<br/><em>un macchinista</em><br/>vero.',
+    hero_sub:'Locomotive italiane con sistemi SCMT reali, suoni registrati e fisica reale.',
+    hero_btn:'Scopri i prodotti',
+    cat_label:'Shop', cat_title:'Catalogo',
+    cat_intro:'Prodotti digitali per Train Simulator Classic. Registrati per accedere ai contenuti gratuiti e acquistare i prodotti premium.',
+    cat_shop:'Shop', cat_projects:'Progetti', cat_gallery:'Galleria', cat_resources:'Risorse',
+    faq_title:'Domande frequenti', faq_sub:"Le risposte prima dell'acquisto.",
+    faq1_q:'Con quale versione di TSC sono compatibili i prodotti?',
+    faq1_a:'Tutti i prodotti SilverHive sono compatibili con tutte le versioni di Train Simulator Classic attualmente disponibili, a condizione che vengano rispettati i requisiti minimi specificati nella scheda di ogni singolo prodotto, sia esso gratuito o a pagamento.',
+    faq2_q:'Gli aggiornamenti sono gratuiti?',
+    faq2_a:"Sì, gli aggiornamenti sono gratuiti. Fanno eccezione i casi in cui un determinato aggiornamento venga rilasciato come espansione aggiuntiva (addon o DLC), nel qual caso verrà chiaramente indicato prima del rilascio.",
+    faq3_q:'È possibile un rimborso?',
+    faq3_a:"I prodotti digitali non sono rimborsabili. Ai sensi dell'art. 59 del Codice del Consumo italiano, il diritto di recesso è escluso per i contenuti digitali forniti su supporto non materiale (download) quando il consumatore ha prestato consenso esplicito all'inizio della fornitura e ha riconosciuto la conseguente perdita del diritto di recesso. Tale consenso viene richiesto al momento dell'acquisto. Ti consigliamo di scaricare la versione demo gratuita quando disponibile e leggere le informazioni dettagliate prima di procedere all'acquisto.",
+    faq4_q:'Come installo i prodotti?',
+    faq4_a:'Ogni prodotto include una guida di installazione dettagliata. In generale è sufficiente estrarre il file scaricato nella cartella Assets di Train Simulator Classic. Per dubbi consulta la sezione Risorse o contattaci direttamente.',
+    faq5_q:'Posso usare i prodotti SilverHive in streaming o video pubblici?',
+    faq5_a:'Sì, puoi usare i nostri prodotti in video su YouTube, Twitch o altri canali. Ti chiediamo solo di citare SilverHive come sviluppatore nella descrizione o nei crediti del video.',
+    contact_label:'Contatti', contact_title:'Scrivici', contact_sub:'Supporto tecnico o domande sui prodotti.',
+    contact_response_lbl:'Risposta', contact_response_val:'Entro 24–48 ore',
+    form_name:'Nome', form_name_ph:'Il tuo nome', form_msg:'Messaggio', form_msg_ph:'Come possiamo aiutarti?', form_send:'Invia',
+    footer_copy:'Train Simulator Classic è un marchio Dovetail Games'
+  },
+  en: {
+    nav_home:'Home', nav_shop:'Shop', nav_contact:'Contact', nav_buy:'Buy now',
+    hero_tag:'Train Simulator Classic · Italian Addons',
+    hero_title:'Drive like<br/><em>a real driver</em><br/>would.',
+    hero_sub:'Italian FS locomotives with real SCMT systems, recorded sounds and realistic physics.',
+    hero_btn:'Discover products',
+    cat_label:'Shop', cat_title:'Catalogue',
+    cat_intro:'Digital products for Train Simulator Classic. Register to access free content and purchase premium products.',
+    cat_shop:'Shop', cat_projects:'Projects', cat_gallery:'Gallery', cat_resources:'Resources',
+    faq_title:'Frequently asked questions', faq_sub:'Answers before you buy.',
+    faq1_q:'Which version of TSC are the products compatible with?',
+    faq1_a:'All SilverHive products are compatible with all currently available versions of Train Simulator Classic, provided that the minimum requirements specified on each product page are met, whether free or paid.',
+    faq2_q:'Are updates free?',
+    faq2_a:'Yes, updates are free. Exceptions apply when an update is released as an additional expansion (addon or DLC), in which case it will be clearly stated before release.',
+    faq3_q:'Is a refund possible?',
+    faq3_a:'Digital products are non-refundable. Under art. 59 of the Italian Consumer Code, the right of withdrawal is excluded for digital content delivered on a non-material medium (download) once the consumer has given explicit consent to begin delivery and acknowledged the consequent loss of the right of withdrawal. This consent is requested at the time of purchase. We recommend downloading the free demo when available and reading the detailed product information before purchasing.',
+    faq4_q:'How do I install the products?',
+    faq4_a:'Each product includes a detailed installation guide. Generally, you just need to extract the downloaded file into the Train Simulator Classic Assets folder. If in doubt, check the Resources section or contact us directly.',
+    faq5_q:'Can I use SilverHive products in streams or public videos?',
+    faq5_a:'Yes, you can use our products in YouTube, Twitch or other channel videos. We only ask that you credit SilverHive as the developer in the description or video credits.',
+    contact_label:'Contact', contact_title:'Get in touch', contact_sub:'Technical support or product questions.',
+    contact_response_lbl:'Response', contact_response_val:'Within 24–48 hours',
+    form_name:'Name', form_name_ph:'Your name', form_msg:'Message', form_msg_ph:'How can we help you?', form_send:'Send',
+    footer_copy:'Train Simulator Classic is a trademark of Dovetail Games'
+  },
+  de: {
+    nav_home:'Start', nav_shop:'Shop', nav_contact:'Kontakt', nav_buy:'Kaufen',
+    hero_tag:'Train Simulator Classic · Italienische Addons',
+    hero_title:'Fahre wie<br/><em>ein echter Lokführer</em><br/>.',
+    hero_sub:'Italienische FS-Lokomotiven mit echten SCMT-Systemen, aufgezeichneten Sounds und realistischer Physik.',
+    hero_btn:'Produkte entdecken',
+    cat_label:'Shop', cat_title:'Katalog',
+    cat_intro:'Digitale Produkte für Train Simulator Classic. Registriere dich für kostenlosen Inhalt und Premium-Produkte.',
+    cat_shop:'Shop', cat_projects:'Projekte', cat_gallery:'Galerie', cat_resources:'Ressourcen',
+    faq_title:'Häufig gestellte Fragen', faq_sub:'Antworten vor dem Kauf.',
+    faq1_q:'Mit welcher TSC-Version sind die Produkte kompatibel?',
+    faq1_a:'Alle SilverHive-Produkte sind mit allen aktuell verfügbaren Versionen von Train Simulator Classic kompatibel, sofern die in der Produktbeschreibung angegebenen Mindestanforderungen erfüllt sind.',
+    faq2_q:'Sind Updates kostenlos?',
+    faq2_a:'Ja, Updates sind kostenlos. Ausnahmen gelten, wenn ein Update als zusätzliche Erweiterung (Addon oder DLC) veröffentlicht wird, was vor der Veröffentlichung klar angegeben wird.',
+    faq3_q:'Ist eine Rückerstattung möglich?',
+    faq3_a:'Digitale Produkte sind nicht erstattungsfähig. Gemäß Art. 59 des italienischen Verbraucherschutzgesetzes ist das Widerrufsrecht für digitale Inhalte ausgeschlossen, sobald der Verbraucher ausdrücklich zugestimmt hat. Diese Zustimmung wird beim Kauf eingeholt. Wir empfehlen, die kostenlose Demo herunterzuladen und die Produktinformationen vor dem Kauf zu lesen.',
+    faq4_q:'Wie installiere ich die Produkte?',
+    faq4_a:'Jedes Produkt enthält eine detaillierte Installationsanleitung. Im Allgemeinen reicht es aus, die heruntergeladene Datei in den Assets-Ordner von Train Simulator Classic zu entpacken.',
+    faq5_q:'Kann ich SilverHive-Produkte in Streams oder öffentlichen Videos verwenden?',
+    faq5_a:'Ja, du kannst unsere Produkte in YouTube-, Twitch- oder anderen Videos verwenden. Wir bitten dich nur, SilverHive als Entwickler in der Beschreibung oder im Abspann zu erwähnen.',
+    contact_label:'Kontakt', contact_title:'Schreib uns', contact_sub:'Technischer Support oder Produktfragen.',
+    contact_response_lbl:'Antwort', contact_response_val:'Innerhalb von 24–48 Stunden',
+    form_name:'Name', form_name_ph:'Dein Name', form_msg:'Nachricht', form_msg_ph:'Wie können wir helfen?', form_send:'Senden',
+    footer_copy:'Train Simulator Classic ist eine Marke von Dovetail Games'
+  },
+  fr: {
+    nav_home:'Accueil', nav_shop:'Boutique', nav_contact:'Contact', nav_buy:'Acheter',
+    hero_tag:'Train Simulator Classic · Addons italiens',
+    hero_title:'Conduisez comme<br/><em>un vrai mécanicien</em><br/>.',
+    hero_sub:'Locomotives italiennes FS avec systèmes SCMT réels, sons enregistrés et physique réaliste.',
+    hero_btn:'Découvrir les produits',
+    cat_label:'Boutique', cat_title:'Catalogue',
+    cat_intro:'Produits numériques pour Train Simulator Classic. Inscrivez-vous pour accéder aux contenus gratuits et aux produits premium.',
+    cat_shop:'Boutique', cat_projects:'Projets', cat_gallery:'Galerie', cat_resources:'Ressources',
+    faq_title:'Questions fréquentes', faq_sub:"Les réponses avant l'achat.",
+    faq1_q:'Avec quelle version de TSC les produits sont-ils compatibles?',
+    faq1_a:"Tous les produits SilverHive sont compatibles avec toutes les versions de Train Simulator Classic actuellement disponibles, à condition que les exigences minimales spécifiées sur la fiche de chaque produit soient respectées.",
+    faq2_q:'Les mises à jour sont-elles gratuites?',
+    faq2_a:"Oui, les mises à jour sont gratuites. Des exceptions s'appliquent lorsqu'une mise à jour est publiée comme extension supplémentaire (addon ou DLC), ce qui sera clairement indiqué avant la publication.",
+    faq3_q:'Un remboursement est-il possible?',
+    faq3_a:"Les produits numériques ne sont pas remboursables. Conformément à l'art. 59 du Code de la consommation italien, le droit de rétractation est exclu pour les contenus numériques fournis sur un support immatériel (téléchargement) lorsque le consommateur a donné son consentement explicite. Ce consentement est demandé au moment de l'achat. Nous vous recommandons de télécharger la démo gratuite lorsqu'elle est disponible et de lire les informations détaillées avant d'acheter.",
+    faq4_q:'Comment installer les produits?',
+    faq4_a:"Chaque produit comprend un guide d'installation détaillé. En général, il suffit d'extraire le fichier téléchargé dans le dossier Assets de Train Simulator Classic.",
+    faq5_q:'Puis-je utiliser les produits SilverHive en streaming ou dans des vidéos publiques?',
+    faq5_a:"Oui, vous pouvez utiliser nos produits dans des vidéos YouTube, Twitch ou autres. Nous vous demandons simplement de mentionner SilverHive comme développeur dans la description ou le générique de la vidéo.",
+    contact_label:'Contact', contact_title:'Écrivez-nous', contact_sub:'Support technique ou questions sur les produits.',
+    contact_response_lbl:'Réponse', contact_response_val:'Sous 24–48 heures',
+    form_name:'Nom', form_name_ph:'Votre nom', form_msg:'Message', form_msg_ph:'Comment pouvons-nous vous aider?', form_send:'Envoyer',
+    footer_copy:'Train Simulator Classic est une marque de Dovetail Games'
+  },
+  es: {
+    nav_home:'Inicio', nav_shop:'Tienda', nav_contact:'Contacto', nav_buy:'Comprar',
+    hero_tag:'Train Simulator Classic · Addons italianos',
+    hero_title:'Conduce como<br/><em>un maquinista real</em><br/>.',
+    hero_sub:'Locomotoras italianas FS con sistemas SCMT reales, sonidos grabados y física realista.',
+    hero_btn:'Descubrir productos',
+    cat_label:'Tienda', cat_title:'Catálogo',
+    cat_intro:'Productos digitales para Train Simulator Classic. Regístrate para acceder a contenido gratuito y adquirir productos premium.',
+    cat_shop:'Tienda', cat_projects:'Proyectos', cat_gallery:'Galería', cat_resources:'Recursos',
+    faq_title:'Preguntas frecuentes', faq_sub:'Respuestas antes de comprar.',
+    faq1_q:'¿Con qué versión de TSC son compatibles los productos?',
+    faq1_a:'Todos los productos SilverHive son compatibles con todas las versiones de Train Simulator Classic actualmente disponibles, siempre que se cumplan los requisitos mínimos especificados en la ficha de cada producto.',
+    faq2_q:'¿Las actualizaciones son gratuitas?',
+    faq2_a:'Sí, las actualizaciones son gratuitas. Las excepciones se aplican cuando una actualización se lanza como expansión adicional (addon o DLC), lo que se indicará claramente antes del lanzamiento.',
+    faq3_q:'¿Es posible un reembolso?',
+    faq3_a:'Los productos digitales no son reembolsables. De acuerdo con el art. 59 del Código de Consumo italiano, el derecho de desistimiento queda excluido para los contenidos digitales entregados en soporte no material (descarga) cuando el consumidor ha prestado su consentimiento explícito. Dicho consentimiento se solicita en el momento de la compra. Recomendamos descargar la demo gratuita cuando esté disponible y leer la información detallada antes de comprar.',
+    faq4_q:'¿Cómo instalo los productos?',
+    faq4_a:'Cada producto incluye una guía de instalación detallada. En general, basta con extraer el archivo descargado en la carpeta Assets de Train Simulator Classic.',
+    faq5_q:'¿Puedo usar los productos SilverHive en streaming o vídeos públicos?',
+    faq5_a:'Sí, puedes usar nuestros productos en vídeos de YouTube, Twitch u otros canales. Solo te pedimos que menciones a SilverHive como desarrollador en la descripción o los créditos del vídeo.',
+    contact_label:'Contacto', contact_title:'Escríbenos', contact_sub:'Soporte técnico o preguntas sobre productos.',
+    contact_response_lbl:'Respuesta', contact_response_val:'En 24–48 horas',
+    form_name:'Nombre', form_name_ph:'Tu nombre', form_msg:'Mensaje', form_msg_ph:'¿Cómo podemos ayudarte?', form_send:'Enviar',
+    footer_copy:'Train Simulator Classic es una marca de Dovetail Games'
+  }
+};
 
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='none'; }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.sez-card, .cat-card').forEach(function(el) {
-    el.style.cssText += ';opacity:0;transform:translateY(20px);transition:opacity .45s ease,transform .45s ease';
-    obs.observe(el);
+// ── APPLY LANGUAGE ────────────────────────────────────────
+function applyLang(lang) {
+  var t = i18n[lang];
+  if (!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('sh_lang', lang);
+}
+
+// ── LANG SELECTOR ─────────────────────────────────────────
+var sel = document.getElementById('langSelect');
+var saved = localStorage.getItem('sh_lang') || 'it';
+sel.value = saved;
+applyLang(saved);
+sel.addEventListener('change', function() { applyLang(this.value); });
+
+// ── FAQ ───────────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── SCROLL REVEAL ─────────────────────────────────────────
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='none'; }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.cat4-card').forEach(function(el) {
+  el.style.cssText += ';opacity:0;transform:translateY(20px);transition:opacity .45s ease,transform .45s ease';
+  obs.observe(el);
+});
 </script>
 </body>
 </html>
