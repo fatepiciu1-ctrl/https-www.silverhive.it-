@@ -102,10 +102,10 @@
     .faq-list{display:flex;flex-direction:column;}
     .faq-item{border-bottom:1px solid var(--border);}
     .faq-q{display:flex;justify-content:space-between;align-items:center;padding:24px 0;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;}
-    .faq-q span{color:var(--sky);font-size:1.8rem;transition:transform .2s;display:inline-block;flex-shrink:0;margin-left:16px;}
+    .faq-q span.faq-icon{color:var(--sky);font-size:1.8rem;transition:transform .2s;display:inline-block;flex-shrink:0;margin-left:16px;}
     .faq-a{font-size:1.05rem;color:var(--silver);line-height:1.8;padding-bottom:22px;display:none;}
     .faq-item.open .faq-a{display:block;}
-    .faq-item.open .faq-q span{transform:rotate(45deg);}
+    .faq-item.open .faq-q span.faq-icon{transform:rotate(45deg);}
 
     /* CONTACT */
     .contact-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start;}
@@ -222,23 +222,23 @@
     <p class="sec-sub" data-i18n="faq_sub">Le risposte prima dell'acquisto.</p>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq1_q">Con quale versione di TSC sono compatibili i prodotti?</span><span>+</span></div>
+        <div class="faq-q"><span data-i18n="faq1_q">Con quale versione di TSC sono compatibili i prodotti?</span><span class="faq-icon">+</span></div>
         <div class="faq-a" data-i18n="faq1_a">Tutti i prodotti SilverHive sono compatibili con tutte le versioni di Train Simulator Classic attualmente disponibili, a condizione che vengano rispettati i requisiti minimi specificati nella scheda di ogni singolo prodotto, sia esso gratuito o a pagamento.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq2_q">Gli aggiornamenti sono gratuiti?</span><span>+</span></div>
+        <div class="faq-q"><span data-i18n="faq2_q">Gli aggiornamenti sono gratuiti?</span><span class="faq-icon">+</span></div>
         <div class="faq-a" data-i18n="faq2_a">Sì, gli aggiornamenti sono gratuiti. Fanno eccezione i casi in cui un determinato aggiornamento venga rilasciato come espansione aggiuntiva (addon o DLC), nel qual caso verrà chiaramente indicato prima del rilascio.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq3_q">È possibile un rimborso?</span><span>+</span></div>
+        <div class="faq-q"><span data-i18n="faq3_q">È possibile un rimborso?</span><span class="faq-icon">+</span></div>
         <div class="faq-a" data-i18n="faq3_a">I prodotti digitali non sono rimborsabili. Ai sensi dell'art. 59 del Codice del Consumo italiano, il diritto di recesso è escluso per i contenuti digitali forniti su supporto non materiale (download) quando il consumatore ha prestato consenso esplicito all'inizio della fornitura e ha riconosciuto la conseguente perdita del diritto di recesso. Tale consenso viene richiesto al momento dell'acquisto. Ti consigliamo di scaricare la versione demo gratuita quando disponibile e leggere le informazioni dettagliate prima di procedere all'acquisto.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq4_q">Come installo i prodotti?</span><span>+</span></div>
+        <div class="faq-q"><span data-i18n="faq4_q">Come installo i prodotti?</span><span class="faq-icon">+</span></div>
         <div class="faq-a" data-i18n="faq4_a">Ogni prodotto include una guida di installazione dettagliata. In generale è sufficiente estrarre il file scaricato nella cartella Assets di Train Simulator Classic. Per dubbi consulta la sezione Risorse o contattaci direttamente.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq5_q">Posso usare i prodotti SilverHive in streaming o video pubblici?</span><span>+</span></div>
+        <div class="faq-q"><span data-i18n="faq5_q">Posso usare i prodotti SilverHive in streaming o video pubblici?</span><span class="faq-icon">+</span></div>
         <div class="faq-a" data-i18n="faq5_a">Sì, puoi usare i nostri prodotti in video su YouTube, Twitch o altri canali. Ti chiediamo solo di citare SilverHive come sviluppatore nella descrizione o nei crediti del video.</div>
       </div>
     </div>
