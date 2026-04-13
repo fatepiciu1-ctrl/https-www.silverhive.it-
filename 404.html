@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <title>SilverHive | Pagina non trovata</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-R5QZFVC8CC");
+  </script>
+  <style>
+    :root{--bg:#0d0d0f;--card:#16161a;--sky:#38BDF8;--gold:#D4AF37;--silver:#9ca3af;--white:#f1f5f9;--border:rgba(56,189,248,.15);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;overflow:hidden;}
+    a{text-decoration:none;color:inherit;}
+
+    /* grid background */
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+
+    .content{position:relative;z-index:1;max-width:600px;}
+
+    .logo-wrap{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:60px;}
+    .logo-wrap img{height:52px;width:auto;}
+
+    .error-code{
+      font-family:'Barlow Condensed',sans-serif;font-weight:800;
+      font-size:clamp(6rem,18vw,12rem);line-height:1;
+      color:transparent;
+      -webkit-text-stroke:2px rgba(56,189,248,.3);
+      letter-spacing:.04em;
+      animation:up .6s ease both;
+    }
+    @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+    .error-label{
+      font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:700;
+      letter-spacing:.22em;text-transform:uppercase;color:var(--sky);
+      margin-bottom:16px;animation:up .6s .1s ease both;
+    }
+
+    h1{
+      font-family:'Barlow Condensed',sans-serif;font-weight:800;
+      font-size:clamp(1.8rem,4vw,2.8rem);text-transform:uppercase;
+      margin-bottom:16px;animation:up .6s .2s ease both;
+    }
+
+    p{
+      color:var(--silver);font-size:1.1rem;font-weight:300;
+      line-height:1.7;margin-bottom:40px;
+      animation:up .6s .3s ease both;
+    }
+
+    .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:up .6s .4s ease both;}
+
+    .btn-gold{
+      font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;
+      letter-spacing:.12em;text-transform:uppercase;
+      background:var(--gold);color:#000;padding:13px 32px;border-radius:3px;
+      transition:background .2s,transform .15s;display:inline-block;
+    }
+    .btn-gold:hover{background:var(--sky);transform:translateY(-2px);}
+
+    .btn-ghost{
+      font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1rem;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--silver);
+      padding:13px 32px;border-radius:3px;border:1px solid var(--border);
+      transition:color .2s,border-color .2s;display:inline-block;
+    }
+    .btn-ghost:hover{color:var(--white);border-color:rgba(56,189,248,.4);}
+
+    /* train animation */
+    .train-wrap{margin:48px 0;overflow:hidden;width:100%;position:relative;height:60px;}
+    .train{
+      position:absolute;left:-200px;
+      font-size:3rem;white-space:nowrap;
+      animation:trainMove 4s linear infinite;
+      display:inline-block;transform:scaleX(-1);
+    }
+    @keyframes trainMove{
+      from{left:-200px;}
+      to{left:110%;}
+    }
+
+    footer{position:fixed;bottom:20px;font-size:.82rem;color:rgba(156,163,175,.5);}
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="SilverHive"/>
+      <img src="scritta.png" alt="SilverHive"/>
+    </div>
+
+    <div class="error-code">404</div>
+    <div class="error-label" data-i18n="label">Pagina non trovata</div>
+    <h1 data-i18n="title">Sei finito sul binario sbagliato.</h1>
+    <p data-i18n="text">La pagina che cerchi non esiste o è stata spostata. Torna alla home e riparti dal binario giusto.</p>
+
+    <div class="train-wrap">
+      <div class="train">🚂</div>
+    </div>
+
+    <div class="actions">
+      <a href="index.html" class="btn-gold" data-i18n="btn_home">Torna alla home</a>
+      <a href="index.html#contatti" class="btn-ghost" data-i18n="btn_contact">Contattaci</a>
+    </div>
+  </div>
+
+  <footer>© 2025 SilverHive</footer>
+
+<script>
+var t = {
+  it:{ label:'Pagina non trovata', title:'Sei finito sul binario sbagliato.', text:'La pagina che cerchi non esiste o è stata spostata. Torna alla home e riparti dal binario giusto.', btn_home:'Torna alla home', btn_contact:'Contattaci' },
+  en:{ label:'Page not found', title:'You\'ve ended up on the wrong track.', text:'The page you\'re looking for doesn\'t exist or has been moved. Go back to the home and start from the right track.', btn_home:'Back to home', btn_contact:'Contact us' },
+  de:{ label:'Seite nicht gefunden', title:'Du bist auf dem falschen Gleis gelandet.', text:'Die gesuchte Seite existiert nicht oder wurde verschoben. Geh zurück zur Startseite.', btn_home:'Zur Startseite', btn_contact:'Kontakt' },
+  fr:{ label:'Page introuvable', title:'Vous avez pris le mauvais rail.', text:'La page que vous cherchez n\'existe pas ou a été déplacée. Retournez à l\'accueil.', btn_home:'Retour à l\'accueil', btn_contact:'Nous contacter' },
+  es:{ label:'Página no encontrada', title:'Has tomado la vía equivocada.', text:'La página que buscas no existe o ha sido movida. Vuelve al inicio.', btn_home:'Volver al inicio', btn_contact:'Contacto' }
+};
+function applyLang(lang) {
+  var d = t[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  localStorage.setItem('sh_lang', lang);
+}
+var saved = localStorage.getItem('sh_lang') || 'it';
+applyLang(saved);
+</script>
+</body>
+</html>
