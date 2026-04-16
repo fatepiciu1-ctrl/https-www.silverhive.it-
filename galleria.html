@@ -2,18 +2,18 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8"/>
-    <meta name="description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive FS italiane per Train Simulator Classic."/>
-  <meta name="keywords" content="galleria locomotive FS, screenshot Train Simulator, render 3D locomotive italiane"/>
+    <meta name="description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive italiane per Train Simulator Classic."/>
+  <meta name="keywords" content="galleria locomotive, screenshot Train Simulator, render 3D locomotive italiane"/>
   <meta name="author" content="SilverHive"/>
-  <meta property="og:title" content="SilverHive Galleria | Screenshot e render locomotive FS"/>
-  <meta property="og:description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive FS italiane per Train Simulator Classic."/>
+  <meta property="og:title" content="SilverHive Galleria | Screenshot e render locomotive"/>
+  <meta property="og:description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive italiane per Train Simulator Classic."/>
   <meta property="og:url" content="https://www.silverhive.it/galleria.html" if page != 'index' else "https://www.silverhive.it/"/>
   <meta property="og:type" content="website"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="apple-touch-icon" href="favicon-192.png"/>
-  <title>SilverHive Galleria | Screenshot e render locomotive FS</title>
+  <title>SilverHive Galleria | Screenshot e render locomotive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -56,7 +56,31 @@
     .f-brand img{height:32px;width:auto;}
     .f-copy{font-size:.85rem;color:var(--silver);}
     .f-copy span{color:var(--gold);}
-    @media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.page-header,.page-content{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;justify-content:center;text-align:center;}}
+    /* GALLERY */
+    .gallery{max-width:1100px;margin:0 auto;padding:60px 32px 80px;}
+    .gal-section{margin-bottom:56px;}
+    .gal-section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+    .gal-thumb{position:relative;overflow:hidden;border-radius:6px;border:1px solid var(--border);cursor:pointer;aspect-ratio:4/3;background:#0d0d0f;transition:border-color .22s,transform .22s;}
+    .gal-thumb:hover{border-color:rgba(56,189,248,.5);transform:translateY(-3px);}
+    .gal-thumb img{width:100%;height:100%;object-fit:contain;display:block;padding:6px;transition:transform .35s;}
+    .gal-thumb:hover img{transform:scale(1.04);}
+    .gal-thumb__overlay{position:absolute;inset:0;background:rgba(13,13,15,.0);display:flex;align-items:center;justify-content:center;transition:background .2s;}
+    .gal-thumb:hover .gal-thumb__overlay{background:rgba(13,13,15,.4);}
+    .gal-thumb__icon{font-size:2rem;opacity:0;transition:opacity .2s;}
+    .gal-thumb:hover .gal-thumb__icon{opacity:1;}
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.95);align-items:center;justify-content:center;}
+    .lightbox.open{display:flex;}
+    .lightbox__img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px;}
+    .lightbox__close{position:absolute;top:20px;right:28px;font-size:2.5rem;color:var(--silver);cursor:pointer;transition:color .2s;line-height:1;}
+    .lightbox__close:hover{color:var(--white);}
+    .lightbox__prev,.lightbox__next{position:absolute;top:50%;transform:translateY(-50%);font-size:2.5rem;color:var(--silver);cursor:pointer;padding:10px 20px;transition:color .2s;user-select:none;}
+    .lightbox__prev{left:10px;}
+    .lightbox__next{right:10px;}
+    .lightbox__prev:hover,.lightbox__next:hover{color:var(--sky);}
+    .lightbox__caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.1em;color:var(--silver);text-align:center;}
+    @media(max-width:768px){.gallery{padding:40px 20px 60px;}.gal-grid{grid-template-columns:repeat(2,1fr);}.lightbox__prev{left:2px;}.lightbox__next{right:2px;}}
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
@@ -98,15 +122,43 @@
 <div class="page-header">
   <div class="page-label" data-i18n="label">Screenshot & Render</div>
   <h1 data-i18n="title">Galleria</h1>
-  <p class="page-sub" data-i18n="sub">Immagini e render delle locomotive FS sviluppate da SilverHive.</p>
+  <p class="page-sub" data-i18n="sub">Immagini e render delle locomotive sviluppate da SilverHive.</p>
 </div>
 
-<div class="page-content">
-  <div class="coming-soon">
-    <div class="coming-soon__icon">🖼️</div>
-    <div class="coming-soon__title" data-i18n="soon_title">Contenuti in arrivo</div>
-    <p class="coming-soon__text" data-i18n="soon_text">Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.</p>
-    <a href="index.html" class="btn-back" data-i18n="back">← Home</a>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox__close" onclick="closeLightbox()">×</span>
+  <span class="lightbox__prev" onclick="moveLightbox(-1)">&#8249;</span>
+  <img class="lightbox__img" id="lightboxImg" src="" alt=""/>
+  <span class="lightbox__next" onclick="moveLightbox(1)">&#8250;</span>
+  <div class="lightbox__caption" id="lightboxCaption"></div>
+</div>
+
+<div class="gallery">
+  <div class="gal-section">
+    <div class="gal-section-title">Automotore 208 "Badoni"</div>
+    <div class="gal-grid">
+      <div class="gal-thumb" onclick="openLightbox(0)">
+        <img src="gal1.jpg" alt="Badoni 208 Verde FS"/>
+        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
+      </div>
+      <div class="gal-thumb" onclick="openLightbox(1)">
+        <img src="gal2.jpg" alt="Badoni 208 Verde invecchiato"/>
+        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
+      </div>
+      <div class="gal-thumb" onclick="openLightbox(2)">
+        <img src="gal3.jpg" alt="Badoni 208 Wireframe"/>
+        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
+      </div>
+      <div class="gal-thumb" onclick="openLightbox(3)">
+        <img src="gal4.jpg" alt="Badoni 208 DSB Gialla"/>
+        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
+      </div>
+      <div class="gal-thumb" onclick="openLightbox(4)">
+        <img src="gal5.jpg" alt="Badoni 208 FFJ Prugna"/>
+        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -119,8 +171,41 @@
 </footer>
 
 <script>
+var images = [
+  {src:'gal1.jpg', cap:'Badoni 208 — Livrea Verde FS'},
+  {src:'gal2.jpg', cap:'Badoni 208 — Verde invecchiato'},
+  {src:'gal3.jpg', cap:'Badoni 208 — Modello 3D'},
+  {src:'gal4.jpg', cap:'Badoni 208 — Livrea DSB'},
+  {src:'gal5.jpg', cap:'Badoni 208 — Livrea FFJ'}
+];
+var current = 0;
+
+function openLightbox(idx) {
+  current = idx;
+  document.getElementById('lightboxImg').src = images[idx].src;
+  document.getElementById('lightboxCaption').textContent = images[idx].cap;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function moveLightbox(dir) {
+  current = (current + dir + images.length) % images.length;
+  document.getElementById('lightboxImg').src = images[current].src;
+  document.getElementById('lightboxCaption').textContent = images[current].cap;
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') moveLightbox(1);
+  if (e.key === 'ArrowLeft') moveLightbox(-1);
+});
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
 var t = {
-  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render delle locomotive FS sviluppate da SilverHive.', soon_title:'Contenuti in arrivo', soon_text:'Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.', back:'← Home', footer:'Train Simulator Classic è un marchio Dovetail Games' },
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render delle locomotive sviluppate da SilverHive.', soon_title:'Contenuti in arrivo', soon_text:'Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.', back:'← Home', footer:'Train Simulator Classic è un marchio Dovetail Games' },
   en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'Screenshots & Renders', title:'Gallery', sub:'Images and renders of FS locomotives developed by SilverHive.', soon_title:'Coming soon', soon_text:'This section is being prepared. Come back soon to discover new SilverHive content.', back:'← Home', footer:'Train Simulator Classic is a trademark of Dovetail Games' },
   de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Screenshots & Renders', title:'Galerie', sub:'Bilder und Renders der von SilverHive entwickelten FS-Lokomotiven.', soon_title:'Demnächst verfügbar', soon_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.', back:'← Startseite', footer:'Train Simulator Classic ist eine Marke von Dovetail Games' },
   fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Screenshots & Rendus', title:'Galerie', sub:'Images et rendus des locomotives FS développées par SilverHive.', soon_title:'Bientôt disponible', soon_text:'Cette section est en préparation. Revenez bientôt.', back:'← Accueil', footer:'Train Simulator Classic est une marque de Dovetail Games' },
