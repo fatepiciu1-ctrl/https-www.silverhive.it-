@@ -96,18 +96,33 @@
 </nav>
 
 <div class="page-header">
-  <div class="page-label" data-i18n="label">In sviluppo</div>
+  <div class="page-label" data-i18n="label">Su cosa lavoriamo</div>
   <h1 data-i18n="title">Progetti</h1>
-  <p class="page-sub" data-i18n="sub">Scopri i prodotti attualmente in sviluppo nel laboratorio SilverHive.</p>
+  <p class="page-sub" data-i18n="sub">Scopri le aree di sviluppo del laboratorio SilverHive.</p>
 </div>
 
-<div class="page-content">
-  <div class="coming-soon">
-    <div class="coming-soon__icon">⚙️</div>
-    <div class="coming-soon__title" data-i18n="soon_title">Contenuti in arrivo</div>
-    <p class="coming-soon__text" data-i18n="soon_text">Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.</p>
-    <a href="index.html" class="btn-back" data-i18n="back">← Home</a>
+<div style="max-width:1100px;margin:0 auto;padding:60px 32px 80px;">
+
+  <div style="background:#16161a;border:1px solid rgba(56,189,248,.15);border-radius:8px;padding:40px;margin-bottom:24px;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#38BDF8;margin-bottom:12px;" data-i18n="tsc_label">Simulatore ferroviario</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;text-transform:uppercase;margin-bottom:20px;" data-i18n="tsc_title">Train Simulator Classic</h2>
+    <p style="color:#9ca3af;font-size:1rem;margin-bottom:28px;" data-i18n="tsc_intro">Cosa sviluppiamo per Train Simulator Classic:</p>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;gap:16px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#38BDF8;flex-shrink:0;margin-top:8px;"></div>
+        <div><strong style="color:#f1f5f9;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;letter-spacing:.05em;" data-i18n="cat1_title">Materiale rotabile</strong><p style="color:#9ca3af;font-size:.95rem;margin-top:4px;" data-i18n="cat1_desc">Locomotive, automotori e carrozze con modelli 3D dettagliati e livree storiche.</p></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:16px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#38BDF8;flex-shrink:0;margin-top:8px;"></div>
+        <div><strong style="color:#f1f5f9;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;letter-spacing:.05em;" data-i18n="cat2_title">Script Lua</strong><p style="color:#9ca3af;font-size:.95rem;margin-top:4px;" data-i18n="cat2_desc">Sistemi avanzati, logiche di cabina e automazioni.</p></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:16px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#38BDF8;flex-shrink:0;margin-top:8px;"></div>
+        <div><strong style="color:#f1f5f9;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;letter-spacing:.05em;" data-i18n="cat3_title">Livree</strong><p style="color:#9ca3af;font-size:.95rem;margin-top:4px;" data-i18n="cat3_desc">Rivestimenti storici e alternativi per materiale rotabile esistente.</p></div>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <footer>
@@ -120,11 +135,11 @@
 
 <script>
 var t = {
-  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'In sviluppo', title:'Progetti', sub:'Scopri i prodotti attualmente in sviluppo nel laboratorio SilverHive.', soon_title:'Contenuti in arrivo', soon_text:'Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.', back:'← Home' },
-  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'In development', title:'Projects', sub:'Discover the products currently in development at the SilverHive lab.', soon_title:'Coming soon', soon_text:'This section is being prepared. Come back soon to discover new SilverHive content.', back:'← Home' },
-  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'In Entwicklung', title:'Projekte', sub:'Entdecke die aktuell im SilverHive-Labor entwickelten Produkte.', soon_title:'Demnächst verfügbar', soon_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.', back:'← Startseite' },
-  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'En développement', title:'Projets', sub:'Découvrez les produits en cours de développement au laboratoire SilverHive.', soon_title:'Bientôt disponible', soon_text:'Cette section est en préparation. Revenez bientôt.', back:'← Accueil' },
-  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'En desarrollo', title:'Proyectos', sub:'Descubre los productos actualmente en desarrollo en el laboratorio SilverHive.', soon_title:'Próximamente', soon_text:'Esta sección está en preparación. Vuelve pronto.', back:'← Inicio' }
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Su cosa lavoriamo', title:'Progetti', sub:'Scopri le aree di sviluppo del laboratorio SilverHive.', tsc_label:'Simulatore ferroviario', tsc_title:'Train Simulator Classic', tsc_intro:'Cosa sviluppiamo per Train Simulator Classic:', cat1_title:'Materiale rotabile', cat1_desc:'Locomotive, automotori e carrozze con modelli 3D dettagliati e livree storiche.', cat2_title:'Script Lua', cat2_desc:'Sistemi avanzati, logiche di cabina e automazioni.', cat3_title:'Livree', cat3_desc:'Rivestimenti storici e alternativi per materiale rotabile esistente.' },
+  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'What we work on', title:'Projects', sub:'Discover the development areas of the SilverHive lab.', tsc_label:'Railway simulator', tsc_title:'Train Simulator Classic', tsc_intro:'What we develop for Train Simulator Classic:', cat1_title:'Rolling stock', cat1_desc:'Locomotives, railcars and carriages with detailed 3D models and historical liveries.', cat2_title:'Lua scripts', cat2_desc:'Advanced systems, cab logic and automation.', cat3_title:'Liveries', cat3_desc:'Historical and alternative liveries for existing rolling stock.' },
+  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Woran wir arbeiten', title:'Projekte', sub:'Entdecke die Entwicklungsbereiche des SilverHive-Labors.', tsc_label:'Eisenbahnsimulator', tsc_title:'Train Simulator Classic', tsc_intro:'Was wir für Train Simulator Classic entwickeln:', cat1_title:'Fahrzeuge', cat1_desc:'Lokomotiven, Triebwagen und Wagen mit detaillierten 3D-Modellen und historischen Lackierungen.', cat2_title:'Lua-Skripte', cat2_desc:'Erweiterte Systeme, Führerstandslogik und Automatisierungen.', cat3_title:'Lackierungen', cat3_desc:'Historische und alternative Lackierungen für bestehendes Fahrmaterial.' },
+  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Sur quoi nous travaillons', title:'Projets', sub:'Découvrez les domaines de développement du laboratoire SilverHive.', tsc_label:'Simulateur ferroviaire', tsc_title:'Train Simulator Classic', tsc_intro:'Ce que nous développons pour Train Simulator Classic:', cat1_title:'Matériel roulant', cat1_desc:'Locomotives, automotrices et voitures avec modèles 3D détaillés et livrées historiques.', cat2_title:'Scripts Lua', cat2_desc:'Systèmes avancés, logiques de cabine et automatisations.', cat3_title:'Livrées', cat3_desc:'Livrées historiques et alternatives pour le matériel roulant existant.' },
+  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'En qué trabajamos', title:'Proyectos', sub:'Descubre las áreas de desarrollo del laboratorio SilverHive.', tsc_label:'Simulador ferroviario', tsc_title:'Train Simulator Classic', tsc_intro:'Qué desarrollamos para Train Simulator Classic:', cat1_title:'Material rodante', cat1_desc:'Locomotoras, automotores y vagones con modelos 3D detallados y libreas históricas.', cat2_title:'Scripts Lua', cat2_desc:'Sistemas avanzados, lógicas de cabina y automatizaciones.', cat3_title:'Libreas', cat3_desc:'Libreas históricas y alternativas para material rodante existente.' }
 };
 function applyLang(lang) {
   var d = t[lang]; if (!d) return;
