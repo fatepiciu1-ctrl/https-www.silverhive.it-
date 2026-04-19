@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <meta name="description" content="Messaggio inviato correttamente a SilverHive."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" href="favicon-192.png"/>
+  <title>SilverHive | Messaggio inviato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-R5QZFVC8CC");
+  </script>
+  <style>
+    :root{--bg:#0d0d0f;--card:#16161a;--sky:#38BDF8;--gold:#D4AF37;--silver:#9ca3af;--white:#f1f5f9;--border:rgba(56,189,248,.15);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;overflow:hidden;}
+    a{text-decoration:none;color:inherit;}
+
+    /* grid background */
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+
+    .content{position:relative;z-index:1;max-width:640px;}
+
+    .logo-wrap{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:50px;}
+    .logo-wrap img{height:52px;width:auto;}
+
+    /* success check */
+    .check-wrap{margin:0 auto 30px;width:110px;height:110px;border-radius:50%;border:2px solid var(--sky);display:flex;align-items:center;justify-content:center;position:relative;animation:pop .5s ease both;}
+    .check-wrap::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(56,189,248,.2);animation:ring 2s ease-out infinite;}
+    .check-mark{width:50px;height:25px;border-left:4px solid var(--sky);border-bottom:4px solid var(--sky);transform:rotate(-45deg);margin-top:-8px;animation:draw .4s .2s ease both;transform-origin:left bottom;}
+    @keyframes pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+    @keyframes draw{from{transform:rotate(-45deg) scaleX(0)}to{transform:rotate(-45deg) scaleX(1)}}
+    @keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.4);opacity:0}}
+
+    .success-label{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;animation:up .6s .1s ease both;}
+    @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+    h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,3rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:18px;animation:up .6s .2s ease both;}
+
+    p.msg{color:var(--silver);font-size:1.1rem;font-weight:300;line-height:1.7;margin-bottom:30px;animation:up .6s .3s ease both;}
+
+    /* countdown */
+    .countdown{font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:var(--silver);margin-bottom:34px;animation:up .6s .4s ease both;}
+    .countdown strong{color:var(--gold);font-size:1.15rem;}
+
+    .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:up .6s .5s ease both;}
+
+    .btn-gold{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#000;padding:13px 32px;border-radius:3px;transition:background .2s,transform .15s;display:inline-block;}
+    .btn-gold:hover{background:var(--sky);transform:translateY(-2px);}
+
+    .btn-ghost{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);padding:13px 32px;border-radius:3px;border:1px solid var(--border);transition:color .2s,border-color .2s;display:inline-block;cursor:pointer;background:transparent;}
+    .btn-ghost:hover{color:var(--white);border-color:rgba(56,189,248,.4);}
+
+    /* train */
+    .train-wrap{margin:38px 0 26px;overflow:hidden;width:100%;position:relative;height:60px;}
+    .train{position:absolute;left:-200px;font-size:3rem;white-space:nowrap;animation:trainMove 4s linear infinite;display:inline-block;}
+    @keyframes trainMove{from{left:-200px;}to{left:110%;}}
+
+    footer{position:fixed;bottom:20px;font-size:.82rem;color:rgba(156,163,175,.5);}
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="SilverHive"/>
+      <img src="scritta.png" alt="SilverHive"/>
+    </div>
+
+    <div class="check-wrap"><div class="check-mark"></div></div>
+
+    <div class="success-label" data-i18n="label">Messaggio inviato</div>
+    <h1 data-i18n="title">Grazie per averci scritto!</h1>
+    <p class="msg" data-i18n="text">Abbiamo ricevuto la tua email e ti risponderemo al più presto. Nel frattempo, il treno è già in viaggio verso la home.</p>
+
+    <div class="countdown">
+      <span data-i18n="redirect">Reindirizzamento in</span>
+      <strong id="timer">5</strong>
+      <span data-i18n="seconds">secondi</span>
+    </div>
+
+    <div class="train-wrap">
+      <div class="train">🚂</div>
+    </div>
+
+    <div class="actions">
+      <a href="index.html" class="btn-gold" data-i18n="btn_home">Torna alla home</a>
+      <button type="button" class="btn-ghost" id="stopRedirect" data-i18n="btn_stop">Annulla redirect</button>
+    </div>
+  </div>
+
+  <footer>© 2025–2026 SilverHive</footer>
+
+<script>
+var t = {
+  it:{ label:'Messaggio inviato', title:'Grazie per averci scritto!', text:'Abbiamo ricevuto la tua email e ti risponderemo al più presto. Nel frattempo, il treno è già in viaggio verso la home.', redirect:'Reindirizzamento in', seconds:'secondi', btn_home:'Torna alla home', btn_stop:'Annulla redirect' },
+  en:{ label:'Message sent', title:'Thanks for reaching out!', text:'We\'ve received your email and will get back to you as soon as possible. Meanwhile, the train is already heading back home.', redirect:'Redirecting in', seconds:'seconds', btn_home:'Back to home', btn_stop:'Cancel redirect' },
+  de:{ label:'Nachricht gesendet', title:'Danke für deine Nachricht!', text:'Wir haben deine E-Mail erhalten und melden uns so bald wie möglich bei dir. Der Zug fährt inzwischen zurück zur Startseite.', redirect:'Weiterleitung in', seconds:'Sekunden', btn_home:'Zur Startseite', btn_stop:'Weiterleitung abbrechen' },
+  fr:{ label:'Message envoyé', title:'Merci de nous avoir écrit !', text:'Nous avons bien reçu votre email et nous vous répondrons dans les plus brefs délais. Entre-temps, le train est déjà en route vers l\'accueil.', redirect:'Redirection dans', seconds:'secondes', btn_home:'Retour à l\'accueil', btn_stop:'Annuler la redirection' },
+  es:{ label:'Mensaje enviado', title:'¡Gracias por escribirnos!', text:'Hemos recibido tu email y te responderemos lo antes posible. Mientras tanto, el tren ya está en camino al inicio.', redirect:'Redirección en', seconds:'segundos', btn_home:'Volver al inicio', btn_stop:'Cancelar redirección' }
+};
+function applyLang(lang) {
+  var d = t[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  document.documentElement.lang = lang;
+}
+var saved = localStorage.getItem('sh_lang') || 'it';
+applyLang(saved);
+
+// countdown + redirect
+var seconds = 5;
+var timerEl = document.getElementById('timer');
+var stopBtn = document.getElementById('stopRedirect');
+var interval = setInterval(function(){
+  seconds--;
+  if (timerEl) timerEl.textContent = seconds;
+  if (seconds <= 0) {
+    clearInterval(interval);
+    window.location.href = 'index.html';
+  }
+}, 1000);
+stopBtn.addEventListener('click', function(){
+  clearInterval(interval);
+  document.querySelector('.countdown').style.display = 'none';
+  stopBtn.style.display = 'none';
+});
+</script>
+</body>
+</html>
