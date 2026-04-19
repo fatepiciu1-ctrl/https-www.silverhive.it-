@@ -329,14 +329,15 @@
           <div><div class="c-lbl" style="color:#1877F2;">Facebook</div><div class="c-val">SilverHive Official</div></div>
         </a>
       </div>
-      <form action="https://formspree.io/f/mrerzydj" method="POST">
-        <input type="hidden" name="_next" value="https://www.silverhive.it/grazie.html"/>
+      <form id="contactForm" action="https://formspree.io/f/mrerzydj" method="POST">
         <input type="hidden" name="_subject" value="Nuovo messaggio da silverhive.it"/>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
         <div class="f-row">
           <div class="f-g"><label data-i18n="form_name">Nome</label><input type="text" name="nome" data-i18n-ph="form_name_ph" placeholder="Il tuo nome" required/></div>
           <div class="f-g"><label>Email</label><input type="email" name="email" placeholder="email@esempio.com" required/></div>
         </div>
         <div class="f-g"><label data-i18n="form_msg">Messaggio</label><textarea name="messaggio" data-i18n-ph="form_msg_ph" placeholder="Come possiamo aiutarti?" required></textarea></div>
+        <div id="formError" style="display:none;color:#ef4444;font-size:.95rem;margin-top:10px;" data-i18n="form_error">Errore durante l'invio. Riprova più tardi.</div>
         <button class="btn-send" type="submit" data-i18n="form_send">Invia</button>
       </form>
     </div>
@@ -392,7 +393,7 @@ var i18n = {
     faq5_a:'Sì, puoi usare i nostri prodotti in video su YouTube, Twitch o altri canali. Ti chiediamo solo di citare SilverHive come sviluppatore nella descrizione o nei crediti del video.',
     contact_label:'Contatti', contact_title:'Scrivici', contact_sub:'Supporto tecnico o domande sui prodotti.',
     contact_response_lbl:'Risposta', contact_response_val:'Entro 24–48 ore',
-    form_name:'Nome', form_name_ph:'Il tuo nome', form_msg:'Messaggio', form_msg_ph:'Come possiamo aiutarti?', form_send:'Invia'
+    form_name:'Nome', form_name_ph:'Il tuo nome', form_msg:'Messaggio', form_msg_ph:'Come possiamo aiutarti?', form_send:'Invia', form_error:'Errore durante l\'invio. Riprova più tardi o scrivici direttamente a info@silverhive.it'
   },
   en: {
     nav_home:'Home', nav_shop:'Shop', nav_contact:'Contact', nav_buy:'Buy now',
@@ -416,7 +417,7 @@ var i18n = {
     faq5_a:'Yes, you can use our products in YouTube, Twitch or other channel videos. We only ask that you credit SilverHive as the developer in the description or video credits.',
     contact_label:'Contact', contact_title:'Get in touch', contact_sub:'Technical support or product questions.',
     contact_response_lbl:'Response', contact_response_val:'Within 24–48 hours',
-    form_name:'Name', form_name_ph:'Your name', form_msg:'Message', form_msg_ph:'How can we help you?', form_send:'Send'
+    form_name:'Name', form_name_ph:'Your name', form_msg:'Message', form_msg_ph:'How can we help you?', form_send:'Send', form_error:'Error during submission. Please try again or email us at info@silverhive.it'
   },
   de: {
     nav_home:'Start', nav_shop:'Shop', nav_contact:'Kontakt', nav_buy:'Kaufen',
@@ -440,7 +441,7 @@ var i18n = {
     faq5_a:'Ja, du kannst unsere Produkte in YouTube-, Twitch- oder anderen Videos verwenden. Wir bitten dich nur, SilverHive als Entwickler in der Beschreibung oder im Abspann zu erwähnen.',
     contact_label:'Kontakt', contact_title:'Schreib uns', contact_sub:'Technischer Support oder Produktfragen.',
     contact_response_lbl:'Antwort', contact_response_val:'Innerhalb von 24–48 Stunden',
-    form_name:'Name', form_name_ph:'Dein Name', form_msg:'Nachricht', form_msg_ph:'Wie können wir helfen?', form_send:'Senden'
+    form_name:'Name', form_name_ph:'Dein Name', form_msg:'Nachricht', form_msg_ph:'Wie können wir helfen?', form_send:'Senden', form_error:'Fehler beim Senden. Bitte erneut versuchen oder schreibe an info@silverhive.it'
   },
   fr: {
     nav_home:'Accueil', nav_shop:'Boutique', nav_contact:'Contact', nav_buy:'Acheter',
@@ -464,7 +465,7 @@ var i18n = {
     faq5_a:"Oui, vous pouvez utiliser nos produits dans des vidéos YouTube, Twitch ou autres. Nous vous demandons simplement de mentionner SilverHive comme développeur dans la description ou le générique de la vidéo.",
     contact_label:'Contact', contact_title:'Écrivez-nous', contact_sub:'Support technique ou questions sur les produits.',
     contact_response_lbl:'Réponse', contact_response_val:'Sous 24–48 heures',
-    form_name:'Nom', form_name_ph:'Votre nom', form_msg:'Message', form_msg_ph:'Comment pouvons-nous vous aider?', form_send:'Envoyer'
+    form_name:'Nom', form_name_ph:'Votre nom', form_msg:'Message', form_msg_ph:'Comment pouvons-nous vous aider?', form_send:'Envoyer', form_error:'Erreur lors de l\'envoi. Réessayez ou écrivez à info@silverhive.it'
   },
   es: {
     nav_home:'Inicio', nav_shop:'Tienda', nav_contact:'Contacto', nav_buy:'Comprar',
@@ -488,7 +489,7 @@ var i18n = {
     faq5_a:'Sí, puedes usar nuestros productos en vídeos de YouTube, Twitch u otros canales. Solo te pedimos que menciones a SilverHive como desarrollador en la descripción o los créditos del vídeo.',
     contact_label:'Contacto', contact_title:'Escríbenos', contact_sub:'Soporte técnico o preguntas sobre productos.',
     contact_response_lbl:'Respuesta', contact_response_val:'En 24–48 horas',
-    form_name:'Nombre', form_name_ph:'Tu nombre', form_msg:'Mensaje', form_msg_ph:'¿Cómo podemos ayudarte?', form_send:'Enviar'
+    form_name:'Nombre', form_name_ph:'Tu nombre', form_msg:'Mensaje', form_msg_ph:'¿Cómo podemos ayudarte?', form_send:'Enviar', form_error:'Error al enviar. Inténtalo de nuevo o escríbenos a info@silverhive.it'
   }
 };
 
@@ -548,6 +549,38 @@ document.querySelectorAll('.cat4-card').forEach(function(el) {
   el.style.cssText += ';opacity:0;transform:translateY(20px);transition:opacity .45s ease,transform .45s ease';
   obs.observe(el);
 });
+
+// ── CONTACT FORM (AJAX → redirect a grazie.html) ─────────
+var contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = contactForm.querySelector('button[type="submit"]');
+    var errEl = document.getElementById('formError');
+    var originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '...';
+    errEl.style.display = 'none';
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+      if (response.ok) {
+        window.location.href = 'grazie.html';
+      } else {
+        throw new Error('submit_failed');
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      errEl.style.display = 'block';
+    });
+  });
+}
 </script>
 </body>
 </html>
