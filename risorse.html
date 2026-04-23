@@ -231,9 +231,9 @@ tabs.forEach(function(btn){
   });
 });
 
-// ── COUNTER API (CounterAPI.dev v1) ─────────────────────────
-var COUNTER_NS = 'silverhive';
-var COUNTER_API = 'https://api.counterapi.dev/v1/' + COUNTER_NS + '/';
+// ── COUNTER API (Abacus - jasoncameron.dev) ─────────────────
+var COUNTER_NS = 'silverhive.it';
+var COUNTER_BASE = 'https://abacus.jasoncameron.dev/';
 
 function updateCountEl(elId, value){
   var el = document.getElementById(elId);
@@ -241,7 +241,7 @@ function updateCountEl(elId, value){
 }
 
 function loadCounter(key, elId){
-  fetch(COUNTER_API + key)
+  fetch(COUNTER_BASE + 'get/' + COUNTER_NS + '/' + key)
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(data){
       if (data && typeof data.value !== 'undefined') updateCountEl(elId, data.value);
@@ -250,7 +250,7 @@ function loadCounter(key, elId){
 }
 
 function hitCounter(key, elId){
-  fetch(COUNTER_API + key + '/up')
+  fetch(COUNTER_BASE + 'hit/' + COUNTER_NS + '/' + key)
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(data){
       if (data && typeof data.value !== 'undefined') updateCountEl(elId, data.value);
@@ -260,7 +260,7 @@ function hitCounter(key, elId){
 
 // ── DOWNLOAD HANDLER ────────────────────────────────────────
 function downloadResource(key, url, filename, countElId){
-  // 1. GA4 event
+  // 1. GA4 event (sincrono, non blocca)
   if (typeof gtag === 'function') {
     gtag('event', 'file_download', {
       'file_name': filename,
@@ -268,17 +268,21 @@ function downloadResource(key, url, filename, countElId){
       'resource_key': key
     });
   }
-  // 2. CounterAPI increment
+  // 2. CounterAPI increment (fire-and-forget, non blocca il download)
   hitCounter(key, countElId);
-  // 3. Trigger download (target _blank evita rotella di caricamento sulla pagina corrente)
+  // 3. Trigger download — navigazione diretta via window.open con noopener
+  //    L'attributo 'download' forza il download invece dell'apertura
   var a = document.createElement('a');
   a.href = url;
   a.download = filename;
-  a.target = '_blank';
   a.rel = 'noopener';
+  a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
-  setTimeout(function(){ document.body.removeChild(a); }, 100);
+  setTimeout(function(){
+    if (a.parentNode) a.parentNode.removeChild(a);
+  }, 200);
+  return false;
 }
 
 // ── VIDEO TRACKING ──────────────────────────────────────────
