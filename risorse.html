@@ -270,18 +270,31 @@ function downloadResource(key, url, filename, countElId){
   }
   // 2. CounterAPI increment (fire-and-forget, non blocca il download)
   hitCounter(key, countElId);
-  // 3. Trigger download — navigazione diretta via window.open con noopener
-  //    L'attributo 'download' forza il download invece dell'apertura
-  var a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.rel = 'noopener';
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(function(){
-    if (a.parentNode) a.parentNode.removeChild(a);
-  }, 200);
+
+  // 3. Trigger download via Blob (no navigazione = no rotella browser)
+  fetch(url)
+    .then(function(r){
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.blob();
+    })
+    .then(function(blob){
+      var blobUrl = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = filename;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){
+        if (a.parentNode) a.parentNode.removeChild(a);
+        URL.revokeObjectURL(blobUrl);
+      }, 200);
+    })
+    .catch(function(err){
+      // Fallback: se il fetch fallisce (es. CORS), apri link diretto
+      console.warn('Download via blob fallito, uso fallback:', err);
+      window.location.href = url;
+    });
   return false;
 }
 
