@@ -244,7 +244,7 @@ function loadCounter(key, elId){
   fetch(COUNTER_API + key)
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(data){
-      if (data && typeof data.count !== 'undefined') updateCountEl(elId, data.count);
+      if (data && typeof data.value !== 'undefined') updateCountEl(elId, data.value);
     })
     .catch(function(){});
 }
@@ -253,7 +253,7 @@ function hitCounter(key, elId){
   fetch(COUNTER_API + key + '/up')
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(data){
-      if (data && typeof data.count !== 'undefined') updateCountEl(elId, data.count);
+      if (data && typeof data.value !== 'undefined') updateCountEl(elId, data.value);
     })
     .catch(function(){});
 }
@@ -270,13 +270,15 @@ function downloadResource(key, url, filename, countElId){
   }
   // 2. CounterAPI increment
   hitCounter(key, countElId);
-  // 3. Trigger download
+  // 3. Trigger download (target _blank evita rotella di caricamento sulla pagina corrente)
   var a = document.createElement('a');
   a.href = url;
   a.download = filename;
+  a.target = '_blank';
+  a.rel = 'noopener';
   document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);
+  setTimeout(function(){ document.body.removeChild(a); }, 100);
 }
 
 // ── VIDEO TRACKING ──────────────────────────────────────────
