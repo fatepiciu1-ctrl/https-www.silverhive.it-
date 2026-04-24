@@ -2,8 +2,8 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8"/>
-    <meta name="description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive italiane per Train Simulator Classic."/>
-  <meta name="keywords" content="galleria locomotive, screenshot Train Simulator, render 3D locomotive italiane"/>
+  <meta name="description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive e dei carri italiani per Train Simulator Classic."/>
+  <meta name="keywords" content="galleria locomotive, screenshot Train Simulator, render 3D locomotive italiane, carri merci"/>
   <meta name="author" content="SilverHive"/>
   <meta property="og:title" content="SilverHive Galleria | Screenshot e render locomotive"/>
   <meta property="og:description" content="Galleria immagini SilverHive. Screenshot e render 3D delle locomotive italiane per Train Simulator Classic."/>
@@ -44,22 +44,20 @@
     .page-label{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
     h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.5rem,5vw,4rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;}
     .page-sub{color:var(--silver);font-weight:300;font-size:1.1rem;max-width:520px;}
-    .page-content{max-width:1100px;margin:0 auto;padding:80px 32px;min-height:40vh;display:flex;align-items:center;justify-content:center;}
-    .coming-soon{text-align:center;border:1px solid var(--border);border-radius:8px;padding:80px 60px;background:var(--card);max-width:500px;width:100%;}
-    .coming-soon__icon{font-size:3.5rem;margin-bottom:20px;}
-    .coming-soon__title{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
-    .coming-soon__text{color:var(--silver);font-size:1rem;line-height:1.7;}
-    .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);border:1px solid var(--border);padding:10px 22px;border-radius:3px;margin-top:28px;transition:background .2s,color .2s;}
-    .btn-back:hover{background:var(--sky);color:#000;}
     footer{border-top:1px solid var(--border);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
     .f-brand{display:flex;align-items:center;gap:10px;}
     .f-brand img{height:32px;width:auto;}
     .f-copy{font-size:.85rem;color:var(--silver);}
     .f-copy span{color:var(--gold);}
-    /* GALLERY */
-    .gallery{max-width:1100px;margin:0 auto;padding:60px 32px 80px;}
-    .gal-section{margin-bottom:56px;}
-    .gal-section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+
+    /* TABS */
+    .gallery{max-width:1100px;margin:0 auto;padding:50px 32px 80px;}
+    .tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--border);margin-bottom:32px;}
+    .tab-btn{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:transparent;color:var(--silver);border:1px solid var(--border);border-bottom:none;padding:12px 22px;border-radius:3px 3px 0 0;cursor:pointer;transition:all .18s;margin-bottom:-1px;}
+    .tab-btn:hover{color:var(--white);border-color:rgba(56,189,248,.35);}
+    .tab-btn.active{background:var(--gold);color:#000;border-color:var(--gold);}
+
+    /* GRID */
     .gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;}
     .gal-thumb{position:relative;overflow:hidden;border-radius:6px;border:1px solid var(--border);cursor:pointer;aspect-ratio:4/3;background:#0d0d0f;transition:border-color .22s,transform .22s;}
     .gal-thumb:hover{border-color:rgba(56,189,248,.5);transform:translateY(-3px);}
@@ -69,6 +67,13 @@
     .gal-thumb:hover .gal-thumb__overlay{background:rgba(13,13,15,.4);}
     .gal-thumb__icon{font-size:2rem;opacity:0;transition:opacity .2s;}
     .gal-thumb:hover .gal-thumb__icon{opacity:1;}
+
+    /* EMPTY CATEGORY */
+    .gal-empty{text-align:center;padding:80px 20px;border:1px dashed rgba(56,189,248,.25);border-radius:8px;background:var(--card);}
+    .gal-empty__icon{font-size:3rem;margin-bottom:14px;opacity:.5;}
+    .gal-empty__title{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+    .gal-empty__text{font-size:.95rem;color:var(--silver);}
+
     /* LIGHTBOX */
     .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.95);align-items:center;justify-content:center;}
     .lightbox.open{display:flex;}
@@ -79,8 +84,16 @@
     .lightbox__prev{left:10px;}
     .lightbox__next{right:10px;}
     .lightbox__prev:hover,.lightbox__next:hover{color:var(--sky);}
-    .lightbox__caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.1em;color:var(--silver);text-align:center;}
-    @media(max-width:768px){.gallery{padding:40px 20px 60px;}.gal-grid{grid-template-columns:repeat(2,1fr);}.lightbox__prev{left:2px;}.lightbox__next{right:2px;}}
+    .lightbox__caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.1em;color:var(--silver);text-align:center;white-space:nowrap;}
+
+    @media(max-width:768px){
+      nav{padding:0 16px;}.nav-links{display:none;}
+      .page-header,.gallery{padding-left:20px;padding-right:20px;}
+      footer{padding:24px 20px;justify-content:center;text-align:center;}
+      .tabs{gap:4px;}.tab-btn{padding:10px 14px;font-size:.85rem;letter-spacing:.1em;}
+      .gal-grid{grid-template-columns:repeat(2,1fr);}
+      .lightbox__prev{left:2px;}.lightbox__next{right:2px;}
+    }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
@@ -135,30 +148,36 @@
 </div>
 
 <div class="gallery">
-  <div class="gal-section">
-    <div class="gal-grid">
-      <div class="gal-thumb" onclick="openLightbox(0)">
-        <img src="gal1.jpg" alt="Badoni 208 Verde FS"/>
-        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
-      </div>
-      <div class="gal-thumb" onclick="openLightbox(1)">
-        <img src="gal2.jpg" alt="Badoni 208 Verde invecchiato"/>
-        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
-      </div>
-      <div class="gal-thumb" onclick="openLightbox(2)">
-        <img src="gal3.jpg" alt="Badoni 208 Wireframe"/>
-        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
-      </div>
-      <div class="gal-thumb" onclick="openLightbox(3)">
-        <img src="gal4.jpg" alt="Badoni 208 DSB Gialla"/>
-        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
-      </div>
-      <div class="gal-thumb" onclick="openLightbox(4)">
-        <img src="gal5.jpg" alt="Badoni 208 FFJ Prugna"/>
-        <div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div>
-      </div>
-    </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="all" data-i18n="tab_all">Tutti</button>
+    <button class="tab-btn" data-tab="loco" data-i18n="tab_loco">🚂 Locomotive</button>
+    <button class="tab-btn" data-tab="carro" data-i18n="tab_carro">🚃 Carrozze & Vagoni</button>
+    <button class="tab-btn" data-tab="scen" data-i18n="tab_scen">🏞️ Scenari</button>
   </div>
+
+  <div class="gal-grid" id="galGrid">
+    <!-- Locomotive -->
+    <div class="gal-thumb" data-cat="loco" data-idx="0" onclick="openLightbox(this)"><img src="gal-loco-badoni208-01.jpg" alt="Badoni 208 Livrea Verde FS" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="loco" data-idx="1" onclick="openLightbox(this)"><img src="gal-loco-badoni208-02.jpg" alt="Badoni 208 Verde invecchiato" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="loco" data-idx="2" onclick="openLightbox(this)"><img src="gal-loco-badoni208-03.jpg" alt="Badoni 208 Modello 3D" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="loco" data-idx="3" onclick="openLightbox(this)"><img src="gal-loco-badoni208-04.jpg" alt="Badoni 208 Livrea DSB" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="loco" data-idx="4" onclick="openLightbox(this)"><img src="gal-loco-badoni208-05.jpg" alt="Badoni 208 Livrea FFJ" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+
+    <!-- Carrozze & Vagoni -->
+    <div class="gal-thumb" data-cat="carro" data-idx="5" onclick="openLightbox(this)"><img src="gal-carro-rmms-01.jpg" alt="Carro Rmms Livrea FS" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="carro" data-idx="6" onclick="openLightbox(this)"><img src="gal-carro-rmms-02.jpg" alt="Carro Rmms Modello 3D" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="carro" data-idx="7" onclick="openLightbox(this)"><img src="gal-carro-rmms-03.jpg" alt="Carro Rmms Wireframe" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+    <div class="gal-thumb" data-cat="carro" data-idx="8" onclick="openLightbox(this)"><img src="gal-carro-rmms-04.jpg" alt="Carro Rmms Disegno tecnico" loading="lazy"/><div class="gal-thumb__overlay"><div class="gal-thumb__icon">🔍</div></div></div>
+  </div>
+
+  <!-- Messaggio categoria vuota (mostrato via JS quando tab Scenari è selezionata) -->
+  <div class="gal-empty" id="galEmpty" style="display:none;">
+    <div class="gal-empty__icon">🏞️</div>
+    <div class="gal-empty__title" data-i18n="empty_title">Contenuti in arrivo</div>
+    <div class="gal-empty__text" data-i18n="empty_text">Questa sezione è in preparazione. Torna presto per nuovi contenuti.</div>
+  </div>
+
 </div>
 
 <footer>
@@ -170,45 +189,111 @@
 </footer>
 
 <script>
+// ── IMAGES DATA ─────────────────────────────────────────────
 var images = [
-  {src:'gal1.jpg', cap:'Badoni 208 — Livrea Verde FS'},
-  {src:'gal2.jpg', cap:'Badoni 208 — Verde invecchiato'},
-  {src:'gal3.jpg', cap:'Badoni 208 — Modello 3D'},
-  {src:'gal4.jpg', cap:'Badoni 208 — Livrea DSB'},
-  {src:'gal5.jpg', cap:'Badoni 208 — Livrea FFJ'}
+  // Locomotive
+  {src:'gal-loco-badoni208-01.jpg', cat:'loco', cap:'Badoni 208 — Livrea Verde FS'},
+  {src:'gal-loco-badoni208-02.jpg', cat:'loco', cap:'Badoni 208 — Verde invecchiato'},
+  {src:'gal-loco-badoni208-03.jpg', cat:'loco', cap:'Badoni 208 — Modello 3D'},
+  {src:'gal-loco-badoni208-04.jpg', cat:'loco', cap:'Badoni 208 — Livrea DSB'},
+  {src:'gal-loco-badoni208-05.jpg', cat:'loco', cap:'Badoni 208 — Livrea FFJ'},
+  // Carrozze & Vagoni
+  {src:'gal-carro-rmms-01.jpg', cat:'carro', cap:'Carro Rmms — Livrea FS (siderurgico)'},
+  {src:'gal-carro-rmms-02.jpg', cat:'carro', cap:'Carro Rmms — Modello 3D'},
+  {src:'gal-carro-rmms-03.jpg', cat:'carro', cap:'Carro Rmms — Wireframe'},
+  {src:'gal-carro-rmms-04.jpg', cat:'carro', cap:'Carro Rmms — Disegno tecnico'}
 ];
+
+// ── STATE ───────────────────────────────────────────────────
+var currentCat = 'all';
 var current = 0;
 
-function openLightbox(idx) {
-  current = idx;
-  document.getElementById('lightboxImg').src = images[idx].src;
-  document.getElementById('lightboxCaption').textContent = images[idx].cap;
+// ── TAB FILTER ──────────────────────────────────────────────
+var tabButtons = document.querySelectorAll('.tab-btn');
+var thumbs = document.querySelectorAll('.gal-thumb');
+var emptyEl = document.getElementById('galEmpty');
+var gridEl = document.getElementById('galGrid');
+
+tabButtons.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    currentCat = btn.dataset.tab;
+    tabButtons.forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var visibleCount = 0;
+    thumbs.forEach(function(el){
+      var show = (currentCat === 'all' || el.dataset.cat === currentCat);
+      el.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+
+    // Mostra placeholder se categoria vuota
+    if (visibleCount === 0) {
+      gridEl.style.display = 'none';
+      emptyEl.style.display = 'block';
+    } else {
+      gridEl.style.display = '';
+      emptyEl.style.display = 'none';
+    }
+  });
+});
+
+// ── LIGHTBOX ────────────────────────────────────────────────
+function getFilteredImages(){
+  if (currentCat === 'all') return images.map(function(img,i){ return {img:img, idx:i}; });
+  return images.map(function(img,i){ return {img:img, idx:i}; }).filter(function(o){ return o.img.cat === currentCat; });
+}
+
+function openLightbox(thumbEl){
+  var realIdx = parseInt(thumbEl.dataset.idx, 10);
+  current = realIdx;
+  showLightbox();
+}
+
+function showLightbox(){
+  var img = images[current];
+  if (!img) return;
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightboxImg').alt = img.cap;
+  document.getElementById('lightboxCaption').textContent = img.cap;
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-function closeLightbox() {
+
+function closeLightbox(){
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
-function moveLightbox(dir) {
-  current = (current + dir + images.length) % images.length;
-  document.getElementById('lightboxImg').src = images[current].src;
-  document.getElementById('lightboxCaption').textContent = images[current].cap;
+
+function moveLightbox(dir){
+  // Naviga solo dentro le immagini della categoria corrente
+  var filtered = getFilteredImages();
+  if (filtered.length === 0) return;
+  var pos = filtered.findIndex(function(o){ return o.idx === current; });
+  if (pos === -1) pos = 0;
+  pos = (pos + dir + filtered.length) % filtered.length;
+  current = filtered[pos].idx;
+  showLightbox();
 }
-document.addEventListener('keydown', function(e) {
+
+document.addEventListener('keydown', function(e){
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowRight') moveLightbox(1);
   if (e.key === 'ArrowLeft') moveLightbox(-1);
 });
-document.getElementById('lightbox').addEventListener('click', function(e) {
+
+document.getElementById('lightbox').addEventListener('click', function(e){
   if (e.target === this) closeLightbox();
 });
+
+// ── i18n ────────────────────────────────────────────────────
 var t = {
-  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render sviluppate da SilverHive.', soon_title:'Contenuti in arrivo', soon_text:'Questa sezione è in preparazione. Torna presto per scoprire i nuovi contenuti di SilverHive.', back:'← Home' },
-  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'Screenshots & Renders', title:'Gallery', sub:'Images and renders developed by SilverHive.', soon_title:'Coming soon', soon_text:'This section is being prepared. Come back soon to discover new SilverHive content.', back:'← Home' },
-  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Screenshots & Renders', title:'Galerie', sub:'Bilder und Renders von SilverHive.', soon_title:'Demnächst verfügbar', soon_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.', back:'← Startseite' },
-  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Screenshots & Rendus', title:'Galerie', sub:'Images et rendus développés par SilverHive.', soon_title:'Bientôt disponible', soon_text:'Cette section est en préparation. Revenez bientôt.', back:'← Accueil' },
-  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'Capturas & Renders', title:'Galería', sub:'Imágenes y renders desarrollados por SilverHive.', soon_title:'Próximamente', soon_text:'Esta sección está en preparación. Vuelve pronto.', back:'← Inicio' }
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render sviluppate da SilverHive.', tab_all:'Tutti', tab_loco:'🚂 Locomotive', tab_carro:'🚃 Carrozze & Vagoni', tab_scen:'🏞️ Scenari', empty_title:'Contenuti in arrivo', empty_text:'Questa sezione è in preparazione. Torna presto per nuovi contenuti.' },
+  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'Screenshots & Renders', title:'Gallery', sub:'Images and renders developed by SilverHive.', tab_all:'All', tab_loco:'🚂 Locomotives', tab_carro:'🚃 Coaches & Wagons', tab_scen:'🏞️ Scenarios', empty_title:'Coming soon', empty_text:'This section is being prepared. Come back soon for new content.' },
+  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Screenshots & Renders', title:'Galerie', sub:'Bilder und Renders von SilverHive.', tab_all:'Alle', tab_loco:'🚂 Lokomotiven', tab_carro:'🚃 Wagen', tab_scen:'🏞️ Szenarien', empty_title:'Demnächst verfügbar', empty_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.' },
+  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Screenshots & Rendus', title:'Galerie', sub:'Images et rendus développés par SilverHive.', tab_all:'Tous', tab_loco:'🚂 Locomotives', tab_carro:'🚃 Voitures & Wagons', tab_scen:'🏞️ Scénarios', empty_title:'Bientôt disponible', empty_text:'Cette section est en préparation. Revenez bientôt.' },
+  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'Capturas & Renders', title:'Galería', sub:'Imágenes y renders desarrollados por SilverHive.', tab_all:'Todos', tab_loco:'🚂 Locomotoras', tab_carro:'🚃 Coches & Vagones', tab_scen:'🏞️ Escenarios', empty_title:'Próximamente', empty_text:'Esta sección está en preparación. Vuelve pronto.' }
 };
 function applyLang(lang) {
   var d = t[lang]; if (!d) return;
