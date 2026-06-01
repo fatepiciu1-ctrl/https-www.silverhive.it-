@@ -64,7 +64,9 @@
     .prod-card:hover{border-color:rgba(56,189,248,.5);transform:translateY(-5px);}
     .prod-card__img{width:100%;height:200px;object-fit:contain;display:block;transition:transform .35s;background:#0d0d0f;padding:10px;}
     .prod-card:hover .prod-card__img{transform:scale(1.04);}
-    .prod-card__body{padding:24px;}
+    .prod-card{display:flex;flex-direction:column;}
+    .prod-card__body{padding:24px;display:flex;flex-direction:column;flex:1;}
+    .prod-card__desc{flex:1;}
     .prod-card__tag{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
     .prod-card__name{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:8px;}
     .prod-card__desc{font-size:.95rem;color:var(--silver);line-height:1.65;margin-bottom:20px;}
@@ -135,7 +137,7 @@
     </a>
 
     <a href="shop-e656.html" class="prod-card">
-      <img src="Immagine 1.jpg" alt="E.656 Caimano" class="prod-card__img"/>
+      <img src="E656-002.jpg" alt="E.656 Caimano" class="prod-card__img"/>
       <div class="prod-card__body">
         <div class="prod-card__tag">Locomotiva elettrica</div>
         <div class="prod-card__name">E.656 Caimano</div>
