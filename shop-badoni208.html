@@ -33,33 +33,34 @@
     .social-btn.yt:hover{background:rgba(255,0,0,.15);border-color:#FF0000;}
     .social-btn.fb{color:#1877F2;border-color:rgba(24,119,242,.3);}
     .social-btn.fb:hover{background:rgba(24,119,242,.15);border-color:#1877F2;}
+    /* Header */
     .page-header{padding:120px 32px 60px;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--border);display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
-    .page-header img{width:220px;height:160px;object-fit:contain;border-radius:6px;background:#0d0d0f;border:1px solid var(--border);padding:8px;}
+    .page-header img{width:220px;height:160px;object-fit:contain;border-radius:6px;background:#0d0d0f;border:1px solid var(--border);padding:8px;flex-shrink:0;}
     .page-header__text{flex:1;min-width:260px;}
     .page-label{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
     h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
     .badge-free{background:rgba(56,189,248,.12);color:var(--sky);border:1px solid rgba(56,189,248,.3);font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:2px;vertical-align:middle;margin-left:8px;}
-    .page-sub{color:var(--silver);font-weight:300;font-size:1rem;max-width:560px;line-height:1.7;}
+    .page-sub{color:var(--silver);font-weight:300;font-size:1rem;max-width:560px;line-height:1.7;margin-top:8px;}
+    /* Content */
     .page-content{max-width:1100px;margin:0 auto;padding:60px 32px 80px;}
     .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border:1px solid var(--border);padding:10px 22px;border-radius:3px;margin-bottom:48px;transition:all .2s;}
     .btn-back:hover{color:var(--white);border-color:rgba(56,189,248,.4);}
     .section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--sky);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
     /* Download principale */
     .main-download{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:48px;}
-    .main-download__info{display:flex;flex-direction:column;gap:6px;}
-    .main-download__title{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;}
+    .main-download__title{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:6px;}
     .main-download__meta{color:var(--silver);font-size:.95rem;}
-    .btn-gumroad{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:14px 36px;border-radius:3px;transition:background .2s;display:inline-flex;align-items:center;gap:10px;flex-shrink:0;}
-    .btn-gumroad svg{width:16px;height:16px;stroke:#000;}
+    .btn-gumroad{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:12px 28px;border-radius:3px;transition:background .2s;display:inline-flex;align-items:center;gap:10px;flex-shrink:0;}
+    .btn-gumroad svg{width:15px;height:15px;stroke:#000;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
     .btn-gumroad:hover{background:var(--sky);}
     /* Patch grid */
-    .patch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:48px;}
+    .patch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:48px;}
     .patch-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s;}
     .patch-card:hover{border-color:rgba(56,189,248,.5);transform:translateY(-3px);}
     .patch-card__name{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;}
     .patch-card__desc{color:var(--silver);font-size:.9rem;line-height:1.6;}
-    .patch-card__meta{font-size:.8rem;color:var(--gold);font-family:'Barlow Condensed',sans-serif;display:flex;align-items:center;justify-content:space-between;}
-    .btn-dl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 0;border-radius:3px;transition:background .18s;display:flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;width:100%;margin-top:auto;}
+    .patch-card__ver{font-size:.8rem;color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:.06em;}
+    .btn-dl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 22px;border-radius:3px;transition:background .18s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;margin-top:auto;align-self:flex-start;}
     .btn-dl:hover{background:var(--sky);}
     .btn-dl svg{width:15px;height:15px;fill:currentColor;}
     footer{border-top:1px solid var(--border);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
@@ -101,11 +102,11 @@
 </nav>
 
 <div class="page-header">
-  <img src="badoni208.jpg" alt="Automotore 208 Badoni"/>
+  <img src="badoni208.jpg" alt='Automotore 208 "Badoni"'/>
   <div class="page-header__text">
     <div class="page-label" data-i18n="label">Prodotto</div>
     <h1>Automotore 208 "Badoni" <span class="badge-free">FREE</span></h1>
-    <p class="page-sub" data-i18n="sub">L'iconico automotore da manovra Diesel, soprannominato "sogliola". Prodotto dalla Antonio Badoni Lecco tra il 1939 e il 1952. Compatibile con Train Simulator Classic.</p>
+    <p class="page-sub">L'iconico automotore da manovra Diesel FS, soprannominato "sogliola". Prodotto dalla Antonio Badoni Lecco tra il 1939 e il 1952. Compatibile con Train Simulator Classic.</p>
   </div>
 </div>
 
@@ -114,12 +115,13 @@
 
   <div class="section-title" data-i18n="sec_download">Download</div>
   <div class="main-download">
-    <div class="main-download__info">
+    <div>
       <div class="main-download__title">Automotore 208 "Badoni" <span class="badge-free">FREE</span></div>
       <div class="main-download__meta" data-i18n="main_meta">Download gratuito via Gumroad — Train Simulator Classic</div>
     </div>
-    <a href="https://silverhive.gumroad.com/l/silverhive" target="_blank" rel="noopener" class="btn-gumroad" onclick="if(typeof gtag!=='undefined') gtag('event','click',{event_category:'shop',event_label:'gumroad-badoni208'});">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    <a href="https://silverhive.gumroad.com/l/silverhive" target="_blank" rel="noopener" class="btn-gumroad"
+       onclick="if(typeof gtag!=='undefined') gtag('event','click',{event_category:'shop',event_label:'gumroad-badoni208'});">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       <span data-i18n="btn_gumroad">Scarica su Gumroad</span>
     </a>
   </div>
@@ -141,11 +143,11 @@
 
 <script>
 var t = {
-  it:{ nav_home:'Home', nav_shop:'Shop', nav_contact:'Contatti', nav_buy:'Acquista', label:'Prodotto', sub:'L'iconico automotore da manovra Diesel, soprannominato "sogliola". Prodotto dalla Antonio Badoni Lecco tra il 1939 e il 1952. Compatibile con Train Simulator Classic.', btn_back:'← Shop', sec_download:'Download', main_meta:'Download gratuito via Gumroad — Train Simulator Classic', btn_gumroad:'Scarica su Gumroad', sec_patch:'Patch & Addon' },
-  en:{ nav_home:'Home', nav_shop:'Shop', nav_contact:'Contact', nav_buy:'Buy now', label:'Product', sub:'The iconic Diesel shunting railcar, nicknamed "sogliola". Built by Antonio Badoni Lecco between 1939 and 1952. Compatible with Train Simulator Classic.', btn_back:'← Shop', sec_download:'Download', main_meta:'Free download via Gumroad — Train Simulator Classic', btn_gumroad:'Download on Gumroad', sec_patch:'Patches & Addons' },
-  de:{ nav_home:'Start', nav_shop:'Shop', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Produkt', sub:'Der ikonische Diesel-Rangiertriebwagen, "Sogliola" genannt. Gebaut von Antonio Badoni Lecco zwischen 1939 und 1952. Kompatibel mit Train Simulator Classic.', btn_back:'← Shop', sec_download:'Download', main_meta:'Kostenloser Download via Gumroad — Train Simulator Classic', btn_gumroad:'Auf Gumroad herunterladen', sec_patch:'Patches & Addons' },
-  fr:{ nav_home:'Accueil', nav_shop:'Boutique', nav_contact:'Contact', nav_buy:'Acheter', label:'Produit', sub:'L'iconique automotrice Diesel de manœuvre, surnommée "sogliola". Fabriquée par Antonio Badoni Lecco entre 1939 et 1952. Compatible avec Train Simulator Classic.', btn_back:'← Boutique', sec_download:'Téléchargement', main_meta:'Téléchargement gratuit via Gumroad — Train Simulator Classic', btn_gumroad:'Télécharger sur Gumroad', sec_patch:'Patchs & Addons' },
-  es:{ nav_home:'Inicio', nav_shop:'Tienda', nav_contact:'Contacto', nav_buy:'Comprar', label:'Producto', sub:'El icónico automotor diésel de maniobras, apodado "sogliola". Fabricado por Antonio Badoni Lecco entre 1939 y 1952. Compatible con Train Simulator Classic.', btn_back:'← Tienda', sec_download:'Descarga', main_meta:'Descarga gratuita via Gumroad — Train Simulator Classic', btn_gumroad:'Descargar en Gumroad', sec_patch:'Parches y Addons' }
+  it:{ nav_home:'Home', nav_shop:'Shop', nav_contact:'Contatti', nav_buy:'Acquista', label:'Prodotto', btn_back:'\u2190 Shop', sec_download:'Download', main_meta:'Download gratuito via Gumroad \u2014 Train Simulator Classic', btn_gumroad:'Scarica su Gumroad', sec_patch:'Patch & Addon' },
+  en:{ nav_home:'Home', nav_shop:'Shop', nav_contact:'Contact', nav_buy:'Buy now', label:'Product', btn_back:'\u2190 Shop', sec_download:'Download', main_meta:'Free download via Gumroad \u2014 Train Simulator Classic', btn_gumroad:'Download on Gumroad', sec_patch:'Patches & Addons' },
+  de:{ nav_home:'Start', nav_shop:'Shop', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Produkt', btn_back:'\u2190 Shop', sec_download:'Download', main_meta:'Kostenloser Download via Gumroad \u2014 Train Simulator Classic', btn_gumroad:'Auf Gumroad herunterladen', sec_patch:'Patches & Addons' },
+  fr:{ nav_home:'Accueil', nav_shop:'Boutique', nav_contact:'Contact', nav_buy:'Acheter', label:'Produit', btn_back:'\u2190 Boutique', sec_download:'T\u00e9l\u00e9chargement', main_meta:'T\u00e9l\u00e9chargement gratuit via Gumroad \u2014 Train Simulator Classic', btn_gumroad:'T\u00e9l\u00e9charger sur Gumroad', sec_patch:'Patchs & Addons' },
+  es:{ nav_home:'Inicio', nav_shop:'Tienda', nav_contact:'Contacto', nav_buy:'Comprar', label:'Producto', btn_back:'\u2190 Tienda', sec_download:'Descarga', main_meta:'Descarga gratuita via Gumroad \u2014 Train Simulator Classic', btn_gumroad:'Descargar en Gumroad', sec_patch:'Parches y Addons' }
 };
 function applyLang(lang){
   var d=t[lang]; if(!d) return;
