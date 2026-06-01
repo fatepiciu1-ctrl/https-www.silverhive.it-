@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="apple-touch-icon" href="favicon-192.png"/>
-  <title>SilverHive | E.656 Caimano Expert</title>
+  <title>SilverHive | E.656 Caimano</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    :root{--bg:#0d0d0f;--card:#16161a;--sky:#38BDF8;--gold:#D4AF37;--silver:#9ca3af;--white:#f1f5f9;--border:rgba(56,189,248,.15);}
+  <style>:root{--bg:#0d0d0f;--card:#16161a;--sky:#38BDF8;--gold:#D4AF37;--silver:#9ca3af;--white:#f1f5f9;--border:rgba(56,189,248,.15);}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;font-size:18px;overflow-x:hidden;}
@@ -39,37 +38,27 @@
     .page-sub{color:var(--silver);font-weight:300;font-size:1.1rem;max-width:580px;}
     .page-content{max-width:1100px;margin:0 auto;padding:60px 32px 80px;}
     .section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--sky);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
-    .pdf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:48px;}
+    .pdf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:48px;}
     .pdf-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s;}
     .pdf-card:hover{border-color:rgba(56,189,248,.5);transform:translateY(-3px);}
     .pdf-card__lang{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;display:flex;align-items:center;gap:10px;}
     .pdf-card__flag{font-size:1.5rem;}
     .pdf-card__meta{font-size:.8rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;letter-spacing:.06em;}
-    .pdf-card__count{font-size:.8rem;color:var(--gold);font-family:'Barlow Condensed',sans-serif;}
+    .pdf-card__count{font-size:.85rem;color:var(--gold);font-family:'Barlow Condensed',sans-serif;}
     .pdf-card__count .num{font-weight:700;}
-    .btn-dl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 0;border-radius:3px;transition:background .18s;display:flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;width:100%;}
+    .btn-dl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 0;border-radius:3px;transition:background .18s;display:flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;width:100%;margin-top:auto;}
     .btn-dl:hover{background:var(--sky);}
     .btn-dl svg{width:15px;height:15px;fill:currentColor;}
     .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border:1px solid var(--border);padding:10px 22px;border-radius:3px;margin-bottom:48px;transition:all .2s;}
     .btn-back:hover{color:var(--white);border-color:rgba(56,189,248,.4);}
-    .coming-soon{background:var(--card);border:1px dashed rgba(56,189,248,.2);border-radius:8px;padding:60px 32px;text-align:center;margin-bottom:48px;}
-    .coming-soon__icon{font-size:3rem;margin-bottom:16px;}
-    .coming-soon__text{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--silver);}
     footer{border-top:1px solid var(--border);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
     .f-brand{display:flex;align-items:center;gap:10px;}
     .f-brand img{height:32px;width:auto;}
     .f-copy{font-size:.85rem;color:var(--silver);}
     .f-copy span{color:var(--gold);}
-    @media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.page-header,.page-content{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;justify-content:center;text-align:center;}.pdf-grid{grid-template-columns:1fr 1fr;}}
-</style>
-  <!-- Google Analytics -->
+    @media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.page-header,.page-content{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;justify-content:center;text-align:center;}.pdf-grid{grid-template-columns:1fr 1fr;}}</style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-R5QZFVC8CC");
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R5QZFVC8CC");</script>
 </head>
 <body>
 <nav>
@@ -101,106 +90,177 @@
 
 <div class="page-header">
   <div class="page-label">Prodotto</div>
-  <h1>E.656 Caimano Expert</h1>
-  <p class="page-sub">Documentazione, manuali e risorse per l'E.656 Caimano Expert.</p>
+  <h1>E.656 Caimano</h1>
+  <p class="page-sub">Documentazione, manuali e risorse per la locomotiva E.656 Caimano per Train Simulator Classic.</p>
 </div>
 
 <div class="page-content">
   <a href="risorse.html" class="btn-back" data-i18n="btn_back">← Risorse</a>
+
   <div class="section-title">Expert</div>
   <div class="pdf-grid">
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇮🇹</span>Italiano</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-it">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-it','pdf/Manuale_E656_Caimano_v1.pdf','Manuale_E656_Caimano_v1.pdf','cnt-e656-exp-it')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇬🇧</span>English</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-en">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-en','pdf/Manuale_E656_Expert_v1_EN.pdf','Manuale_E656_Expert_v1_EN.pdf','cnt-e656-exp-en')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇩🇪</span>Deutsch</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-de">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-de','pdf/Manuale_E656_Expert_v1_DE.pdf','Manuale_E656_Expert_v1_DE.pdf','cnt-e656-exp-de')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇫🇷</span>Français</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-fr">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-fr','pdf/Manuale_E656_Expert_v1_FR.pdf','Manuale_E656_Expert_v1_FR.pdf','cnt-e656-exp-fr')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇪🇸</span>Español</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-es">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-es','pdf/Manuale_E656_Expert_v1_ES.pdf','Manuale_E656_Expert_v1_ES.pdf','cnt-e656-exp-es')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇮🇹</span>Italiano</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-it">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-it','pdf/Manuale_E656_Caimano_v1.pdf','Manuale_E656_Caimano_v1.pdf','cnt-e656-exp-it')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇬🇧</span>English</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-en">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-en','pdf/Manuale_E656_Expert_v1_EN.pdf','Manuale_E656_Expert_v1_EN.pdf','cnt-e656-exp-en')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇩🇪</span>Deutsch</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-de">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-de','pdf/Manuale_E656_Expert_v1_DE.pdf','Manuale_E656_Expert_v1_DE.pdf','cnt-e656-exp-de')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇫🇷</span>Français</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-fr">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-fr','pdf/Manuale_E656_Expert_v1_FR.pdf','Manuale_E656_Expert_v1_FR.pdf','cnt-e656-exp-fr')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇪🇸</span>Español</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-exp-es">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-expert-es','pdf/Manuale_E656_Expert_v1_ES.pdf','Manuale_E656_Expert_v1_ES.pdf','cnt-e656-exp-es')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
   </div>
 
   <div class="section-title">Classic</div>
   <div class="pdf-grid">
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇮🇹</span>Italiano</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-it">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-it','pdf/Manuale_E656_Classic_v1.pdf','Manuale_E656_Classic_v1.pdf','cnt-e656-cls-it')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇬🇧</span>English</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-en">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-en','pdf/Manuale_E656_Classic_v1_EN.pdf','Manuale_E656_Classic_v1_EN.pdf','cnt-e656-cls-en')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇩🇪</span>Deutsch</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-de">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-de','pdf/Manuale_E656_Classic_v1_DE.pdf','Manuale_E656_Classic_v1_DE.pdf','cnt-e656-cls-de')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇫🇷</span>Français</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-fr">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-fr','pdf/Manuale_E656_Classic_v1_FR.pdf','Manuale_E656_Classic_v1_FR.pdf','cnt-e656-cls-fr')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-      <div class="pdf-card">
-        <div class="pdf-card__lang"><span class="pdf-card__flag">🇪🇸</span>Español</div>
-        <div class="pdf-card__meta">PDF</div>
-        <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-es">—</span></div>
-        <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-es','pdf/Manuale_E656_Classic_v1_ES.pdf','Manuale_E656_Classic_v1_ES.pdf','cnt-e656-cls-es')">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span data-i18n="btn_download">Scarica</span>
-        </button>
-      </div>
-  </div>>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇮🇹</span>Italiano</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-it">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-it','pdf/Manuale_E656_Classic_v1.pdf','Manuale_E656_Classic_v1.pdf','cnt-e656-cls-it')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇬🇧</span>English</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-en">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-en','pdf/Manuale_E656_Classic_v1_EN.pdf','Manuale_E656_Classic_v1_EN.pdf','cnt-e656-cls-en')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇩🇪</span>Deutsch</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-de">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-de','pdf/Manuale_E656_Classic_v1_DE.pdf','Manuale_E656_Classic_v1_DE.pdf','cnt-e656-cls-de')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇫🇷</span>Français</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-fr">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-fr','pdf/Manuale_E656_Classic_v1_FR.pdf','Manuale_E656_Classic_v1_FR.pdf','cnt-e656-cls-fr')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">🇪🇸</span>Español</div>
+      <div class="pdf-card__meta">PDF</div>
+      <div class="pdf-card__count"><span data-i18n="downloads">Download:</span> <span class="num" id="cnt-e656-cls-es">—</span></div>
+      <button type="button" class="btn-dl" onclick="downloadPDF('e656-classic-es','pdf/Manuale_E656_Classic_v1_ES.pdf','Manuale_E656_Classic_v1_ES.pdf','cnt-e656-cls-es')">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span data-i18n="btn_download">Scarica</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-brand">
+    <img src="logo.png" alt="SilverHive"/>
+    <img src="scritta.png" alt="SilverHive"/>
+  </div>
+  <div class="f-copy">© 2025–2026 <span>SilverHive</span></div>
+</footer>
+
+<script>
+var t = {
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_res:'Risorse', nav_contact:'Contatti', nav_buy:'Acquista', btn_back:'← Risorse', btn_download:'Scarica', downloads:'Download:' },
+  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_res:'Resources', nav_contact:'Contact', nav_buy:'Buy now', btn_back:'← Resources', btn_download:'Download', downloads:'Downloads:' },
+  de:{ nav_home:'Start', nav_cat:'Katalog', nav_res:'Ressourcen', nav_contact:'Kontakt', nav_buy:'Kaufen', btn_back:'← Ressourcen', btn_download:'Herunterladen', downloads:'Downloads:' },
+  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_res:'Ressources', nav_contact:'Contact', nav_buy:'Acheter', btn_back:'← Ressources', btn_download:'Télécharger', downloads:'Téléchargements:' },
+  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_res:'Recursos', nav_contact:'Contacto', nav_buy:'Comprar', btn_back:'← Recursos', btn_download:'Descargar', downloads:'Descargas:' }
+};
+function applyLang(lang){
+  var d=t[lang]; if(!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(d[k]!==undefined) el.innerHTML=d[k];
+  });
+  document.documentElement.lang=lang;
+  localStorage.setItem('sh_lang',lang);
+}
+var sel=document.getElementById('langSelect');
+var saved=localStorage.getItem('sh_lang')||'it';
+sel.value=saved; applyLang(saved);
+sel.addEventListener('change',function(){ applyLang(this.value); });
+
+var COUNTER_NS='silverhive.it';
+var COUNTER_BASE='https://abacus.jasoncameron.dev/';
+function loadCounter(key,elId){
+  fetch(COUNTER_BASE+'get/'+COUNTER_NS+'/'+key)
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(data){ if(data&&typeof data.value!=='undefined') document.getElementById(elId).textContent=data.value; })
+    .catch(function(){});
+}
+function hitCounter(key,elId){
+  fetch(COUNTER_BASE+'hit/'+COUNTER_NS+'/'+key)
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(data){ if(data&&typeof data.value!=='undefined') document.getElementById(elId).textContent=data.value; })
+    .catch(function(){});
+}
+function downloadPDF(key,url,filename,elId){
+  if(typeof gtag==='function') gtag('event','file_download',{file_name:filename,file_extension:'pdf',resource_key:key});
+  hitCounter(key,elId);
+  fetch(url).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.blob(); })
+    .then(function(blob){
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename;
+      a.style.display='none'; document.body.appendChild(a); a.click();
+      setTimeout(function(){ if(a.parentNode) a.parentNode.removeChild(a); URL.revokeObjectURL(a.href); },200);
+    }).catch(function(){ window.location.href=url; });
+}
+
+  loadCounter('e656-expert-it','cnt-e656-exp-it');
+  loadCounter('e656-expert-en','cnt-e656-exp-en');
+  loadCounter('e656-expert-de','cnt-e656-exp-de');
+  loadCounter('e656-expert-fr','cnt-e656-exp-fr');
+  loadCounter('e656-expert-es','cnt-e656-exp-es');
+  loadCounter('e656-classic-it','cnt-e656-cls-it');
+  loadCounter('e656-classic-en','cnt-e656-cls-en');
+  loadCounter('e656-classic-de','cnt-e656-cls-de');
+  loadCounter('e656-classic-fr','cnt-e656-cls-fr');
+  loadCounter('e656-classic-es','cnt-e656-cls-es');
+</script>
+</body>
+</html>
