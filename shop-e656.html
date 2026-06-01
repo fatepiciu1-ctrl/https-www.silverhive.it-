@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="robots" content="noindex"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" href="favicon-192.png"/>
+  <title>SilverHive | E.656 Caimano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0d0d0f;--card:#16161a;--sky:#38BDF8;--gold:#D4AF37;--silver:#9ca3af;--white:#f1f5f9;--border:rgba(56,189,248,.15);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;font-size:18px;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    nav{position:fixed;top:0;inset-inline:0;z-index:99;background:rgba(13,13,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:72px;}
+    .nav-brand{display:flex;align-items:center;gap:10px;}
+    .nav-brand img.nav-logo{height:56px;width:auto;}
+    .nav-brand img.nav-scritta{height:56px;width:auto;}
+    .nav-links{display:flex;gap:28px;font-size:1.2rem;color:var(--silver);}
+    .nav-links a:hover{color:var(--sky);}
+    .nav-right{display:flex;align-items:center;gap:14px;}
+    .nav-cta{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 24px;border-radius:3px;transition:background .2s;}
+    .nav-cta:hover{background:var(--sky);}
+    .lang-select{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--sky);border:1px solid var(--border);border-radius:3px;padding:8px 12px;cursor:pointer;outline:none;}
+    .lang-select option{background:#16161a;color:var(--white);}
+    .social-links{display:flex;align-items:center;gap:10px;}
+    .social-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);transition:all .2s;}
+    .social-btn svg{width:22px;height:22px;fill:currentColor;}
+    .social-btn.yt{color:#FF0000;border-color:rgba(255,0,0,.3);}
+    .social-btn.yt:hover{background:rgba(255,0,0,.15);border-color:#FF0000;}
+    .social-btn.fb{color:#1877F2;border-color:rgba(24,119,242,.3);}
+    .social-btn.fb:hover{background:rgba(24,119,242,.15);border-color:#1877F2;}
+    /* Header */
+    .page-header{padding:120px 32px 60px;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--border);display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
+    .page-header img{width:220px;height:160px;object-fit:contain;border-radius:6px;background:#0d0d0f;border:1px solid var(--border);padding:8px;flex-shrink:0;}
+    .page-header__text{flex:1;min-width:260px;}
+    .page-label{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+    h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
+    .badge-free{background:rgba(56,189,248,.12);color:var(--sky);border:1px solid rgba(56,189,248,.3);font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:2px;vertical-align:middle;margin-left:8px;}
+    .page-sub{color:var(--silver);font-weight:300;font-size:1rem;max-width:560px;line-height:1.7;margin-top:8px;}
+    /* Content */
+    .page-content{max-width:1100px;margin:0 auto;padding:60px 32px 80px;}
+    .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border:1px solid var(--border);padding:10px 22px;border-radius:3px;margin-bottom:48px;transition:all .2s;}
+    .btn-back:hover{color:var(--white);border-color:rgba(56,189,248,.4);}
+    .section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--sky);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    /* Download principale */
+    .main-download{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:48px;}
+    .main-download__title{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:6px;}
+    .main-download__meta{color:var(--silver);font-size:.95rem;}
+    .btn-gumroad{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:12px 28px;border-radius:3px;transition:background .2s;display:inline-flex;align-items:center;gap:10px;flex-shrink:0;}
+    .btn-gumroad svg{width:15px;height:15px;stroke:#000;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .btn-gumroad:hover{background:var(--sky);}
+    /* Patch grid */
+    .patch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:48px;}
+    .patch-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s;}
+    .patch-card:hover{border-color:rgba(56,189,248,.5);transform:translateY(-3px);}
+    .patch-card__name{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;}
+    .patch-card__desc{color:var(--silver);font-size:.9rem;line-height:1.6;}
+    .patch-card__ver{font-size:.8rem;color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:.06em;}
+    .btn-dl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 22px;border-radius:3px;transition:background .18s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;margin-top:auto;align-self:flex-start;}
+    .btn-dl:hover{background:var(--sky);}
+    .btn-dl svg{width:15px;height:15px;fill:currentColor;}
+    footer{border-top:1px solid var(--border);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
+    .f-brand{display:flex;align-items:center;gap:10px;}
+    .f-brand img{height:32px;width:auto;}
+    .f-copy{font-size:.85rem;color:var(--silver);}
+    .f-copy span{color:var(--gold);}
+    @media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.page-header,.page-content{padding-left:20px;padding-right:20px;}.page-header{flex-direction:column;}.page-header img{width:100%;height:180px;}.main-download{flex-direction:column;}.btn-gumroad{width:100%;justify-content:center;}footer{padding:24px 20px;justify-content:center;text-align:center;}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5QZFVC8CC"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R5QZFVC8CC");</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="logo.png" alt="SilverHive" class="nav-logo"/>
+    <img src="scritta.png" alt="SilverHive" class="nav-scritta"/>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="shop.html" data-i18n="nav_shop">Shop</a>
+    <a href="index.html#contatti" data-i18n="nav_contact">Contatti</a>
+  </div>
+  <div class="nav-right">
+    <div class="social-links">
+      <a href="https://www.youtube.com/@TonyLGA" target="_blank" class="social-btn yt"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a href="https://www.facebook.com/silverhiveofficial" target="_blank" class="social-btn fb"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.5h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+    </div>
+    <select class="lang-select" id="langSelect">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+    </select>
+    <a href="shop.html" class="nav-cta" data-i18n="nav_buy">Acquista</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <img src="E656-002.jpg" alt="E.656 Caimano"/>
+  <div class="page-header__text">
+    <div class="page-label" data-i18n="label">Prodotto</div>
+    <h1>E.656 Caimano</h1>
+    <p class="page-sub">Locomotiva elettrica policorrente per Train Simulator Classic.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <a href="shop.html" class="btn-back" data-i18n="btn_back">← Shop</a>
+
+  <div class="section-title" data-i18n="sec_download">Download</div>
+  <div class="section-title" data-i18n="sec_patch">Patch &amp; Addon</div>
+  <div class="patch-grid" id="patchGrid">
+    <!-- Patch future qui -->
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-brand">
+    <img src="logo.png" alt="SilverHive"/>
+    <img src="scritta.png" alt="SilverHive"/>
+  </div>
+  <div class="f-copy">© 2025–2026 <span>SilverHive</span></div>
+</footer>
+
+<script>
+var t = {
+  it:{ nav_home:'Home', nav_shop:'Shop', nav_contact:'Contatti', nav_buy:'Acquista', label:'Prodotto', btn_back:'\u2190 Shop', sec_download:'Download', sec_patch:'Patch & Addon' },
+  en:{ nav_home:'Home', nav_shop:'Shop', nav_contact:'Contact', nav_buy:'Buy now', label:'Product', btn_back:'\u2190 Shop', sec_download:'Download', sec_patch:'Patches & Addons' },
+  de:{ nav_home:'Start', nav_shop:'Shop', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Produkt', btn_back:'\u2190 Shop', sec_download:'Download', sec_patch:'Patches & Addons' },
+  fr:{ nav_home:'Accueil', nav_shop:'Boutique', nav_contact:'Contact', nav_buy:'Acheter', label:'Produit', btn_back:'\u2190 Boutique', sec_download:'T\u00e9l\u00e9chargement', sec_patch:'Patchs & Addons' },
+  es:{ nav_home:'Inicio', nav_shop:'Tienda', nav_contact:'Contacto', nav_buy:'Comprar', label:'Producto', btn_back:'\u2190 Tienda', sec_download:'Descarga', sec_patch:'Parches y Addons' }
+};
+function applyLang(lang){
+  var d=t[lang]; if(!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(d[k]!==undefined) el.innerHTML=d[k];
+  });
+  document.documentElement.lang=lang;
+  localStorage.setItem('sh_lang',lang);
+}
+var sel=document.getElementById('langSelect');
+var saved=localStorage.getItem('sh_lang')||'it';
+sel.value=saved; applyLang(saved);
+sel.addEventListener('change',function(){ applyLang(this.value); });
+</script>
+</body>
+</html>
