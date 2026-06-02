@@ -150,6 +150,21 @@ var sel=document.getElementById('langSelect');
 var saved=localStorage.getItem('sh_lang')||'it';
 sel.value=saved; applyLang(saved);
 sel.addEventListener('change',function(){ applyLang(this.value); });
+
+var COUNTER_NS='silverhive.it';
+var COUNTER_BASE='https://abacus.jasoncameron.dev/';
+function loadCounter(key,elId){
+  fetch(COUNTER_BASE+'get/'+COUNTER_NS+'/'+key)
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(data){ if(data&&typeof data.value!=='undefined'){ var el=document.getElementById(elId); if(el) el.textContent=data.value; }})
+    .catch(function(){});
+}
+function hitCounter(key,elId){
+  fetch(COUNTER_BASE+'hit/'+COUNTER_NS+'/'+key)
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(data){ if(data&&typeof data.value!=='undefined'){ var el=document.getElementById(elId); if(el) el.textContent=data.value; }})
+    .catch(function(){});
+}
 </script>
 </body>
 </html>
