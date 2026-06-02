@@ -56,6 +56,8 @@
     .f-brand img{height:32px;width:auto;}
     .f-copy{font-size:.85rem;color:var(--silver);}
     .f-copy span{color:var(--gold);}
+    .prod-card__count{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;color:var(--gold);letter-spacing:.06em;margin-top:4px;}
+    .prod-card__count .num{font-weight:700;}
     @media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.page-header,.page-content{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;justify-content:center;text-align:center;}}
   /* PRODUCT GRID */
     .products{max-width:1100px;margin:0 auto;padding:60px 32px 80px;}
@@ -75,6 +77,8 @@
     .prod-card__btn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 22px;border-radius:3px;transition:background .18s;}
     .prod-card:hover .prod-card__btn{background:var(--sky);}
     .badge-free{background:rgba(56,189,248,.12);color:var(--sky);border:1px solid rgba(56,189,248,.3);font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-left:10px;vertical-align:middle;}
+    .prod-card__count{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;color:var(--gold);letter-spacing:.06em;margin-top:4px;}
+    .prod-card__count .num{font-weight:700;}
     @media(max-width:768px){.products{padding:40px 20px 60px;}}
   </style>
   <!-- Google Analytics -->
@@ -123,7 +127,7 @@
 <div class="products">
   <div class="prod-grid">
 
-    <a href="shop-badoni208.html" class="prod-card">
+    <a href="shop-badoni208.html" class="prod-card" onclick="hitCounter('shop-click-badoni208','cnt-shop-badoni')">
       <img src="badoni208.jpg" alt="Automotore 208 Badoni" class="prod-card__img"/>
       <div class="prod-card__body">
         <div class="prod-card__tag">Automotore da manovra</div>
@@ -132,11 +136,12 @@
         <div class="prod-card__foot">
           <div class="prod-card__price">Gratis</div>
           <div class="prod-card__btn" data-i18n="btn_enter">Entra</div>
+          <div class="prod-card__count">👁 <span class="num" id="cnt-shop-badoni">—</span></div>
         </div>
       </div>
     </a>
 
-    <a href="shop-e656.html" class="prod-card">
+    <a href="shop-e656.html" class="prod-card" onclick="hitCounter('shop-click-e656','cnt-shop-e656')">
       <img src="Immagine 1.jpg" alt="E.656 Caimano" class="prod-card__img"/>
       <div class="prod-card__body">
         <div class="prod-card__tag">Locomotiva elettrica</div>
@@ -145,12 +150,13 @@
         <div class="prod-card__foot">
           <div class="prod-card__price" data-i18n="e656_price">Disponibile</div>
           <div class="prod-card__btn" data-i18n="btn_enter">Entra</div>
+          <div class="prod-card__count">👁 <span class="num" id="cnt-shop-e656">—</span></div>
         </div>
       </div>
     </a>
 
 
-    <a href="shop-e402a.html" class="prod-card">
+    <a href="shop-e402a.html" class="prod-card" onclick="hitCounter('shop-click-e402a','cnt-shop-e402a')">
       <img src="FSE402A_Col3.jpg" alt="E.402A" class="prod-card__img"/>
       <div class="prod-card__body">
         <div class="prod-card__tag">Locomotiva elettrica</div>
@@ -159,11 +165,12 @@
         <div class="prod-card__foot">
           <div class="prod-card__price" data-i18n="avail">Disponibile</div>
           <div class="prod-card__btn" data-i18n="btn_enter">Entra</div>
+          <div class="prod-card__count">👁 <span class="num" id="cnt-shop-e402a">—</span></div>
         </div>
       </div>
     </a>
 
-    <a href="shop-e444r.html" class="prod-card">
+    <a href="shop-e444r.html" class="prod-card" onclick="hitCounter('shop-click-e444r','cnt-shop-e444r')">
       <img src="FS_444_R_XPMR1_OLD_1.png" alt="E.444R" class="prod-card__img"/>
       <div class="prod-card__body">
         <div class="prod-card__tag">Locomotiva elettrica</div>
@@ -172,6 +179,7 @@
         <div class="prod-card__foot">
           <div class="prod-card__price" data-i18n="avail">Disponibile</div>
           <div class="prod-card__btn" data-i18n="btn_enter">Entra</div>
+          <div class="prod-card__count">👁 <span class="num" id="cnt-shop-e444r">—</span></div>
         </div>
       </div>
     </a>
@@ -208,6 +216,25 @@ var sel = document.getElementById('langSelect');
 var saved = localStorage.getItem('sh_lang') || 'it';
 sel.value = saved; applyLang(saved);
 sel.addEventListener('change', function() { applyLang(this.value); });
+
+var COUNTER_NS='silverhive.it';
+var COUNTER_BASE='https://abacus.jasoncameron.dev/';
+function loadCounter(key,elId){
+  fetch(COUNTER_BASE+'get/'+COUNTER_NS+'/'+key)
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){if(d&&typeof d.value!=='undefined'){var el=document.getElementById(elId);if(el)el.textContent=d.value;}})
+    .catch(function(){});
+}
+function hitCounter(key,elId){
+  fetch(COUNTER_BASE+'hit/'+COUNTER_NS+'/'+key)
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){if(d&&typeof d.value!=='undefined'){var el=document.getElementById(elId);if(el)el.textContent=d.value;}})
+    .catch(function(){});
+}
+loadCounter('shop-click-badoni208','cnt-shop-badoni');
+loadCounter('shop-click-e656','cnt-shop-e656');
+loadCounter('shop-click-e402a','cnt-shop-e402a');
+loadCounter('shop-click-e444r','cnt-shop-e444r');
 </script>
 </body>
 </html>
