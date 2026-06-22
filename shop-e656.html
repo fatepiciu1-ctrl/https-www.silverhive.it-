@@ -146,11 +146,14 @@
   <div class="main-download">
     <div>
       <div class="main-download__title">E.656 Caimano — Expert</div>
-      <div class="main-download__meta" data-i18n="main_meta_expert">Versione avanzata — Train Simulator Classic — Prossimamente</div>
+      <div class="main-download__meta" data-i18n="main_meta_expert">Versione avanzata — Train Simulator Classic — €5,00 — richiede SH_E656_Classic</div>
+      <div class="main-download__count"><span data-i18n="clicks">Click:</span> <span class="num" id="cnt-e656-expert-click">—</span></div>
     </div>
-    <button class="btn-gumroad btn-soon" disabled>
-      <span data-i18n="btn_soon">Coming Soon</span>
-    </button>
+    <a href="https://silverhive.gumroad.com/l/iefipd" target="_blank" rel="noopener" class="btn-gumroad"
+       id="btn-expert-gumroad">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <span data-i18n="btn_gumroad_buy">Acquista su Gumroad</span>
+    </a>
   </div>
 
   <div class="section-title" data-i18n="sec_patch">Patch &amp; Addon</div>
@@ -170,11 +173,11 @@
 
 <script>
 var t = {
-  it:{ nav_home:"Home", nav_shop:"Shop", nav_contact:"Contatti", nav_buy:"Acquista", label:"Prodotto", sub:"L'ultima grande locomotiva reostatica delle FS e la pi\u00f9 amata d'Italia. Con quasi 460 unit\u00e0 prodotte tra il 1975 e il 1989, il \"Caimano\" ha trainato per decenni treni passeggeri e merci su tutta la rete nazionale. Compatibile con Train Simulator Classic.", btn_back:"\u2190 Shop", sec_download:"Download", sec_patch:"Patch & Addon", main_meta:"Demo gratuita 20 minuti \u2014 Train Simulator Classic", main_meta_classic:"Versione completa \u2014 Train Simulator Classic \u2014 \u20ac17,00", clicks:"Click:", btn_gumroad:"Scarica su Gumroad", btn_gumroad_buy:"Acquista su Gumroad", main_meta_expert:"Versione avanzata \u2014 Train Simulator Classic \u2014 Prossimamente", btn_soon:"Coming Soon" },
-  en:{ nav_home:"Home", nav_shop:"Shop", nav_contact:"Contact", nav_buy:"Buy now", label:"Product", sub:"The last great rheostatic locomotive of FS and the most beloved in Italy. With nearly 460 units built between 1975 and 1989, the \"Caimano\" hauled passenger and freight trains across the national network for decades. Compatible with Train Simulator Classic.", btn_back:"\u2190 Shop", sec_download:"Download", sec_patch:"Patches & Addons", main_meta:"Free 20-minute demo \u2014 Train Simulator Classic", main_meta_classic:"Full version \u2014 Train Simulator Classic \u2014 \u20ac17.00", clicks:"Clicks:", btn_gumroad:"Download on Gumroad", btn_gumroad_buy:"Buy on Gumroad", main_meta_expert:"Advanced version \u2014 Train Simulator Classic \u2014 Coming Soon", btn_soon:"Coming Soon" },
-  de:{ nav_home:"Start", nav_shop:"Shop", nav_contact:"Kontakt", nav_buy:"Kaufen", label:"Produkt", sub:"Die letzte gro\u00dfe Rheostat-Lokomotive der FS und die beliebteste in Italien. Mit fast 460 Einheiten zwischen 1975 und 1989 zog der \"Caimano\" jahrzehntelang Z\u00fcge im ganzen Land. Kompatibel mit Train Simulator Classic.", btn_back:"\u2190 Shop", sec_download:"Download", sec_patch:"Patches & Addons", main_meta:"Kostenlose 20-Minuten-Demo \u2014 Train Simulator Classic", main_meta_classic:"Vollversion \u2014 Train Simulator Classic \u2014 \u20ac17,00", clicks:"Klicks:", btn_gumroad:"Herunterladen auf Gumroad", btn_gumroad_buy:"Kaufen auf Gumroad", main_meta_expert:"Erweiterte Version \u2014 Train Simulator Classic \u2014 Demnächst", btn_soon:"Demnächst" },
-  fr:{ nav_home:"Accueil", nav_shop:"Boutique", nav_contact:"Contact", nav_buy:"Acheter", label:"Produit", sub:"La derni\u00e8re grande locomotive rh\u00e9ostatique des FS et la plus aim\u00e9e d'Italie. Avec pr\u00e8s de 460 unit\u00e9s produites entre 1975 et 1989, le \"Caimano\" a tir\u00e9 des trains pendant des d\u00e9cennies. Compatible avec Train Simulator Classic.", btn_back:"\u2190 Boutique", sec_download:"T\u00e9l\u00e9chargement", sec_patch:"Patchs & Addons", main_meta:"D\u00e9mo gratuite 20 minutes \u2014 Train Simulator Classic", main_meta_classic:"Version compl\u00e8te \u2014 Train Simulator Classic \u2014 17,00\u20ac", clicks:"Clics:", btn_gumroad:"T\u00e9l\u00e9charger sur Gumroad", btn_gumroad_buy:"Acheter sur Gumroad", main_meta_expert:"Version avanc\u00e9e \u2014 Train Simulator Classic \u2014 Bient\u00f4t", btn_soon:"Bient\u00f4t" },
-  es:{ nav_home:"Inicio", nav_shop:"Tienda", nav_contact:"Contacto", nav_buy:"Comprar", label:"Producto", sub:"La \u00faltima gran locomotora reost\u00e1tica de las FS y la m\u00e1s querida de Italia. Con casi 460 unidades entre 1975 y 1989, el \"Caimano\" arrastr\u00f3 trenes de viajeros y mercanc\u00edas durante d\u00e9cadas. Compatible con Train Simulator Classic.", btn_back:"\u2190 Tienda", sec_download:"Descarga", sec_patch:"Parches y Addons", main_meta:"Demo gratuita 20 minutos \u2014 Train Simulator Classic", main_meta_classic:"Versi\u00f3n completa \u2014 Train Simulator Classic \u2014 17,00\u20ac", clicks:"Clics:", btn_gumroad:"Descargar en Gumroad", btn_gumroad_buy:"Comprar en Gumroad", main_meta_expert:"Versi\u00f3n avanzada \u2014 Train Simulator Classic \u2014 Pr\u00f3ximamente", btn_soon:"Pr\u00f3ximamente" }
+  it:{ nav_home:"Home", nav_shop:"Shop", nav_contact:"Contatti", nav_buy:"Acquista", label:"Prodotto", sub:"L'ultima grande locomotiva reostatica delle FS e la pi\u00f9 amata d'Italia. Con quasi 460 unit\u00e0 prodotte tra il 1975 e il 1989, il \"Caimano\" ha trainato per decenni treni passeggeri e merci su tutta la rete nazionale. Compatibile con Train Simulator Classic.", btn_back:"\u2190 Shop", sec_download:"Download", sec_patch:"Patch & Addon", main_meta:"Demo gratuita 20 minuti \u2014 Train Simulator Classic", main_meta_classic:"Versione completa \u2014 Train Simulator Classic \u2014 \u20ac17,00", clicks:"Click:", btn_gumroad:"Scarica su Gumroad", btn_gumroad_buy:"Acquista su Gumroad", main_meta_expert:"Versione avanzata \u2014 Train Simulator Classic \u2014 \u20ac5,00 \u2014 richiede SH_E656_Classic", btn_soon:"Coming Soon" },
+  en:{ nav_home:"Home", nav_shop:"Shop", nav_contact:"Contact", nav_buy:"Buy now", label:"Product", sub:"The last great rheostatic locomotive of FS and the most beloved in Italy. With nearly 460 units built between 1975 and 1989, the \"Caimano\" hauled passenger and freight trains across the national network for decades. Compatible with Train Simulator Classic.", btn_back:"\u2190 Shop", sec_download:"Download", sec_patch:"Patches & Addons", main_meta:"Free 20-minute demo \u2014 Train Simulator Classic", main_meta_classic:"Full version \u2014 Train Simulator Classic \u2014 \u20ac17.00", clicks:"Clicks:", btn_gumroad:"Download on Gumroad", btn_gumroad_buy:"Buy on Gumroad", main_meta_expert:"Advanced version \u2014 Train Simulator Classic \u2014 \u20ac5.00 \u2014 requires SH_E656_Classic", btn_soon:"Coming Soon" },
+  de:{ nav_home:"Start", nav_shop:"Shop", nav_contact:"Kontakt", nav_buy:"Kaufen", label:"Produkt", sub:"Die letzte gro\u00dfe Rheostat-Lokomotive der FS und die beliebteste in Italien. Mit fast 460 Einheiten zwischen 1975 und 1989 zog der \"Caimano\" jahrzehntelang Z\u00fcge im ganzen Land. Kompatibel mit Train Simulator Classic.", btn_back:"\u2190 Shop", sec_download:"Download", sec_patch:"Patches & Addons", main_meta:"Kostenlose 20-Minuten-Demo \u2014 Train Simulator Classic", main_meta_classic:"Vollversion \u2014 Train Simulator Classic \u2014 \u20ac17,00", clicks:"Klicks:", btn_gumroad:"Herunterladen auf Gumroad", btn_gumroad_buy:"Kaufen auf Gumroad", main_meta_expert:"Erweiterte Version \u2014 Train Simulator Classic \u2014 \u20ac5,00 \u2014 erfordert SH_E656_Classic", btn_soon:"Demnächst" },
+  fr:{ nav_home:"Accueil", nav_shop:"Boutique", nav_contact:"Contact", nav_buy:"Acheter", label:"Produit", sub:"La derni\u00e8re grande locomotive rh\u00e9ostatique des FS et la plus aim\u00e9e d'Italie. Avec pr\u00e8s de 460 unit\u00e9s produites entre 1975 et 1989, le \"Caimano\" a tir\u00e9 des trains pendant des d\u00e9cennies. Compatible avec Train Simulator Classic.", btn_back:"\u2190 Boutique", sec_download:"T\u00e9l\u00e9chargement", sec_patch:"Patchs & Addons", main_meta:"D\u00e9mo gratuite 20 minutes \u2014 Train Simulator Classic", main_meta_classic:"Version compl\u00e8te \u2014 Train Simulator Classic \u2014 17,00\u20ac", clicks:"Clics:", btn_gumroad:"T\u00e9l\u00e9charger sur Gumroad", btn_gumroad_buy:"Acheter sur Gumroad", main_meta_expert:"Version avanc\u00e9e \u2014 Train Simulator Classic \u2014 5,00\u20ac \u2014 n\u00e9cessite SH_E656_Classic", btn_soon:"Bient\u00f4t" },
+  es:{ nav_home:"Inicio", nav_shop:"Tienda", nav_contact:"Contacto", nav_buy:"Comprar", label:"Producto", sub:"La \u00faltima gran locomotora reost\u00e1tica de las FS y la m\u00e1s querida de Italia. Con casi 460 unidades entre 1975 y 1989, el \"Caimano\" arrastr\u00f3 trenes de viajeros y mercanc\u00edas durante d\u00e9cadas. Compatible con Train Simulator Classic.", btn_back:"\u2190 Tienda", sec_download:"Descarga", sec_patch:"Parches y Addons", main_meta:"Demo gratuita 20 minutos \u2014 Train Simulator Classic", main_meta_classic:"Versi\u00f3n completa \u2014 Train Simulator Classic \u2014 17,00\u20ac", clicks:"Clics:", btn_gumroad:"Descargar en Gumroad", btn_gumroad_buy:"Comprar en Gumroad", main_meta_expert:"Versi\u00f3n avanzada \u2014 Train Simulator Classic \u2014 5,00\u20ac \u2014 requiere SH_E656_Classic", btn_soon:"Pr\u00f3ximamente" }
 };
 function applyLang(lang){
   var d=t[lang]; if(!d) return;
@@ -206,10 +209,16 @@ function hitCounter(key,elId){
 }
 loadCounter('gumroad-e656-demo-click','cnt-e656-click');
 loadCounter('gumroad-e656-classic-click','cnt-e656-classic-click');
+loadCounter('gumroad-e656-expert-click','cnt-e656-expert-click');
 
 document.getElementById('btn-classic-gumroad').addEventListener('click', function(){
   if(typeof gtag!=='undefined') gtag('event','click',{event_category:'shop',event_label:'gumroad-e656-classic-click'});
   hitCounter('gumroad-e656-classic-click','cnt-e656-classic-click');
+});
+
+document.getElementById('btn-expert-gumroad').addEventListener('click', function(){
+  if(typeof gtag!=='undefined') gtag('event','click',{event_category:'shop',event_label:'gumroad-e656-expert-click'});
+  hitCounter('gumroad-e656-expert-click','cnt-e656-expert-click');
 });
 </script>
 </body>
