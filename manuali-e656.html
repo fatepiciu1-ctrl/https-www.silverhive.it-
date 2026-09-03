@@ -50,6 +50,22 @@
     .btn-dl:hover{background:var(--sky);}
     .btn-dl svg{width:15px;height:15px;fill:currentColor;}
     .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border:1px solid var(--border);padding:10px 22px;border-radius:3px;margin-bottom:48px;transition:all .2s;}
+    .pdf-card--note{cursor:pointer;border-color:rgba(212,175,55,.35);}
+    .pdf-card--note:hover{border-color:var(--gold);}
+    .pdf-card--note:focus-visible{outline:2px solid var(--sky);outline-offset:2px;}
+    .pdf-card--note .pdf-card__count{color:var(--silver);font-size:.85rem;line-height:1.4;}
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(2px);z-index:200;align-items:center;justify-content:center;padding:20px;}
+    .modal-overlay.active{display:flex;}
+    .modal-box{position:relative;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:8px;padding:32px;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;}
+    .modal-close{position:absolute;top:12px;right:14px;background:transparent;border:none;color:var(--silver);font-size:1.9rem;line-height:1;cursor:pointer;transition:color .2s;padding:4px 8px;}
+    .modal-close:hover{color:var(--white);}
+    .note-box__title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;text-transform:uppercase;letter-spacing:.06em;color:var(--sky);margin-bottom:14px;padding-right:24px;display:flex;align-items:center;gap:8px;}
+    .note-box__title svg{width:18px;height:18px;fill:var(--sky);flex-shrink:0;}
+    .modal-box p{color:var(--silver);font-weight:300;font-size:.95rem;line-height:1.6;margin-bottom:12px;}
+    .modal-box ol{color:var(--white);font-weight:300;font-size:.95rem;line-height:1.6;padding-left:20px;}
+    .modal-box ol li{margin-bottom:8px;}
+    .modal-box ol li b{color:var(--gold);font-weight:600;}
+    body.modal-open{overflow:hidden;}
     .btn-back:hover{color:var(--white);border-color:rgba(56,189,248,.4);}
     footer{border-top:1px solid var(--border);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
     .f-brand{display:flex;align-items:center;gap:10px;}
@@ -144,6 +160,15 @@
         <span data-i18n="btn_download">Scarica</span>
       </button>
     </div>
+    <div class="pdf-card pdf-card--note" role="button" tabindex="0" onclick="openNoteModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openNoteModal();}">
+      <div class="pdf-card__lang"><span class="pdf-card__flag">⚠️</span><span data-i18n="note_card_title">SCMT in Quick Drive</span></div>
+      <div class="pdf-card__meta" data-i18n="note_card_meta">AVVISO</div>
+      <div class="pdf-card__count" data-i18n="note_card_desc">Modulo non visibile in QD: scopri la soluzione.</div>
+      <button type="button" class="btn-dl" onclick="event.stopPropagation();openNoteModal();">
+        <svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        <span data-i18n="note_card_open">Apri</span>
+      </button>
+    </div>
   </div>
 
   <div class="section-title">Classic</div>
@@ -196,6 +221,21 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="noteModalOverlay" onclick="closeNoteModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button type="button" class="modal-close" onclick="closeNoteModal()" aria-label="Chiudi">&times;</button>
+    <div class="note-box__title">
+      <svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+      <span data-i18n="note_title">Nota tecnica — Modulo SCMT non visibile in Quick Drive</span>
+    </div>
+    <p data-i18n="note_text">In modalità Quick Drive, Train Simulator Classic carica unicamente il Provider della locomotiva selezionata, ignorando gli add-on esterni come il plugin SCMT di worcestergeorge. Ecco due soluzioni rapide:</p>
+    <ol>
+      <li data-i18n="note_fix1"><b>Attivazione da Editor:</b> una volta caricato lo scenario Quick Drive, entra nell'Editor Mondo, attiva manualmente il Provider dall'elenco a destra e ritorna in gioco.</li>
+      <li data-i18n="note_fix2"><b>Composizione del Consist:</b> aggiungi al tuo treno una locomotiva che integra già il plugin SCMT, per forzare il caricamento del Provider.</li>
+    </ol>
+  </div>
+</div>
+
 <footer>
   <div class="f-brand">
     <img src="logo.png" alt="SilverHive"/>
@@ -206,11 +246,36 @@
 
 <script>
 var t = {
-  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_res:'Risorse', nav_contact:'Contatti', nav_buy:'Acquista', btn_back:'← Risorse', btn_download:'Scarica', downloads:'Download:' },
-  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_res:'Resources', nav_contact:'Contact', nav_buy:'Buy now', btn_back:'← Resources', btn_download:'Download', downloads:'Downloads:' },
-  de:{ nav_home:'Start', nav_cat:'Katalog', nav_res:'Ressourcen', nav_contact:'Kontakt', nav_buy:'Kaufen', btn_back:'← Ressourcen', btn_download:'Herunterladen', downloads:'Downloads:' },
-  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_res:'Ressources', nav_contact:'Contact', nav_buy:'Acheter', btn_back:'← Ressources', btn_download:'Télécharger', downloads:'Téléchargements:' },
-  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_res:'Recursos', nav_contact:'Contacto', nav_buy:'Comprar', btn_back:'← Recursos', btn_download:'Descargar', downloads:'Descargas:' }
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_res:'Risorse', nav_contact:'Contatti', nav_buy:'Acquista', btn_back:'← Risorse', btn_download:'Scarica', downloads:'Download:',
+    note_card_title:'SCMT in Quick Drive', note_card_meta:'AVVISO', note_card_desc:'Modulo non visibile in QD: scopri la soluzione.', note_card_open:'Apri',
+    note_title:'Nota tecnica — Modulo SCMT non visibile in Quick Drive',
+    note_text:"In modalità Quick Drive, Train Simulator Classic carica unicamente il Provider della locomotiva selezionata, ignorando gli add-on esterni come il plugin SCMT di worcestergeorge. Ecco due soluzioni rapide:",
+    note_fix1:"<b>Attivazione da Editor:</b> una volta caricato lo scenario Quick Drive, entra nell'Editor Mondo, attiva manualmente il Provider dall'elenco a destra e ritorna in gioco.",
+    note_fix2:"<b>Composizione del Consist:</b> aggiungi al tuo treno una locomotiva che integra già il plugin SCMT, per forzare il caricamento del Provider." },
+  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_res:'Resources', nav_contact:'Contact', nav_buy:'Buy now', btn_back:'← Resources', btn_download:'Download', downloads:'Downloads:',
+    note_card_title:'SCMT in Quick Drive', note_card_meta:'NOTICE', note_card_desc:'Module not visible in QD: find the fix.', note_card_open:'Open',
+    note_title:'Technical note — SCMT module not visible in Quick Drive',
+    note_text:"In Quick Drive mode, Train Simulator Classic only loads the Provider of the selected locomotive, ignoring external add-ons such as worcestergeorge's SCMT plugin. Here are two quick fixes:",
+    note_fix1:"<b>Activate from the Editor:</b> once the Quick Drive scenario has loaded, open the World Editor, manually activate the Provider from the list on the right, then return to the game.",
+    note_fix2:"<b>Consist composition:</b> add a locomotive that already includes the SCMT plugin to your train, to force the Provider to load." },
+  de:{ nav_home:'Start', nav_cat:'Katalog', nav_res:'Ressourcen', nav_contact:'Kontakt', nav_buy:'Kaufen', btn_back:'← Ressourcen', btn_download:'Herunterladen', downloads:'Downloads:',
+    note_card_title:'SCMT in Quick Drive', note_card_meta:'HINWEIS', note_card_desc:'Modul in QD nicht sichtbar: Lösung ansehen.', note_card_open:'Öffnen',
+    note_title:'Technischer Hinweis — SCMT-Modul in Quick Drive nicht sichtbar',
+    note_text:"Im Quick-Drive-Modus lädt Train Simulator Classic nur den Provider der ausgewählten Lokomotive und ignoriert externe Add-ons wie das SCMT-Plugin von worcestergeorge. Hier zwei schnelle Lösungen:",
+    note_fix1:"<b>Aktivierung über den Editor:</b> Nach dem Laden des Quick-Drive-Szenarios öffnen Sie den Welt-Editor, aktivieren den Provider manuell aus der Liste rechts und kehren zum Spiel zurück.",
+    note_fix2:"<b>Zugverband zusammenstellen:</b> Fügen Sie Ihrem Zug eine Lokomotive hinzu, die das SCMT-Plugin bereits integriert, um das Laden des Providers zu erzwingen." },
+  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_res:'Ressources', nav_contact:'Contact', nav_buy:'Acheter', btn_back:'← Ressources', btn_download:'Télécharger', downloads:'Téléchargements:',
+    note_card_title:'SCMT en Quick Drive', note_card_meta:'AVIS', note_card_desc:'Module non visible en QD : découvrez la solution.', note_card_open:'Ouvrir',
+    note_title:'Note technique — Module SCMT invisible en Quick Drive',
+    note_text:"En mode Quick Drive, Train Simulator Classic ne charge que le Provider de la locomotive sélectionnée, en ignorant les add-ons externes comme le plugin SCMT de worcestergeorge. Voici deux solutions rapides :",
+    note_fix1:"<b>Activation depuis l'éditeur :</b> une fois le scénario Quick Drive chargé, ouvrez l'éditeur de monde, activez manuellement le Provider dans la liste à droite, puis revenez au jeu.",
+    note_fix2:"<b>Composition du convoi :</b> ajoutez à votre train une locomotive intégrant déjà le plugin SCMT, afin de forcer le chargement du Provider." },
+  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_res:'Recursos', nav_contact:'Contacto', nav_buy:'Comprar', btn_back:'← Recursos', btn_download:'Descargar', downloads:'Descargas:',
+    note_card_title:'SCMT en Quick Drive', note_card_meta:'AVISO', note_card_desc:'Módulo no visible en QD: descubre la solución.', note_card_open:'Abrir',
+    note_title:'Nota técnica — Módulo SCMT no visible en Quick Drive',
+    note_text:"En el modo Quick Drive, Train Simulator Classic carga únicamente el Provider de la locomotora seleccionada, ignorando los add-ons externos como el plugin SCMT de worcestergeorge. Aquí dos soluciones rápidas:",
+    note_fix1:"<b>Activación desde el Editor:</b> una vez cargado el escenario Quick Drive, abre el Editor de Mundo, activa manualmente el Provider desde la lista de la derecha y vuelve al juego.",
+    note_fix2:"<b>Composición del convoy:</b> añade a tu tren una locomotora que ya incluya el plugin SCMT, para forzar la carga del Provider." }
 };
 function applyLang(lang){
   var d=t[lang]; if(!d) return;
@@ -240,6 +305,19 @@ function hitCounter(key,elId){
     .then(function(data){ if(data&&typeof data.value!=='undefined') document.getElementById(elId).textContent=data.value; })
     .catch(function(){});
 }
+function openNoteModal(){
+  var ov=document.getElementById('noteModalOverlay');
+  ov.classList.add('active');
+  document.body.classList.add('modal-open');
+}
+function closeNoteModal(){
+  var ov=document.getElementById('noteModalOverlay');
+  ov.classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeNoteModal();
+});
 function downloadPDF(key,url,filename,elId){
   if(typeof gtag==='function') gtag('event','file_download',{file_name:filename,file_extension:'pdf',resource_key:key});
   hitCounter(key,elId);
