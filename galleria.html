@@ -154,7 +154,6 @@
     <button class="tab-btn active" data-tab="all" data-i18n="tab_all">Tutti</button>
     <button class="tab-btn" data-tab="loco" data-i18n="tab_loco">🚂 Locomotive</button>
     <button class="tab-btn" data-tab="carro" data-i18n="tab_carro">🚃 Carrozze & Vagoni</button>
-    <button class="tab-btn" data-tab="scen" data-i18n="tab_scen">🏞️ Scenari</button>
   </div>
 
   <div class="gal-grid" id="galGrid">
@@ -303,7 +302,7 @@ var emptyEl = document.getElementById('galEmpty');
 var emptyIcon = document.getElementById('galEmptyIcon');
 var gridEl = document.getElementById('galGrid');
 
-var emptyIcons = { carro: '🚃', scen: '🏞️' };
+var emptyIcons = { carro: '🚃' };
 
 tabButtons.forEach(function(btn){
   btn.addEventListener('click', function(){
@@ -381,11 +380,11 @@ document.getElementById('lightbox').addEventListener('click', function(e){
 
 // ── i18n ────────────────────────────────────────────────────
 var t = {
-  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render sviluppate da SilverHive.', tab_all:'Tutti', tab_loco:'🚂 Locomotive', tab_carro:'🚃 Carrozze & Vagoni', tab_scen:'🏞️ Scenari', empty_title:'Contenuti in arrivo', empty_text:'Questa sezione è in preparazione. Torna presto per nuovi contenuti.' },
-  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'Screenshots & Renders', title:'Gallery', sub:'Images and renders developed by SilverHive.', tab_all:'All', tab_loco:'🚂 Locomotives', tab_carro:'🚃 Coaches & Wagons', tab_scen:'🏞️ Scenarios', empty_title:'Coming soon', empty_text:'This section is being prepared. Come back soon for new content.' },
-  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Screenshots & Renders', title:'Galerie', sub:'Bilder und Renders von SilverHive.', tab_all:'Alle', tab_loco:'🚂 Lokomotiven', tab_carro:'🚃 Wagen', tab_scen:'🏞️ Szenarien', empty_title:'Demnächst verfügbar', empty_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.' },
-  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Screenshots & Rendus', title:'Galerie', sub:'Images et rendus développés par SilverHive.', tab_all:'Tous', tab_loco:'🚂 Locomotives', tab_carro:'🚃 Voitures & Wagons', tab_scen:'🏞️ Scénarios', empty_title:'Bientôt disponible', empty_text:'Cette section est en préparation. Revenez bientôt.' },
-  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'Capturas & Renders', title:'Galería', sub:'Imágenes y renders desarrollados por SilverHive.', tab_all:'Todos', tab_loco:'🚂 Locomotoras', tab_carro:'🚃 Coches & Vagones', tab_scen:'🏞️ Escenarios', empty_title:'Próximamente', empty_text:'Esta sección está en preparación. Vuelve pronto.' }
+  it:{ nav_home:'Home', nav_cat:'Catalogo', nav_contact:'Contatti', nav_buy:'Acquista', label:'Screenshot & Render', title:'Galleria', sub:'Immagini e render sviluppate da SilverHive.', tab_all:'Tutti', tab_loco:'🚂 Locomotive', tab_carro:'🚃 Carrozze & Vagoni', empty_title:'Contenuti in arrivo', empty_text:'Questa sezione è in preparazione. Torna presto per nuovi contenuti.' },
+  en:{ nav_home:'Home', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Buy now', label:'Screenshots & Renders', title:'Gallery', sub:'Images and renders developed by SilverHive.', tab_all:'All', tab_loco:'🚂 Locomotives', tab_carro:'🚃 Coaches & Wagons', empty_title:'Coming soon', empty_text:'This section is being prepared. Come back soon for new content.' },
+  de:{ nav_home:'Start', nav_cat:'Katalog', nav_contact:'Kontakt', nav_buy:'Kaufen', label:'Screenshots & Renders', title:'Galerie', sub:'Bilder und Renders von SilverHive.', tab_all:'Alle', tab_loco:'🚂 Lokomotiven', tab_carro:'🚃 Wagen', empty_title:'Demnächst verfügbar', empty_text:'Dieser Bereich wird vorbereitet. Schau bald wieder vorbei.' },
+  fr:{ nav_home:'Accueil', nav_cat:'Catalogue', nav_contact:'Contact', nav_buy:'Acheter', label:'Screenshots & Rendus', title:'Galerie', sub:'Images et rendus développés par SilverHive.', tab_all:'Tous', tab_loco:'🚂 Locomotives', tab_carro:'🚃 Voitures & Wagons', empty_title:'Bientôt disponible', empty_text:'Cette section est en préparation. Revenez bientôt.' },
+  es:{ nav_home:'Inicio', nav_cat:'Catálogo', nav_contact:'Contacto', nav_buy:'Comprar', label:'Capturas & Renders', title:'Galería', sub:'Imágenes y renders desarrollados por SilverHive.', tab_all:'Todos', tab_loco:'🚂 Locomotoras', tab_carro:'🚃 Coches & Vagones', empty_title:'Próximamente', empty_text:'Esta sección está en preparación. Vuelve pronto.' }
 };
 function applyLang(lang) {
   var d = t[lang]; if (!d) return;
