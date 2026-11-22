@@ -71,18 +71,19 @@
     /* Scenari: un gruppo per tipo di prodotto, righe una sotto l'altra */
     .res-group{grid-column:1/-1;display:flex;flex-direction:column;gap:14px;}
     .res-group__title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding-bottom:8px;border-bottom:1px solid var(--border);margin-top:6px;}
-    /* Scheda scenario: riga orizzontale, miniatura a sinistra, titolo/info a destra */
-    .res-card--row{grid-column:1/-1;flex-direction:row;align-items:center;gap:22px;padding:16px;}
+    /* Scheda scenario: riga orizzontale compatta, miniatura a sinistra, titolo/info a destra */
+    .res-card--row{flex-direction:row;align-items:center;gap:12px;padding:8px 12px;max-width:420px;}
     .res-card--row:hover{transform:none;}
-    .res-row__thumb{position:relative;flex:0 0 220px;aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden;display:block;}
+    .res-row__thumb{position:relative;flex:0 0 84px;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;display:block;}
     .res-row__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
-    .res-card--row:hover .res-row__thumb img{transform:scale(1.05);}
-    .res-row__body{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1;}
-    .res-row__title{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.2;word-break:break-word;display:inline-flex;align-items:center;gap:10px;transition:color .18s;}
-    .res-row__title svg{width:20px;height:20px;flex:0 0 auto;color:var(--gold);transition:color .18s;}
+    .res-card--row:hover .res-row__thumb img{transform:scale(1.08);}
+    .res-row__body{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;}
+    .res-row__title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;color:var(--white);line-height:1.2;word-break:break-word;display:inline-flex;align-items:center;gap:6px;transition:color .18s;}
+    .res-row__title svg{width:14px;height:14px;flex:0 0 auto;color:var(--gold);transition:color .18s;}
     .res-row__title:hover,.res-row__title:hover svg{color:var(--sky);}
-    .res-row__meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-    @media(max-width:600px){.res-card--row{flex-direction:column;align-items:stretch;}.res-row__thumb{flex:none;width:100%;}}
+    .res-card--row .res-card__tag{font-size:.65rem;}
+    .res-card--row .res-card__desc{font-size:.76rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:none;}
+    .res-row__meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
     .btn-download{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 20px;border-radius:3px;transition:background .18s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;width:100%;justify-content:center;}
     .btn-download:hover{background:var(--sky);}
     .btn-download svg{width:16px;height:16px;fill:currentColor;}
@@ -280,16 +281,21 @@
 // ── TAB FILTER ──────────────────────────────────────────────
 var tabs = document.querySelectorAll('.tab-btn');
 var items = document.querySelectorAll('[data-cat]');
+// "Tutti" mostra tutto tranne gli scenari, che compaiono solo nel loro tab
+function applyFilter(cat){
+  items.forEach(function(el){
+    var show = (cat === 'all') ? el.dataset.cat !== 'scenari' : el.dataset.cat === cat;
+    el.style.display = show ? '' : 'none';
+  });
+}
 tabs.forEach(function(btn){
   btn.addEventListener('click', function(){
-    var cat = btn.dataset.tab;
     tabs.forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
-    items.forEach(function(el){
-      el.style.display = (cat === 'all' || el.dataset.cat === cat) ? '' : 'none';
-    });
+    applyFilter(btn.dataset.tab);
   });
 });
+applyFilter('all'); // stato iniziale: scheda "Tutti"
 
 // ── COUNTER API (Abacus - jasoncameron.dev) ─────────────────
 var COUNTER_NS = 'silverhive.it';
