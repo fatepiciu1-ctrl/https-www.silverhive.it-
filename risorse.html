@@ -68,9 +68,21 @@
     .res-card__size{font-size:.8rem;color:var(--silver);font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;}
     .res-card__count{font-size:.8rem;color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;}
     .res-card__count .num{font-weight:700;}
-    .res-card__thumb{position:relative;width:calc(100% + 48px);margin:-24px -24px 0;padding-top:56.25%;background:#000;overflow:hidden;border-radius:8px 8px 0 0;}
-    .res-card__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
-    .res-card:hover .res-card__thumb img{transform:scale(1.05);}
+    /* Scenari: un gruppo per tipo di prodotto, righe una sotto l'altra */
+    .res-group{grid-column:1/-1;display:flex;flex-direction:column;gap:14px;}
+    .res-group__title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding-bottom:8px;border-bottom:1px solid var(--border);margin-top:6px;}
+    /* Scheda scenario: riga orizzontale, miniatura a sinistra, titolo/info a destra */
+    .res-card--row{grid-column:1/-1;flex-direction:row;align-items:center;gap:22px;padding:16px;}
+    .res-card--row:hover{transform:none;}
+    .res-row__thumb{position:relative;flex:0 0 220px;aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden;display:block;}
+    .res-row__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+    .res-card--row:hover .res-row__thumb img{transform:scale(1.05);}
+    .res-row__body{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1;}
+    .res-row__title{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.2;word-break:break-word;display:inline-flex;align-items:center;gap:10px;transition:color .18s;}
+    .res-row__title svg{width:20px;height:20px;flex:0 0 auto;color:var(--gold);transition:color .18s;}
+    .res-row__title:hover,.res-row__title:hover svg{color:var(--sky);}
+    .res-row__meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+    @media(max-width:600px){.res-card--row{flex-direction:column;align-items:stretch;}.res-row__thumb{flex:none;width:100%;}}
     .btn-download{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:10px 20px;border-radius:3px;transition:background .18s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;width:100%;justify-content:center;}
     .btn-download:hover{background:var(--sky);}
     .btn-download svg{width:16px;height:16px;fill:currentColor;}
@@ -180,20 +192,28 @@
     </div>
 
 
-    <!-- SCENARIO E.656 Classic — Un vecchio Caimano -->
-    <div class="res-card" data-cat="scenari">
-      <div class="res-card__thumb"><img src="SH_E656_Classic_Scenario_Un_vecchio_Caimano.jpg" alt="Scenario Un vecchio Caimano" loading="lazy" onerror="this.parentNode.style.display='none'"/></div>
-      <div class="res-card__tag" data-i18n="scen_tag">Scenario</div>
-      <div class="res-card__title">SH_E656_Classic_Scenario_Un_vecchio_Caimano</div>
-      <div class="res-card__desc" data-i18n="scen_desc">Scenario gratuito per Train Simulator Classic con la E.656 Caimano Classic. Archivio RAR: estrai il contenuto prima di installarlo.</div>
-      <div class="res-card__meta">
-        <div class="res-card__size">RAR · 33 MB</div>
-        <div class="res-card__count">&#11015; <span class="num" id="count-scenario-caimano">–</span></div>
+    <!-- ═══ SCENARI — un gruppo per tipo di prodotto; per aggiungerne uno: duplica una riga dentro il gruppo giusto ═══ -->
+    <div class="res-group" data-cat="scenari">
+      <h2 class="res-group__title">E.656 Caimano Classic</h2>
+
+  <!-- SCENARIO E.656 Classic — Un vecchio Caimano (miniatura e titolo avviano il download) -->
+      <div class="res-card res-card--row">
+        <a class="res-row__thumb" href="https://github.com/fatepiciu1-ctrl/https-www.silverhive.it-/releases/download/scenario-vecchio-caimano-v1.0/SH_Scenario_Un_vecchio_Caimano_Setup_V1_0.rar" rel="noopener" onclick="trackScenario('scenario-e656-vecchio-caimano','count-scenario-caimano')" aria-label="Scarica SH_E656_Classic_Scenario_Un_vecchio_Caimano">
+          <img src="SH_E656_Classic_thumb.jpg" alt="Scenario E.656 Classic" loading="lazy"/>
+        </a>
+        <div class="res-row__body">
+          <div class="res-card__tag" data-i18n="scen_tag">Scenario</div>
+          <a class="res-row__title" href="https://github.com/fatepiciu1-ctrl/https-www.silverhive.it-/releases/download/scenario-vecchio-caimano-v1.0/SH_Scenario_Un_vecchio_Caimano_Setup_V1_0.rar" rel="noopener" onclick="trackScenario('scenario-e656-vecchio-caimano','count-scenario-caimano')">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>SH_E656_Classic_Scenario_Un_vecchio_Caimano</span>
+          </a>
+          <div class="res-card__desc" data-i18n="scen_desc">Scenario gratuito per Train Simulator Classic con la E.656 Caimano Classic. Archivio RAR: estrai il contenuto prima di installarlo.</div>
+          <div class="res-row__meta">
+            <div class="res-card__size">RAR · 33 MB</div>
+            <div class="res-card__count">&#11015; <span class="num" id="count-scenario-caimano">–</span></div>
+          </div>
+        </div>
       </div>
-      <a href="https://github.com/fatepiciu1-ctrl/https-www.silverhive.it-/releases/download/scenario-vecchio-caimano-v1.0/SH_Scenario_Un_vecchio_Caimano_Setup_V1_0.rar" class="btn-download" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;" onclick="trackScenario('scenario-e656-vecchio-caimano','count-scenario-caimano')">
-        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span data-i18n="btn_download">Scarica</span>
-      </a>
     </div>
 
     <!-- TUTORIAL YouTube -->
